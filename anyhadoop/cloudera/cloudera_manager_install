@@ -1,0 +1,6 @@
+# CLOUDERA MANAGER INSTALL
+
+# Run this on master node
+wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
+chmod u+x cloudera-manager-installer.bin
+echo "You will need to manually run './cloudera-manager-installer.bin' from the master node"

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+source ~/anyhadoop/env
+echo "You must first log into the Azure CLI using the command 'az login'."
+python ~/anyhadoop/env_check.py # NOT WORKING PROPERLY
+python ~/anyhadoop/azure/cluster_vm_init.py # need to ensure password meets microsoft standard
+chmod -R 777 ~/anyhadoop
+~/anyhadoop/seed/seed
+
+if [ $vendor == 'cloudera' ]
+	then
+		~/anyhadoop/cloudera/cloudera
+fi
+
+if [ $vendor == 'hortonworks' ]
+	then
+		~/anyhadoop/hortonworks/hortonworks
+fi
+
+# TO DO LIST
+# automate dev of external database
+
+# UNCOMMENT WHEN PROGRAM IS FINALISED
+# rm ~/anyhadoop/clusters/%resource_group/.pd
+# consider how to install latest version off each offering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

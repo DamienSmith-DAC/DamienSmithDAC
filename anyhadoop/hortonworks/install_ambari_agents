@@ -1,0 +1,77 @@
+source ~/anyhadoop/env
+
+pubip=()
+
+while read p; do
+  p_clean="$(echo $p | cut -f1 -d" ")"
+  pubip+=("$p_clean")
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+master_ip=${pubip[0]}
+
+
+while read p; do
+
+  p_clean="$(echo $p | cut -f2 -d" ")"
+  hostnames+=("$p_clean")
+
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+master_hostname=${hostnames[0]}
+
+
+PWD=$(cat ~/anyhadoop/clusters/$resource_group/.pd)
+
+for ip in "${pubip[@]}"
+do
+ 
+echo "Entering $ip..."
+
+###################################################################
+/usr/bin/expect <<EOD
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "wget -v http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.0.3/ambari.repo -O /etc/yum.repos.d/ambari.repo"
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "yum -y install ambari-agent"
+#expect "yes/no"
+#send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+set timeout 60
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "sed -i -e 's/hostname=localhost/hostname=$master_hostname/g' /etc/ambari-agent/conf/ambari-agent.ini"
+#expect "yes/no"
+#send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$" 
+
+spawn sh -c "ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip 'ambari-agent start'"
+#expect "yes/no"
+#send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+interact
+
+EOD
+###################################################################
+
+done
+
+echo ' '
+echo ' '
+echo "########### DISCLAIMER ######################"
+echo "Please ssh into each node and confirm that ambari-agent is runnning. If it is not run the command 'ambari-agent start'"
+echo "#############################################"
+echo ' '
+echo ' '

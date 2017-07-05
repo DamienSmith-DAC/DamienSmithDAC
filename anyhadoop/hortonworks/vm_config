@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# NEEDED VARIABLE
+
+pubip=()
+while read p; do
+  pubip+=("$p")
+done < ~/public_ips
+master_hostname="$(echo ${pubip[0]} | cut -f2 -d" ")"
+
+# CONFIGURE
+#Update neede? /etc/sysconfig/network-scripts/ifcfg-enp0s3
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
+echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
+echo "umask 22" >> /etc/profile
+chkconfig ntpd on
+service ntpd start
+echo "Syncing to $master_hostname..."
+ntpdate -u $master_hostname
+hwclock --systohc
+setenforce 0
+sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config

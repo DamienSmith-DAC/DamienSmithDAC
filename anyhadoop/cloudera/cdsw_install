@@ -1,0 +1,13 @@
+# CDSW INSTALL
+
+echo "DISCLAIMER: Check for updated versions of cdsw."
+wget https://archive.cloudera.com/cdsw/1/redhat/7/x86_64/cdsw/cloudera-cdsw.repo 
+mv cloudera-cdsw.repo /etc/yum.repos.d/
+cd /etc/yum.repos.d/
+rpm --import https://archive.cloudera.com/cdsw/1/redhat/7/x86_64/cdsw/RPM-GPG-KEY-cloudera
+yum -y install cloudera-data-science-workbench
+cd ~
+
+# Manual input required
+echo "MANUAL INPUT REQUIRED: Edit cdsw config file and then run cdsw init."
+echo "See https://www.cloudera.com/documentation/data-science-workbench/latest/topics/cdsw_install.html for further install details"

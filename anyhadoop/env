@@ -1,0 +1,41 @@
+vendor=hortonworks
+cloud=azure
+new_resource_group=true
+resource_group=vtest
+location=australiaeast
+vm_image=CentOS 
+non_root_user=byron
+storage=Standard_LRS
+master_nsg=vtest-nsg
+data_nsg=vtest-nsg
+edge_nsg=vtest-nsg
+vnet=vnet
+subnet=subnet
+master_as=masteras
+data_as=dataas
+edge_as=edgeas
+number_master_nodes=3 
+number_data_nodes=3
+number_edge_nodes=1
+master_size=STANDARD_D12_V2
+data_size=STANDARD_DS3_V2
+edge_size=STANDARD_DS3_V2 
+zeppelin=true
+master_disk_sizes_gb=30
+data_disk_sizes_gb=30
+edge_disk_sizes_gb=30
+
+# Cloudera Data Science Workbench (cdsw)
+# THIS WILL NOT WORK WITHOUT CentOS 7.2 (UNAVAILABLE VIA AZ CLI)
+cdsw=true 
+cdsw_nsg=cdsw-nsg 
+cdsw_as=cdswas
+cdsw_size=STANDARD_D1 
+cdsw_disk_sizes_gb=500
+
+# Recommend no fewer than 3
+# Recommend no fewer than 3
+# DS13_V2
+# Standard_G1
+# Installs Zeppelin on all edge nodes
+# STANDARD_DS13_V2

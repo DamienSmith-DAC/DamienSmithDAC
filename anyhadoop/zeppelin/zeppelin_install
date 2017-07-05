@@ -1,0 +1,40 @@
+# ZEPPELIN INSTALL FROM SOURCE
+
+# Useful links
+# http://zeppelin.apache.org/docs/snapshot/install/build.html
+# https://maven.apache.org/install.html
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server
+# https://davidwalsh.name/upgrade-nodejs
+
+user_name = 
+
+# AUTOMATED INSTALL
+su $user_name
+cd /etc
+#sudo yum -y install java-1.8.0-openjdk-devel
+sudo yum -y install git
+sudo git clone https://github.com/apache/zeppelin.git
+sudo wget http://apache.mirror.amaze.com.au/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
+sudo tar xzvf apache-maven-3.5.0-bin.tar.gz
+su cloudera
+cd zeppelin
+sudo chown -R cloudera:cloudera .
+
+# MANUAL INSTALL
+echo "You will need to manually add the following"
+export JAVA_HOME=/usr/java/jdk1.7.0_67-cloudera
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$PATH:/etc/apache-maven-3.5.0
+export M2_HOME=/etc/apache-maven-3.5.0
+export PATH=${M2_HOME}/bin:${PATH}
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+cd zeppelin
+sudo chown -R cloudera:cloudera .
+echo "You will need to manually run this Maven command ('mvn clean package -DskipTests -e -X') and add options if desired."
+echo "This base command will provide you with a basic Zeppelin package."
+echo "For a more tailored command you might want to run something like this: 'mvn clean package -Pspark-2.1 -Dhadoop.version=2.6.0-cdh5.5.0 -Phadoop-2.6 -Pyarn -DskipTests'"
+echo "See http://zeppelin.apache.org/docs/snapshot/install/build.html for further details about Maven command options."
+echo "Should some element in the install fail, such as web application, you may need to run a Maven build command (e.g. the previously mentioned commands) from within one of the zeppelin folder, such as zeppelin-web."
+
+

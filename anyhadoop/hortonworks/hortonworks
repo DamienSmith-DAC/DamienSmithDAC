@@ -1,0 +1,113 @@
+## Install Ambari
+
+# Find ips for master node, cdsw node, and edge nodes
+
+source ~/anyhadoop/env
+
+pubip=()
+edgeip=()
+cdswip=()
+hostnames=()
+
+while read p; do
+
+  p_clean="$(echo $p | cut -f1 -d" ")"
+  pubip+=("$p_clean")
+  
+  if [[ $p == *"edge"* ]] 
+	then 
+	edge_clean="$(echo $p | cut -f1 -d" ")"
+    edgeip+=("$edge_clean")
+  fi
+
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+master_ip=${pubip[0]}
+
+
+while read p; do
+
+  p_clean="$(echo $p | cut -f2 -d" ")"
+  hostnames+=("$p_clean")
+
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+master_hostname=${hostnames[0]}
+
+
+PWD=$(cat ~/anyhadoop/clusters/$resource_group/.pd)
+
+
+# Install Ambari Server
+
+echo "Installing Ambari..."
+
+###################################################################
+/usr/bin/expect <<EOD
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "yum -y install rpm curl unzip tar wget yum-utils createrepo ntp net-tools epel-release httpd scp reposync"
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "wget -v http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.0.3/ambari.repo -O /etc/yum.repos.d/ambari.repos"
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "wget -v http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.3/hdp.repo -O /etc/yum.repos.d/hdp.repo"
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+set timeout 60
+
+spawn sh -c "ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip 'wget -v http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7/HDP-UTILS-1.1.0.21-centos7.tar.gz'" 
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "tar -xvf HDP-UTILS-1.1.0.21-centos7.tar.gz" 
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "yum -y install ambari-server ambari-agent"
+#expect "yes/no"
+#send "yes\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+set timeout 60
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip "sed -i -e 's/hostname=localhost/hostname=$master_hostname/g' /etc/ambari-agent/conf/ambari-agent.ini"
+#expect "yes/no"
+#send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$" 
+
+interact
+
+EOD
+##################################################################
+
+
+echo ' '
+echo ' '
+echo "########### MANUAL INPUT REQUIRED ###########"
+echo "ssh into $master_ip and run 'ambari-server setup' and 'ambari-server start'"
+echo "run '~/anyhadoop/hortonworks/install_ambari_agents' file from your local terminal"
+echo "#############################################"
+echo ' '
+echo ' '

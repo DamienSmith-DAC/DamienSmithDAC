@@ -1,0 +1,119 @@
+source ~/anyhadoop/env
+
+pubip=()
+
+while read p; do
+  p_clean="$(echo $p | cut -f1 -d" ")"
+  pubip+=("$p_clean")
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+
+PWD=$(cat ~/anyhadoop/clusters/$resource_group/.pd)
+
+for ip in "${pubip[@]}"
+do
+ 
+echo "Entering $ip..."
+
+###################################################################
+/usr/bin/expect <<EOD
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no $non_root_user@$ip
+
+expect "yes/no"
+send "yes\n"
+expect "$"
+
+expect "assword"
+send "$PWD\n"
+expect "$"
+send "sudo passwd root\n"
+expect "assword for $non_root_user"
+send "$PWD\n"
+expect "ew password"
+send "$PWD\n"
+expect "assword"
+send "$PWD\n"
+expect "$"
+send "exit\n"
+expect "$"
+
+spawn sh -c "scp ~/anyhadoop/clusters/$resource_group/public_ips root@$ip:~"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn sh -c "scp ~/anyhadoop/clusters/$resource_group/hosts root@$ip:~"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "cp hosts /etc/hosts"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn sh -c "scp ~/anyhadoop/$vendor/vm_config root@$ip:~"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "yum -y update"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "yum -y install ntp"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "chmod 777 vm_config"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "./vm_config"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip "shutdown -r"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+interact
+
+EOD
+###################################################################
+
+done
+
+sleep m5

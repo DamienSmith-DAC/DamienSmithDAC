@@ -1,0 +1,41 @@
+#!/bin/bash
+# VM CONFIG | BASIC NODE INITIALIZATION
+
+  # Written by Byron Allen, Consultant, Servian, May 2017
+
+  # Purpose:
+    # Configure hosts
+
+  # Assumptions:
+    # Using CentOS 6+
+    # Using Azure and established VMs
+    # Manual configuration of /etc/hosts
+    # Assuming username 'cloudera'
+    # /etc/sysconfig/selinux is edited manually
+    # Root password must be added manually
+    # Run script from root
+
+# NEEDED VARIABLE
+
+pubip=()
+while read p; do
+  pubip+=("$p")
+done < ~/public_ips
+master_hostname="$(echo ${pubip[0]} | cut -f2 -d" ")"
+
+
+# CONFIGURE
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
+echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
+echo 10 > /proc/sys/vm/swappiness
+chkconfig ntpd on
+service ntpd start
+#echo "What is the hostname of your ntp server?: "
+#read -p "What is the hostname of your ntp server?: " sync_master
+echo "Syncing to $master_hostname..."
+ntpdate -u $master_hostname
+hwclock --systohc
+setenforce 0
+sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config

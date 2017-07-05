@@ -1,0 +1,167 @@
+## Install Cloudera Manager, CDSW (TBD), and Zeppelin on edge nodes
+
+# Find ips for master node, cdsw node, and edge nodes
+
+source ~/anyhadoop/env
+
+pubip=()
+edgeip=()
+cdswip=()
+
+while read p; do
+
+  p_clean="$(echo $p | cut -f1 -d" ")"
+  pubip+=("$p_clean")
+  
+  if [[ $p == *"edge"* ]] 
+	then 
+	edge_clean="$(echo $p | cut -f1 -d" ")"
+    edgeip+=("$edge_clean")
+  fi
+
+  if [[ $p == *"cdsw"* ]] 
+	then 
+	cdsw_clean="$(echo $p | cut -f1 -d" ")"
+    cdswip+=("$cdsw_clean")
+  fi
+
+done < ~/anyhadoop/clusters/$resource_group/public_ips
+
+master_ip=${pubip[0]}
+
+PWD=$(cat ~/anyhadoop/clusters/$resource_group/.pd)
+
+
+# Install Cloudera Manager on master node 
+
+echo 'Installing Cloudera Manager...'
+
+###################################################################
+/usr/bin/expect <<EOD
+
+spawn sh -c "scp ~/anyhadoop/cloudera/cloudera_manager_install root@$master_ip:~"
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip 'chmod 777 cloudera_manager_install'
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$master_ip './cloudera_manager_install'
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+
+
+interact
+
+EOD
+###################################################################
+
+
+# Install cdsw
+
+# THIS WILL NOT WORK WITHOUT CentOS 7.2 (UNAVAILABLE VIA AZ CLI)
+
+#if [ $cdsw == 'true' ]
+#then
+#
+#echo 'Installing Cloudera Data Science Workbench (cdsw)...'
+#
+#for ip in "${cdswip[@]}"
+#do
+#
+####################################################################
+#/usr/bin/expect <<EOD
+#
+#spawn scp ~/anyhadoop/cloudera/cdsw_install root@$ip:~
+#expect "yes/no"
+#send "yes\n"
+#expect "$"
+#expect "assword"
+#send "$PWD\n"
+#expect "$"
+#
+#spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip 'chmod 777 cdsw_install'
+#expect "yes/no"
+#send "yes\n"
+#expect "$"
+#expect "assword"
+#send "$PWD\n"
+#expect "$"
+#
+#spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip './cdsw_install'
+#expect "yes/no"
+#send "yes\n"
+#expect "$"
+#expect "assword"
+#send "$PWD\n"
+#expect "$"
+#
+#interact
+#
+#EOD
+###################################################################
+
+#done
+
+#fi
+
+
+# Find edge nodes and install zeppelin
+
+if [ $zeppelin == 'true' ]
+then
+
+echo 'Installing Zeppelin on all edge nodes...'
+
+for ip in "${edgeip[@]}"
+do
+
+###################################################################
+/usr/bin/expect <<EOD
+
+spawn scp ~/anyhadoop/cloudera/zeppelin/zeppelin_install root@$ip:~
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip 'chmod 777 zeppelin_install'
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$ip './zeppelin_install'
+expect "yes/no"
+send "yes\n"
+expect "$"
+expect "assword"
+send "$PWD\n"
+expect "$"
+
+interact
+
+EOD
+###################################################################
+
+done
+
+fi
