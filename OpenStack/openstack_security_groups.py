@@ -1,4 +1,28 @@
+# Name: openstack_security_groups.py
+# Purpose: Take human readable security groups and rules and create them in OpenStack
+# Author: Byron Allen, Consultant, Servian
+ 
 import subprocess
+
+#SAMPLE
+
+# Human readable security groups and rules
+# Groups and rules in Python dictionaries
+
+# sample_group= {
+#                       'tenant-id': 'ID',
+#                       'group': 'GROUP_NAME', 
+#                       'description': "'DESCRIPTION MUST HAVE SINGLE AND DOUBLE QUOTES'",
+#                       'rules':
+#                         [
+#                           ['PROTOCOL', 'INGRESS/EGRESS', 'MIN_PORT', 'MAX_PORT', 'REMOTE-IP-PREFIX', "'REMOTE-GROUP-ID'"],
+#                           ['PROTOCOL', 'INGRESS/EGRESS', 'MIN_PORT', 'MAX_PORT', 'REMOTE-IP-PREFIX', "'REMOTE-GROUP-ID'"]
+#                         ]
+#                     }
+
+# Option of 'REMOTE-IP-PREFIX' or 'REMOTE-GROUP-ID'
+# REMOTE-IP-PREFIX is the source ip or ip range
+# REMOTE-GROUP-ID is the name of the same or another security group 
 
 viz_security_group= {
                       'tenant-id': '44aa97b1fc4346c0b1c240d550e9627f',
@@ -50,7 +74,13 @@ analytics_security_group= {
                         ]
                     }
 
+
+# List of python dictionaries (i.e. security groups)
+
 list_of_groups=[viz_security_group, dp_security_group, edge_security_group, analytics_security_group]
+
+
+# Code to parse through dictionaries and generate security groups in OpenStack
 
 for group in list_of_groups:
     
