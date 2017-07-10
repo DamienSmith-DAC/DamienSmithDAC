@@ -65,7 +65,7 @@ analytics_security_group= {
                       'description': "'Allow Ambari, Hive Metastore, Hive Web UI, Hive Server, Spark, Spark History Server from trusted VPN machines'",
                       'rules':
                         [
-                          ['tcp', 'ingress', '3389', '8080', '10.16.66.0/24', "''"],
+                          ['tcp', 'ingress', '8080', '8080', '10.16.66.0/24', "''"],
                           ['tcp', 'ingress', '9083', '9083', '10.16.66.0/24', "''"],
                           ['tcp', 'ingress', '9999', '9999', '10.16.66.0/24', "''"],
                           ['tcp', 'ingress', '10000', '10000', '10.16.66.0/24', "''"],
