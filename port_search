@@ -1,0 +1,22 @@
+hosts=( dev-data-01 dev-data-02 dev-data-03 dev-data-04 dev-data-05 dev-data-06 dev-data-07 dev-data-08 dev-master-01 dev-master-02 dev-master-03 edge-zep edge-rstudio-01 )
+
+for h in "${hosts[@]}"
+do
+echo $h
+ssh $h "netstat -ltu | grep -v '\:[a-z]'" 
+done
+
+# 10.20.13.198
+# 10.20.13.199
+# 10.20.13.200
+# 10.20.13.120
+# 10.20.13.121
+# 10.20.13.137
+# 10.20.13.142
+# 10.20.13.249
+# 10.20.13.224
+# 10.20.13.178
+# 10.20.13.195
+# 10.20.13.174
+# 10.20.13.113
+# 10.20.13.109
