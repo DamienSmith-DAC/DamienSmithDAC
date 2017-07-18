@@ -121,5 +121,25 @@ for group in list_of_groups:
         output = subprocess.check_output(bashCommand, shell=True)
         print
 
+
+    # Create a rul to enable VMs within a layer to talk to each other without barriers 
+
+    bashCommand = """neutron security-group-rule-create %s  \
+                --tenant-id %s  \
+                --protocol %s  \
+                --direction %s  \
+                --ethertype %s  \
+                --remote-group-id %s""" % (group['group'],  \
+                                           group['tenant-id'],   \
+                                           'tcp', \
+                                           'ingress', \
+                                           'IPv4', \
+                                           group['group'] 
+                                          )
+
+    print bashCommand
+    output = subprocess.check_output(bashCommand, shell=True)
+    print
+
     print 
     print

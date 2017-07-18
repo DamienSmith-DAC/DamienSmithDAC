@@ -1,0 +1,10 @@
+vms=( ByronJumpbox NickPreemaDevBox P-DACHAPROXY-21 P-DACHAPROXY-22 P-DACMYSQL-01 P-DACMYSQL-02  P-DACMYSQL-03 P-DACSQL-01 P-DACSQL-02 S-DACMYSQL-01 Search365POC b91285d1-977c-4a34-af1e-4aae5264f598 bf8197df-f0b9-42df-8a91-e9387f75f81c db4866b6-0c59-4d4c-9ae6-71fade2d6ac3 108a3a20-5b23-4f38-9754-d0cbab4eb847 U-DACSDWS-01 U-DACSDWS-02 U-DACSQL-01 analytics_test_vm edge-rstudio-01 edge-zep landing_test_vm test2_3050 test2_3051 test2_3052 test2_3053 test2_3054 test2_3055 test3050 test3051 test3052 test3053 test3054 test3055 )
+
+for v in "${vms[@]}"
+do
+echo $v
+nova show $v | grep security_groups
+done
+
+
+ 
