@@ -10,17 +10,14 @@ yum -y update
 #Add useful tools
 yum -y install nano 
 yum -y install vim 
-yum -y install rpm
-yum -y install scp
-yum -y install wget 
-yum -y install curl 
 yum -y install unzip 
-yum -y install tar 
 yum -y install wget 
+yum -y install tar 
 yum -y install createrepo 
 yum -y install ntp 
-yum -y install net-tools 
+yum -y install epel-release
 yum -y install pssh
+yum -y remove epel-release
 
 #Enable root login
 sed -i 's/^\#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
@@ -41,6 +38,7 @@ mkdir /data
 
 #update mount for hdfs logs
 mkdir /logs
+
 # change fstab
 cp /etc/fstab /etc/fstab.backup
 perl -pane 's%^(/dev/vd\S+\s+)(/mnt)(.*)%$1/logs$3%' < /etc/fstab > /etc/fstab.new
@@ -64,11 +62,14 @@ echo "#The following two lines are required for Hortonworks preinstallation" >> 
 echo "*               soft     nofile          65000" >> /etc/security/limits.conf
 echo "*               hard     nofile          65000" >> /etc/security/limits.conf
 
-#Disable transparent huge pages
+# Disable transparent huge pages
 cp /etc/grub.conf /etc/grub.conf.backup
 # Add 'transparent_hugepage=never' to the end of the kernel boot line
 sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.conf
 
+# Add domain to /etc/resolv.conf
+echo "# Including dac.local domain for host resolution" >> /etc/profile
+echo "sed -i '/search/ s/$/ dac.local/' /etc/resolv.conf" >> /etc/bashrc
 #restart for various system changes to take effect
 shutdown -r 0
 
