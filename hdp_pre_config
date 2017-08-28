@@ -1,8 +1,18 @@
 #!/bin/bash
 
-yum -y update 
-yum -y install rpm 
-yum -y install scp 
+#!/bin/bash
+#BUILD SCRIPT FOR HDFS IMAGE
+sudo su -
+
+#Update OS
+yum -y update
+
+#Add useful tools
+yum -y install nano 
+yum -y install vim 
+yum -y install rpm
+yum -y install scp
+yum -y install wget 
 yum -y install curl 
 yum -y install unzip 
 yum -y install tar 
@@ -10,13 +20,80 @@ yum -y install wget
 yum -y install createrepo 
 yum -y install ntp 
 yum -y install net-tools 
-chkconfig ntpd on
-systemctl enable ntpd
+yum -y install pssh
+
+#Enable root login
+sed -i 's/^\#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
+
+# Copy and edit centos' authorised keys into root authorized_keys file
+cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
+#restart SSH daemon
+systemctl restart sshd
+#Change permissions of .ssh to root only
+chmod go-rwx -R /root/.ssh/
+
+#Start ntpd
 service ntpd start
-echo never > /sys/kernel/mm/transparent_hugepage/defrag
-echo never > /sys/kernel/mm/transparent_hugepage/enabled
-echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
-echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
-echo "umask 0022" >> /etc/profile
+chkconfig ntpd on
+
+#create /data ready for mount later
+mkdir /data
+
+#update mount for hdfs logs
+mkdir /logs
+# change fstab
+cp /etc/fstab /etc/fstab.backup
+perl -pane 's%^(/dev/vd\S+\s+)(/mnt)(.*)%$1/logs$3%' < /etc/fstab > /etc/fstab.new
+mv -f /etc/fstab.new /etc/fstab
+
+#Set SELinux to permissive for current session and reconfigure it to boot as disabled
 setenforce 0
-sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+cp /etc/selinux/config /etc/selinux/config.backup
+sed -i 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+
+#IP tables / firewalld default not installed
+
+#Override umask settings
+echo "#This umask setting is a requirement for Hortonworks preinstallation" >> /etc/bashrc
+echo umask 0022 >> /etc/bashrc
+echo "#This umask setting is a requirement for Hortonworks preinstallation" >> /etc/profile
+echo umask 0022 >> /etc/profile
+
+# Change max filedescripters in limits.conf
+echo "#The following two lines are required for Hortonworks preinstallation" >> /etc/security/limits.conf
+echo "*               soft     nofile          65000" >> /etc/security/limits.conf
+echo "*               hard     nofile          65000" >> /etc/security/limits.conf
+
+#Disable transparent huge pages
+cp /etc/grub.conf /etc/grub.conf.backup
+# Add 'transparent_hugepage=never' to the end of the kernel boot line
+sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.conf
+
+#restart for various system changes to take effect
+shutdown -r 0
+
+
+
+
+# PAST VERSION
+
+# yum -y update 
+# yum -y install rpm 
+# yum -y install scp 
+# yum -y install curl 
+# yum -y install unzip 
+# yum -y install tar 
+# yum -y install wget 
+# yum -y install createrepo 
+# yum -y install ntp 
+# yum -y install net-tools 
+# chkconfig ntpd on
+# systemctl enable ntpd
+# service ntpd start
+# echo never > /sys/kernel/mm/transparent_hugepage/defrag
+# echo never > /sys/kernel/mm/transparent_hugepage/enabled
+# echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
+# echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
+# echo "umask 0022" >> /etc/profile
+# setenforce 0
+# sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
