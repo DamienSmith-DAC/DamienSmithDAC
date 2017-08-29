@@ -2,6 +2,14 @@
 #BUILD SCRIPT FOR HDP BASE IMAGE
 sudo su -
 
+# Add private key to PEM (requires user input)
+OLDIFS=$IFS
+echo "Paste private key to create Pem Key"
+IFS="	"
+PEM=`cat`
+echo $PEM >/root/.ssh/id_rsa
+IFS=$OLDIFS
+
 #Update OS
 yum -y update
 
@@ -16,14 +24,6 @@ yum -y install ntp
 yum -y install epel-release
 yum -y install pssh
 yum -y remove epel-release
-
-# Add private key to PEM (requires user input)
-OLDIFS=$IFS
-echo "Paste the Pem Key"
-IFS="	"
-PEM=`cat`
-echo $PEM >/root/.ssh/id_rsa
-IFS=$OLDIFS
 
 # Enable root login
 sed -i 's/^\#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
