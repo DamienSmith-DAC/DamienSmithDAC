@@ -1,7 +1,5 @@
 #!/bin/bash
-
-#!/bin/bash
-#BUILD SCRIPT FOR HDFS IMAGE
+#BUILD SCRIPT FOR HDP BASE IMAGE
 sudo su -
 
 #Update OS
@@ -32,6 +30,14 @@ chmod go-rwx -R /root/.ssh/
 #Start ntpd
 service ntpd start
 chkconfig ntpd on
+
+#Configure NTP conf to use government servers
+#back up ntp conf file
+cp /etc/ntp.conf /etc/ntp.conf.backup
+#comment out default ntp servers
+sed -i 's/^server [0-3].centos.pool.ntp.org iburst/#&/' /etc/ntp.conf
+#add in the GovDC ntp servers with a comment
+sed -i 's/^#server 3.centos.pool.ntp.org iburst/&\n\n#GovDC NTP servers\nserver 143.119.99.5\nserver 143.119.225.5/' /etc/ntp.conf
 
 # Update mount for hdfs logs
 mkdir /logs
@@ -70,29 +76,3 @@ echo "sed -i '/search/ s/$/ dac.local/' /etc/resolv.conf" >> /etc/bashrc
 
 # Restart for various system changes to take effect
 shutdown -r 0
-
-
-
-
-# PAST VERSION
-
-# yum -y update 
-# yum -y install rpm 
-# yum -y install scp 
-# yum -y install curl 
-# yum -y install unzip 
-# yum -y install tar 
-# yum -y install wget 
-# yum -y install createrepo 
-# yum -y install ntp 
-# yum -y install net-tools 
-# chkconfig ntpd on
-# systemctl enable ntpd
-# service ntpd start
-# echo never > /sys/kernel/mm/transparent_hugepage/defrag
-# echo never > /sys/kernel/mm/transparent_hugepage/enabled
-# echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
-# echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
-# echo "umask 0022" >> /etc/profile
-# setenforce 0
-# sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
