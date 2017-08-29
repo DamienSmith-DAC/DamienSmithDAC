@@ -17,21 +17,28 @@ yum -y install epel-release
 yum -y install pssh
 yum -y remove epel-release
 
-#Enable root login
-sed -i 's/^\#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
+# Add private key to PEM (requires user input)
+OLDIFS=$IFS
+echo "Paste the Pem Key"
+IFS="	"
+PEM=`cat`
+echo $PEM >/root/.ssh/id_rsa
+IFS=$OLDIFS
 
-# Copy and edit centos' authorised keys into root authorized_keys file
+# Enable root login
+sed -i 's/^\#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
+#Copy and edit centos' authorised keys into root authorized_keys file
 cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
 #restart SSH daemon
 systemctl restart sshd
 #Change permissions of .ssh to root only
 chmod go-rwx -R /root/.ssh/
 
-#Start ntpd
+# Start ntpd
 service ntpd start
 chkconfig ntpd on
 
-#Configure NTP conf to use government servers
+# Configure NTP conf to use government servers
 #back up ntp conf file
 cp /etc/ntp.conf /etc/ntp.conf.backup
 #comment out default ntp servers
@@ -47,14 +54,14 @@ cp /etc/fstab /etc/fstab.backup
 perl -pane 's%^(/dev/vd\S+\s+)(/mnt)(.*)%$1/logs$3%' < /etc/fstab > /etc/fstab.new
 mv -f /etc/fstab.new /etc/fstab
 
-#Set SELinux to permissive for current session and reconfigure it to boot as disabled
+# Set SELinux to permissive for current session and reconfigure it to boot as disabled
 setenforce 0
 cp /etc/selinux/config /etc/selinux/config.backup
 sed -i 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 
-#IP tables / firewalld default not installed
+# IP tables / firewalld default not installed
 
-#Override umask settings
+# Override umask settings
 echo "#This umask setting is a requirement for Hortonworks preinstallation" >> /etc/bashrc
 echo umask 0022 >> /etc/bashrc
 echo "#This umask setting is a requirement for Hortonworks preinstallation" >> /etc/profile
@@ -73,6 +80,9 @@ sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.con
 # Add domain to /etc/resolv.conf
 echo "# Including dac.local domain for host resolution" >> /etc/bashrc
 echo "sed -i '/search/ s/$/ dac.local/' /etc/resolv.conf" >> /etc/bashrc
+
+# This tells the dhcpclient to not get DNS information from DNS so the default /etc/resolv.conf will be used
+sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg-eth0
 
 # Restart for various system changes to take effect
 shutdown -r 0
