@@ -4,7 +4,7 @@ sudo su -
 
 # Add private key to PEM (requires user input)
 OLDIFS=$IFS
-echo "Paste private key to create Pem Key"
+echo "Paste private key to create Pem Key then press Ctrl + D"
 IFS="	"
 PEM=`cat`
 echo $PEM >/root/.ssh/id_rsa
