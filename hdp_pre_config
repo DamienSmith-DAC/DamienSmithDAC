@@ -1,6 +1,8 @@
 #!/bin/bash
 #BUILD SCRIPT FOR HDP BASE IMAGE
-sudo su -
+
+# Run script as root
+#sudo su -
 
 # Add private key to PEM (requires user input)
 OLDIFS=$IFS
@@ -76,10 +78,6 @@ echo "*               hard     nofile          65000" >> /etc/security/limits.co
 cp /etc/grub.conf /etc/grub.conf.backup
 # Add 'transparent_hugepage=never' to the end of the kernel boot line
 sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.conf
-
-# Add domain to /etc/resolv.conf
-echo "# Including dac.local domain for host resolution" >> /etc/bashrc
-echo "sed -i '/search/ s/$/ dac.local/' /etc/resolv.conf" >> /etc/bashrc
 
 # This tells the dhcpclient to not get DNS information from DNS so the default /etc/resolv.conf will be used
 sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg-eth0
