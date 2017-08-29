@@ -33,10 +33,7 @@ chmod go-rwx -R /root/.ssh/
 service ntpd start
 chkconfig ntpd on
 
-#create /data ready for mount later
-mkdir /data
-
-#update mount for hdfs logs
+# Update mount for hdfs logs
 mkdir /logs
 
 # change fstab
@@ -68,9 +65,10 @@ cp /etc/grub.conf /etc/grub.conf.backup
 sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.conf
 
 # Add domain to /etc/resolv.conf
-echo "# Including dac.local domain for host resolution" >> /etc/profile
+echo "# Including dac.local domain for host resolution" >> /etc/bashrc
 echo "sed -i '/search/ s/$/ dac.local/' /etc/resolv.conf" >> /etc/bashrc
-#restart for various system changes to take effect
+
+# Restart for various system changes to take effect
 shutdown -r 0
 
 
