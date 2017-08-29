@@ -81,6 +81,8 @@ sed -i '/kernel \/boot\/vmlinuz/ s/$/ transparent_hugepage=never/' /etc/grub.con
 
 # This tells the dhcpclient to not get DNS information from DNS so the default /etc/resolv.conf will be used
 sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg-eth0
+#Add dac.local to /etc/resolv.conf
+sed -i 's/search gls.local/search gls.local dac.local/g' /etc/resolv.conf 
 
 # Restart for various system changes to take effect
 shutdown -r 0
