@@ -1,6 +1,4 @@
 #!/bin/bash
-
-#!/bin/bash
 #BUILD SCRIPT FOR HDFS IMAGE
 sudo su -
 
