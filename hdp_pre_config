@@ -1,5 +1,5 @@
 #!/bin/bash
-#BUILD SCRIPT FOR HDFS IMAGE
+#BUILD SCRIPT FOR HDP BASE IMAGE
 sudo su -
 
 #Update OS
