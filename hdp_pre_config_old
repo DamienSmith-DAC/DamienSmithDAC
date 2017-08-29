@@ -1,0 +1,22 @@
+# PAST VERSION
+
+# yum -y update 
+# yum -y install rpm 
+# yum -y install scp 
+# yum -y install curl 
+# yum -y install unzip 
+# yum -y install tar 
+# yum -y install wget 
+# yum -y install createrepo 
+# yum -y install ntp 
+# yum -y install net-tools 
+# chkconfig ntpd on
+# systemctl enable ntpd
+# service ntpd start
+# echo never > /sys/kernel/mm/transparent_hugepage/defrag
+# echo never > /sys/kernel/mm/transparent_hugepage/enabled
+# echo "echo never > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
+# echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
+# echo "umask 0022" >> /etc/profile
+# setenforce 0
+# sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
