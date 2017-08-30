@@ -48,14 +48,6 @@ sed -i 's/^server [0-3].centos.pool.ntp.org iburst/#&/' /etc/ntp.conf
 #add in the GovDC ntp servers with a comment
 sed -i 's/^#server 3.centos.pool.ntp.org iburst/&\n\n#GovDC NTP servers\nserver 143.119.99.5\nserver 143.119.225.5/' /etc/ntp.conf
 
-# Update mount for hdfs logs
-mkdir /logs
-
-# change fstab
-cp /etc/fstab /etc/fstab.backup
-perl -pane 's%^(/dev/vd\S+\s+)(/mnt)(.*)%$1/logs$3%' < /etc/fstab > /etc/fstab.new
-mv -f /etc/fstab.new /etc/fstab
-
 # Set SELinux to permissive for current session and reconfigure it to boot as disabled
 setenforce 0
 cp /etc/selinux/config /etc/selinux/config.backup
