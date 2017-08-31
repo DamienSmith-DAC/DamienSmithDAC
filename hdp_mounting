@@ -1,0 +1,30 @@
+# HDP MOUNTING
+
+# For the second version of the DAC Platform we are mounting specific direcories to volumes
+
+
+# MASTER NODES - EPHEMERAL VOLUME
+mkdir -p /hadoop
+mke2fs -t ext4 /dev/vdb
+echo "/dev/vdb ext4 noatime,nodiratime 1 2" >> /etc/fstab
+mount /dev/vdb /hadoop
+
+
+# DATA NODES - EPHEMERAL VOLUME
+mkdir -p /hadoop/log
+mkfs.ext4 /dev/vdb
+echo "/dev/vdb /hadoop/log ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /hadoop/log
+
+
+# DATA NODES - HDD
+
+# run the command 'fdisk /dev/vdc' to create partition
+# follow that with command 'n' and accept defaults 
+# follow that with command 'w' to write
+
+mkdir -p /hadoop/data/disk01
+echo -e "\nhadoop = {\nfeatures = has_journal,extent,huge_file,flex_bg,uninit_bg,dir_nlink,extra_isize\ninode_ratio = 131072\nreserved_ratio = 0\ndefault_mntopts = acl,user_xattr\n}" >> /etc/mke2fs.conf
+mke2fs -t ext4 -T hadoop /dev/vdc1
+echo -e "# hdfs options: inode_readahead_blks=128,data=writeback,noatime,nodev,nobarrier,nodiratime\n/dev/vdc1     /hadoop/data/disk01     ext4  rw,nodev,noatime,inode_readahead_blks=128,data=writeback,nobarrier,nodiratime     1     2" >> /etc/fstab
+mount /dev/vdc1 /hadoop/data/disk01
