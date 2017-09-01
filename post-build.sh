@@ -6,8 +6,8 @@
 # Copy public key to root and remove root login blocking code
 cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
 
-# Create /hadoop/logs 
-mkdir -p /hadoop/logs
+# Create /hadoop/log 
+mkdir -p /hadoop/log
 
 # Reduce swapiness to 0
 echo 0 > /proc/sys/vm/swappiness
