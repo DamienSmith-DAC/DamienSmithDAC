@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Used to develop hadoop master, data and edge nodes
 # This post-build.sh script is run after the VM is built to add further configurations
 # Add file under '--name-user' flag in 'openstack create server command' 
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Used to develop the landing zone base image
 # This post-build.sh script is run after the VM is built to add further configurations
 # Add file under '--name-user' flag in 'openstack create server command' 
 
