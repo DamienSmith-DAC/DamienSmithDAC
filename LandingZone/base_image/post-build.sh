@@ -44,3 +44,12 @@ cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
 systemctl restart sshd
 #Change permissions of .ssh to root only
 chmod go-rwx -R /root/.ssh/
+
+# Mount /landing
+mkdir -p /landing
+mkfs.ext4 /dev/vdb
+echo "/dev/vdb /landing ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /landing
+
+# Remove the following line from /etc/fstab
+# /dev/vdb	/mnt	auto	defaults,nofail,comment=cloudconfig	0	2
