@@ -19,11 +19,6 @@ yum -y install epel-release
 yum -y install pssh
 yum -y remove epel-release
  
-# Change hostname from hostname.gls.local to hostname.dac.local
-sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
-sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
-sed -i 's/gls/dac/g' /etc/hostname
- 
 # Start ntpd
 service ntpd start
 chkconfig ntpd on
@@ -52,3 +47,4 @@ mkdir -p /talend
 mkfs.ext4 /dev/vdb
 echo "/dev/vdb /talend ext4 defaults 0 2" >> /etc/fstab
 mount /dev/vdb /talend
+
