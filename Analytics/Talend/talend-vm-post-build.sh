@@ -18,6 +18,14 @@ sed -i 's/gs/dac/g' /etc/hostname
 sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
 sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
 
+# Mount /talend to 300gb
+umount /mnt
+sed -i '/^\/dev\/vdb/d' /etc/fstab
+mkdir -p /talend
+mkfs.ext4 /dev/vdb
+echo "/dev/vdb /talend ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /talend
+
 # Install Java (Oracle jdk-8u141-linux-x64.rpm)
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.rpm"
 export PATH=/usr/java/jdk1.8.0_141/bin:$PATH

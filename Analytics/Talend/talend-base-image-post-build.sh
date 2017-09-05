@@ -40,11 +40,4 @@ systemctl restart sshd
 #Change permissions of .ssh to root only
 chmod go-rwx -R /root/.ssh/
 
-# Mount /talend to 300gb
-umount /mnt
-sed -i '/^\/dev\/vdb/d' /etc/fstab
-mkdir -p /talend
-mkfs.ext4 /dev/vdb
-echo "/dev/vdb /talend ext4 defaults 0 2" >> /etc/fstab
-mount /dev/vdb /talend
 
