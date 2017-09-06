@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Used to develop talend orchestration VMs, which leverage the talend base image that includes 
+# Used to develop data orchestration VMs, which leverage the talend base image that includes 
 # the formated /talend directory mounted on 300gb of 'ephemeral' disk
 
 # This post-build.sh script is run after the VM is built to add further configurations
