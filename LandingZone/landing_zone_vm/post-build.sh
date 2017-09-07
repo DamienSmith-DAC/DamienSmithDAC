@@ -11,3 +11,18 @@ yum -y update
 
 # Copy public key to root and remove root login blocking code
 cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
+
+# Change hostname from hostname.gls.local to hostname.dac.local
+sed -i 's/gls/dac/g' /etc/hostname
+sed -i 's/gs/dac/g' /etc/hostname
+sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
+sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
+
+# Mount /landing
+umount /mnt
+sed -i '/^\/dev\/vdb/d' /etc/fstab
+mkdir -p /landing
+mkfs.ext4 /dev/vdb
+echo "/dev/vdb /landing ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /landing
+

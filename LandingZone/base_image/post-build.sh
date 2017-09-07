@@ -19,11 +19,6 @@ yum -y install epel-release
 yum -y install pssh
 yum -y remove epel-release
  
-# Change hostname from hostname.gls.local to hostname.dac.local
-sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
-sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
-sed -i 's/gls/dac/g' /etc/hostname
- 
 # Start ntpd
 service ntpd start
 chkconfig ntpd on
@@ -44,12 +39,3 @@ cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
 systemctl restart sshd
 #Change permissions of .ssh to root only
 chmod go-rwx -R /root/.ssh/
-
-# Mount /landing
-mkdir -p /landing
-mkfs.ext4 /dev/vdb
-echo "/dev/vdb /landing ext4 defaults 0 2" >> /etc/fstab
-mount /dev/vdb /landing
-
-# Remove the following line from /etc/fstab
-# /dev/vdb	/mnt	auto	defaults,nofail,comment=cloudconfig	0	2
