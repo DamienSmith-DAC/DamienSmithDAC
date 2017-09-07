@@ -52,7 +52,7 @@ yum -y install spyder git
 
 # Install a GUI Desktop and the xrdp interface
 yum -y groups install "GNOME Desktop"
-yum install xrdp
+yum -y install xrdp
 
 # Remove some of the 'junk' that comes with he GUI Desktop that we dont want/need
 yum -y remove imsettings im-chooser-common imsettings-gsettings imsettings-qt abrt-gui gnome-initial-setup open-vm-tools-desktop qemu-kvm libvirt-daemon-kvm gnome-boxes open-vm-tools qemu-kvm-common firefox totem libreoffice-core libreoffice-impress libreoffice-writer libreoffice-calc libreoffice-graphicfilter libreoffice-draw libreoffice-pyuno libreoffice-pdfimport unoconv empathy espeak speech-dispatcher orca speech-dispatcher-python
