@@ -60,8 +60,11 @@ echo "/dev/vdb /orch ext4 defaults 0 2" >> /etc/fstab
 mount /dev/vdb /orch
 
 # Install Java (Oracle jdk-8u141-linux-x64.rpm)
-wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.rpm"
-yum -y localinstall jdk-8u141-linux-x64.rpm
+touch ~/build_java
+echo 'wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.rpm"' >> ~/build_java
+echo 'yum -y localinstall jdk-8u141-linux-x64.rpm' >> ~/build_java
+chmod 700 ~/build_java
+./build_java
 echo "export PATH=/usr/java/jdk1.8.0_141/bin:$PATH >> .bash_profile"
 echo "export JAVA_HOME=/usr/java/jdk1.8.0_141 >> .bash_profile"
 
