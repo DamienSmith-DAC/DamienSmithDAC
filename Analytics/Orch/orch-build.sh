@@ -65,6 +65,6 @@ echo 'wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A
 echo 'yum -y localinstall jdk-8u141-linux-x64.rpm' >> ~/build_java
 chmod 700 ~/build_java
 ./build_java
-echo "export PATH=/usr/java/jdk1.8.0_141/bin:$PATH >> .bash_profile"
-echo "export JAVA_HOME=/usr/java/jdk1.8.0_141 >> .bash_profile"
+echo 'export PATH=/usr/java/jdk1.8.0_141/bin:$PATH' >> .bash_profile
+echo 'export JAVA_HOME=/usr/java/jdk1.8.0_141' >> .bash_profile
 
