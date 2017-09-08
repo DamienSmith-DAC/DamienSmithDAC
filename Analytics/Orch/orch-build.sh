@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Used to develop the data orchestration VM
+# Must execute ./build_java.sh manually after sshing into VM
+
 # This script is run after the VM is built to add further configurations
 # Add file path under '--name-user' flag in 'openstack create server' command
 
@@ -69,5 +71,3 @@ echo "echo 'export JAVA_HOME=/usr/java/jdk1.8.0_141' >> .bash_profile" >> ~/buil
 chmod 700 ~/build_java.sh
 
 reboot
-
-# Must execute ./build_java.sh manually after sshing into VM
