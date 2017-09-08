@@ -18,6 +18,11 @@ sed -i 's/gs/dac/g' /etc/hostname
 sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
 sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
 
+# This tells the dhcpclient to not get DNS information from DNS so the default /etc/resolv.conf will be used
+sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg-eth0
+#Add dac.local to /etc/resolv.conf
+sed -i 's/search gls.local/search gls.local dac.local/g' /etc/resolv.conf 
+
 # Mount /orch to 300gb
 umount /mnt
 sed -i '/^\/dev\/vdb/d' /etc/fstab
