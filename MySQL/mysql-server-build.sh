@@ -52,11 +52,11 @@ sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg
 #Add dac.local to /etc/resolv.conf
 sed -i 's/search gls.local/search gls.local dac.local/g' /etc/resolv.conf 
 
-# Mount /mysql
+# Mount /db
 umount /mnt
 sed -i '/^\/dev\/vdb/d' /etc/fstab
-mkdir -p /mysql
+mkdir -p /db
 mkfs.ext4 /dev/vdb
-echo "/dev/vdb /mysql ext4 defaults 0 2" >> /etc/fstab
-mount /dev/vdb /mysql
+echo "/dev/vdb /db ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /db
 
