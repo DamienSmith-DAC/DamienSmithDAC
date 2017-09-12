@@ -1,0 +1,130 @@
+#!/bin/bash
+
+# This script installs Spyder on the edge node along with a GUI desktop so that it can be used
+# It also installs xrdp so that Windows machines can connect to it via Remote Desktop
+
+##########################################
+# Generic parts                          #
+##########################################
+
+# Used to develop hadoop master, data and edge nodes
+# This post-build.sh script is run after the VM is built to add further configurations
+# Add file under '--name-user' flag in 'openstack create server command'
+
+# Copy public key to root and remove root login blocking code
+cat /home/centos/.ssh/authorized_keys > /root/.ssh/authorized_keys
+
+# Change hostname from hostname.gls.local to hostname.dac.local
+sed -i 's/gls/dac/g' /etc/hostname
+sed -i 's/gs/dac/g' /etc/hostname
+sed -i 's/- set_hostname/#- set_hostname/g' /etc/cloud/cloud.cfg
+sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
+
+# Mount /hadoop/log
+mkdir -p /hadoop/log
+umount /mnt
+umount /logs
+sed -i '/^\/dev\/vdb/d' /etc/fstab
+mkfs.ext4 /dev/vdb
+echo "/dev/vdb /hadoop/log ext4 defaults 0 2" >> /etc/fstab
+mount /dev/vdb /hadoop/log
+
+# Reduce swapiness to 0
+echo 0 > /proc/sys/vm/swappiness
+
+# Disable IPv6
+echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
+echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
+echo 1 > /proc/sys/net/ipv6/conf/lo/disable_ipv6
+
+# Instantiate changes
+sysctl -p
+
+##########################################
+# Spyder/xrdp parts                      #
+##########################################
+
+# The EPEL repsoitory is needed for Spyder
+yum -y install epel-release
+
+# Install Spyder and Git
+yum -y install spyder git
+
+# Install a GUI Desktop and the xrdp interface
+yum -y groups install "GNOME Desktop"
+yum -y install xrdp
+
+# Remove some of the 'junk' that comes with he GUI Desktop that we dont want/need
+yum -y remove imsettings im-chooser-common imsettings-gsettings imsettings-qt abrt-gui gnome-initial-setup open-vm-tools-desktop qemu-kvm libvirt-daemon-kvm gnome-boxes open-vm-tools qemu-kvm-common firefox totem libreoffice-core libreoffice-impress libreoffice-writer libreoffice-calc libreoffice-graphicfilter libreoffice-draw libreoffice-pyuno libreoffice-pdfimport unoconv empathy espeak speech-dispatcher orca speech-dispatcher-python
+
+# Backup the existing xrdp.ini
+cp /etc/xrdp/xrdp.ini /etc/xrdp.ini-orig-`date +%Y%m%d`
+
+# Write a new xrdp.ini that removes the un-needed procotols so that users
+# dont get confused
+cat >/etc/xrdp/xrdp.ini <<XRDP_INI
+[Globals]
+ini_version=1
+fork=true
+port=3389
+tcp_nodelay=true
+tcp_keepalive=true
+security_layer=negotiate
+crypt_level=high
+allow_channels=true
+allow_multimon=true
+bitmap_cache=true
+bitmap_compression=true
+bulk_compression=true
+max_bpp=32
+new_cursors=true
+use_fastpath=both
+blue=009cb5
+grey=dedede
+ls_title=Platform Spyder Edge Node
+ls_top_window_bg_color=009cb5
+ls_width=350
+ls_height=430
+ls_bg_color=dedede
+ls_label_x_pos=30
+ls_label_width=60
+ls_input_x_pos=110
+ls_input_width=210
+ls_input_y_pos=220
+ls_btn_ok_x_pos=142
+ls_btn_ok_y_pos=370
+ls_btn_ok_width=85
+ls_btn_ok_height=30
+ls_btn_cancel_x_pos=237
+ls_btn_cancel_y_pos=370
+ls_btn_cancel_width=85
+ls_btn_cancel_height=30
+
+[Logging]
+LogFile=xrdp.log
+LogLevel=DEBUG
+EnableSyslog=true
+SyslogLevel=DEBUG
+[Channels]
+rdpdr=true
+rdpsnd=true
+drdynvc=true
+cliprdr=true
+rail=true
+xrdpvr=true
+tcutils=true
+[Xorg]
+name=Xorg
+lib=libxup.so
+username=ask
+password=ask
+ip=127.0.0.1
+port=-1
+code=20
+XRDP_INI
+
+# Enure xrdp starts automatically at boot
+systemctl enable xrdp
+systemctl start xrdp
+
+
