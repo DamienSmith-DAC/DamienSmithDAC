@@ -65,6 +65,7 @@ analytics_security_group= {
                      		['tcp', 'ingress', '8020', '8020', openvpn, "''"],   #added from steve's screenshot
 				['tcp', 'ingress', '50070', '50070', openvpn, "''"], #added from steve's screenshot
                           	['tcp', 'ingress', '18080', '18080', openvpn, "''"]  #added from steve's screenshot
+                                #['tcp', 'ingress', '1024', '65535', openvpn, "''"]  #from steve's screenshot but commented out in this script
                         ]
                     }
 					
