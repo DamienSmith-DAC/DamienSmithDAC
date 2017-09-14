@@ -61,6 +61,7 @@ echo "/dev/vdb /db ext4 defaults 0 2" >> /etc/fstab
 mount /dev/vdb /db
 
 # Install MySQL Cluster
+sleep 120
 wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-community-7.5.7-1.el7.x86_64.rpm-bundle.tar
 tar xvf mysql-cluster-community-7.5.7-1.el7.x86_64.rpm-bundle.tar
 yum -y install perl-Data-Dumper
