@@ -50,7 +50,7 @@ sed -i 's/- update_hostname/#- update_hostname/g' /etc/cloud/cloud.cfg
 # This tells the dhcpclient to not get DNS information from DNS so the default /etc/resolv.conf will be used
 sed -i 's/PEERDNS=\"yes\"/PEERDNS=\"no\"/g' /etc/sysconfig/network-scripts/ifcfg-eth0
 #Add dac.local to /etc/resolv.conf
-sed -i 's/gls.local//g' /etc/resolv.conf 
+sed -i 's/gls/dac/g' /etc/resolv.conf 
 
 # Mount /db
 umount /mnt
@@ -74,12 +74,12 @@ yum -y install mysql-cluster-community-client-7.5.7-1.el7.x86_64.rpm
 yum -y install mysql-cluster-community-server-7.5.7-1.el7.x86_64.rpm
 
 # Configure cluster
-cd /db
+#cd /db
 #mkdir -p /var/lib/mysql-cluster
 #cd /var/lib/mysql-cluster
-vi config.ini
-Start mysql, get root password, grant user
-service mysqld start
-search mysql log for “secret”
-retrieve password ‘cat ~/.mysql_secret’
-mysql_secure_installation
+#vi config.ini
+#Start mysql, get root password, grant user
+#service mysqld start
+#search mysql log for secret
+#retrieve password cat ~/.mysql_secre
+#mysql_secure_installation
