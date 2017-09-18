@@ -11,3 +11,5 @@ curl --header "Authorization: token $GIT_TOKEN" \
     --header "Accept: application/vnd.github.v3.raw" \
     --remote-name \
     --location $GIT_FILE
+
+unset GIT_TOKEN
