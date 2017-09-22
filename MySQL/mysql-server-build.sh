@@ -61,26 +61,11 @@ echo "/dev/vdb /db ext4 defaults 0 2" >> /etc/fstab
 mount /dev/vdb /db
 
 # Install MySQL Cluster
-#sleep 120
-#wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-community-7.5.7-1.el7.x86_64.rpm-bundle.tar
-#tar xvf mysql-cluster-community-7.5.7-1.el7.x86_64.rpm-bundle.tar
-#yum -y install perl-Data-Dumper
-#yum -y remove mariadb-libs-5.5.52-1.el7.x86_64
-#yum -y install mysql-cluster-community-common-7.5.7-1.el7.x86_64.rpm
-#yum -y install mysql-cluster-community-libs-7.5.7-1.el7.x86_64.rpm
-
-# Check for latest package of perl-Class-MethodMaker
-#yum -y install http://dl.fedoraproject.org/pub/epel/7/x86_64/p/perl-Class-MethodMaker-2.20-1.el7.x86_64.rpm
-#yum -y install mysql-cluster-community-client-7.5.7-1.el7.x86_64.rpm
-#yum -y install mysql-cluster-community-server-7.5.7-1.el7.x86_64.rpm
-
-# Configure cluster
-#cd /db
-#mkdir -p /var/lib/mysql-cluster
-#cd /var/lib/mysql-cluster
-#vi config.ini
-#Start mysql, get root password, grant user
+#wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+#yum -y install mysql57-community-release-el7-11.noarch.rpm
+#rpm -ivh mysql57-community-release-el7-11.noarch.rpm 
+#yum -y update
+#yum -y install mysql-server
 #service mysqld start
-#search mysql log for secret
-#retrieve password cat ~/.mysql_secre
-#mysql_secure_installation
+#cat /var/log/mysqld.log | grep pass
+#mysql_secure_install
