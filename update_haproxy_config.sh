@@ -5,7 +5,8 @@
 GIT_OWNER="DFSI-DAC"
 GIT_REPO="Platform"
 GIT_PATH="haproxy.cfg"
-GIT_FILE="https://api.github.com/repos/$GIT_OWNER/$GIT_REPO/contents/$GIT_PATH"
+GIT_BRANCH="master"
+GIT_FILE="https://api.github.com/repos/$GIT_OWNER/$GIT_REPO/contents/$GIT_PATH?ref=$GIT_BRANCH"
 
 #Backup existing haproxy.cfg on both HAPROXY servers
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.`date +%Y%m%d` 
