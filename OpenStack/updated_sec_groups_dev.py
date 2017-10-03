@@ -5,7 +5,7 @@ openvpn = "x.x.x.x/x"
 viz_security_group= {
                       'project-id': 'bea24bf2b3fc4d5cb9e2a894eb594e8e',
                       'group': 'viz_security_group', 
-                      'description': "'Allow all HTTP and HTTPS in, as well as comms across the viz_security_group on all ports.",
+                      'description': "'Allow all HTTP and HTTPS in, as well as comms across the viz_security_group on all ports.'",
                       'rules':
                         [
 				['tcp', 'ingress', '1', '65535', '', "'viz_security_group'"],
