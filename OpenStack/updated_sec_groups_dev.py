@@ -92,9 +92,20 @@ default_security_group= {
                       'description': "'Allow SSH, RDP from OpenVPN subnet for management. Allow outbound traffic on all ports.'",
                       'rules':
                         [
-                          ['tcp', 'egress', '1', '65535', '0.0.0.0/0', "''"],
 			  ['tcp', 'ingress', '22', '22', openvpn, "''"],
-			  ['tcp', 'ingress', '3389', '3389', openvpn, "''"]
+			  ['tcp', 'ingress', '3389', '3389', openvpn, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.105/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.105/32, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.105/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.105/32, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.188/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.188/32, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.114/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.114/32, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.108/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.108/32, "''"],
+			  ['tcp', 'ingress', '22', '22', 10.16.27.71/32, "''"],
+			  ['tcp', 'ingress', '3389', '3389', 10.16.27.71/32, "''"]
                         ]
                     }
 					
