@@ -122,7 +122,7 @@ mgmt_security_group= {
               ['tcp', 'ingress', '636', '636', '', "'landing_zone_security_group'"],
               ['tcp', 'ingress', '389', '389', '', "'viz_security_group'"],
               ['tcp', 'ingress', '636', '636', '', "'viz_security_group'"],
-			  ['tcp', 'ingress', '389', '389', '', "'np_analytics_security_group'"],
+	      ['tcp', 'ingress', '389', '389', '', "'np_analytics_security_group'"],
               ['tcp', 'ingress', '636', '636', '', "'np_analytics_security_group'"],
               ['tcp', 'ingress', '389', '389', '', "'np_dp_security_group'"],
               ['tcp', 'ingress', '636', '636', '', "'np_dp_security_group'"],
@@ -136,9 +136,9 @@ mgmt_security_group= {
                         ]
                     }
 
-mgmt_security_group= {
+ovpn_security_group= {
                       'project-id': 'bea24bf2b3fc4d5cb9e2a894eb594e8e',
-                      'group': 'mgmt_security_group', 
+                      'group': 'ovpn_security_group', 
                       'description': "'Allow port 443 from all - only to be used for OpenVPN servers.'",
                       'rules':
                         [
@@ -147,7 +147,7 @@ mgmt_security_group= {
                     }
 					
 	
-list_of_groups=[viz_security_group, dp_security_group, edge_security_group, analytics_security_group, landing_zone_security_group, default_security_group]
+list_of_groups=[viz_security_group, dp_security_group, edge_security_group, analytics_security_group, landing_zone_security_group, default_security_group,ovpn_security_group,mgmt_security_group]
 
 for group in list_of_groups:
     
