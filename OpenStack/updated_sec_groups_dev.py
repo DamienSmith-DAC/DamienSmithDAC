@@ -104,9 +104,50 @@ default_security_group= {
 			  ['tcp', 'ingress', '3389', '3389', '10.16.27.108/32', "''"]
                         ]
                     }
+
+mgmt_security_group= {
+                      'project-id': 'bea24bf2b3fc4d5cb9e2a894eb594e8e',
+                      'group': 'mgmt_security_group', 
+                      'description': "'Allow intergroup comms on all ports. Also allow ports 636 and 389 from all subnet security groups.'",
+                      'rules':
+                        [
+              ['tcp', 'ingress', '1', '65535', '', "'analytics_security_group'"],
+			  ['tcp', 'ingress', '389', '389', '', "'analytics_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'analytics_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'dp_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'dp_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'edge_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'edge_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'landing_zone_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'landing_zone_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'viz_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'viz_security_group'"],
+	      ['tcp', 'ingress', '389', '389', '', "'np_analytics_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'np_analytics_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'np_dp_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'np_dp_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'np_edge_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'np_edge_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'np_landing_zone_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'np_landing_zone_security_group'"],
+              ['tcp', 'ingress', '389', '389', '', "'np_viz_security_group'"],
+              ['tcp', 'ingress', '636', '636', '', "'np_viz_security_group'"]
+              
+                        ]
+                    }
+
+ovpn_security_group= {
+                      'project-id': 'bea24bf2b3fc4d5cb9e2a894eb594e8e',
+                      'group': 'ovpn_security_group', 
+                      'description': "'Allow port 443 from all - only to be used for OpenVPN servers.'",
+                      'rules':
+                        [
+			  ['tcp', 'ingress', '443', '443', '0.0.0.0/0', "''"]
+                        ]
+                    }
 					
 	
-list_of_groups=[viz_security_group, dp_security_group, edge_security_group, analytics_security_group, landing_zone_security_group, default_security_group]
+list_of_groups=[viz_security_group, dp_security_group, edge_security_group, analytics_security_group, landing_zone_security_group, default_security_group,ovpn_security_group,mgmt_security_group]
 
 for group in list_of_groups:
     
