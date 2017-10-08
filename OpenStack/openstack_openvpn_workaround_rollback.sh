@@ -115,3 +115,21 @@ openstack --insecure security group rule delete e2b9073a-f690-4b08-98d5-79666b16
 openstack --insecure security group rule delete d57e0463-3566-4693-a04f-5e1adb16112f
 openstack --insecure security group rule delete a9ac04e5-3db9-45bb-9d8b-bf6b59eb404a
 openstack --insecure security group rule delete a517307b-fc23-42d4-b7b9-02716cbf8cf4
+
+# Deleting from dp_security_group and np_dp_security_group
+openstack --insecure security group rule delete 3b8e572a-8b7c-4550-a046-d03137494dd0
+openstack --insecure security group rule delete e2dad573-b6bd-4d54-a39f-2e265ba6b939
+openstack --insecure security group rule delete e746ec5d-c0c6-4cef-b1ed-6f86fd5d8284
+openstack --insecure security group rule delete cd67c845-a5bf-4aa8-9dbc-62eaaa86a110
+openstack --insecure security group rule delete 670e99d5-8bb0-4f8e-8416-974c884d6b23
+openstack --insecure security group rule delete e8978def-bcef-4798-860a-c5337fa8f27e
+openstack --insecure security group rule delete 1e0411fb-12dd-4502-98e3-517ec93adbe9
+openstack --insecure security group rule delete 9fba6260-21c6-4bf9-a5bf-2d991ff4983d
+openstack --insecure security group rule delete 141f0a53-61d8-4032-95ab-7f958f710403
+openstack --insecure security group rule delete 0714dd42-746b-4817-a3d6-6ea29408a96a
+openstack --insecure security group rule delete 099c46c3-ab1c-460c-981d-41a2f72046d2
+openstack --insecure security group rule delete e665f64b-e4d0-4dda-8b1b-910cf3a92e9a
+openstack --insecure security group rule delete f1dc878a-46e5-418c-8408-36150618c026
+openstack --insecure security group rule delete 3138e562-c8da-40ed-9e29-bf7fb2abcd09
+openstack --insecure security group rule delete 80eebc0e-aff1-434c-b14e-dc970f0a6fae
+openstack --insecure security group rule delete 4047500d-7192-4643-a02f-a0cc16acb5db
