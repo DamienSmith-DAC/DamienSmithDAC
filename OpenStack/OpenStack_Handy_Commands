@@ -1,0 +1,8 @@
+#Remove 'default' security group from all VMs
+openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do openstack --insecure server show $line; done
+
+#Apply 'default' security group to all VMs
+openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do `openstack --insecure server show $line | grep 'name='` ; done
+
+#Show flavors for all VMs
+openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do echo $line && os server show $line | grep flavor | awk '{print "\t flavor:" $4}'; done
