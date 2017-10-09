@@ -12,3 +12,12 @@ openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | 
 
 #Delete security group rules by Port range -Current form only echos the delete commands for review
 os security group rule list mgmt_security_group | grep 636:636 | awk '{print $2}' | while read line; do echo openstack --insecure security group rule delete $line ; done
+
+
+#Auto floating IP
+NEW_VM_NAME="temp-centos-bootablevolume"
+NEW_VM_STATIC_IP=`openstack --insecure server show ${NEW_VM_NAME} | grep addresses | awk '{print $4}' | perl -pane 's%^(.*)=((\d?\d?\d\.){3}(\d?\d?\d))$%$2%'`
+NEW_VM_PORT_ID=`openstack --insecure port list | grep ${NEW_VM_STATIC_IP} | awk '{print $2}'`
+NEW_FLOATING_IP_NAME=`openstack --insecure floating ip create DAC_GATEWAY_NET | grep name | awk '{print $4}'`
+openstack --insecure floating ip set --port ${NEW_VM_PORT_ID} ${NEW_FLOATING_IP_NAME}
+echo ${NEW_FLOATING_IP_NAME} associated to ${NEW_VM_NAME}
