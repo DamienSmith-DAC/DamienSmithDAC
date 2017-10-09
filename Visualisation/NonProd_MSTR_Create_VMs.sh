@@ -1,8 +1,7 @@
 #Create the bootable volumes 
-os volume create  NP-MSTR-Intelli-Volume  --image MSTR-Intelli-01_snapshotforduplication-toNP_20171006 --type ceph --description "Bootable root volume for NP-MSTR-Intelli" \
-                                          --project dac --bootable --size 80
-os volume create  NP-MSTR-Web-Volume  --image MSTR-Web-01_snapshotforduplication-toNP_20171006 --type ceph --description "Bootable root volume for NP-MSTR-Web" \
-                                          --project dac --bootable --size 80
+os volume create  NP-MSTR-Intelli-Volume  --image MSTR-Intelli-01_snapshotforduplication-toNP_20171006 --type ceph --description "Bootable root volume for NP-MSTR-Intelli" --project dac --bootable --size 80
+os volume create  NP-MSTR-Web-Volume  --image MSTR-Web-01_snapshotforduplication-toNP_20171006 --type ceph --description "Bootable root volume for NP-MSTR-Web" --project dac --bootable --size 80
+
 #Create the additional volume
 os volume create  NP-MSTR-Intelli-Volume-Second  --type ceph --description "Additional volume for NP-MSTR-Intelli to seperate cubes" --project dac --size 250
 
