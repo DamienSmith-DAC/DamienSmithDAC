@@ -9,3 +9,6 @@ openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | 
 
 #Show HOSTS for all VMs
 openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do echo $line && os server show $line | grep hypervisor_hostname | awk '{print "\t availability:" $4}'; done
+
+#Delete security group rules by Port range -Current form only echos the delete commands for review
+os security group rule list mgmt_security_group | grep 636:636 | awk '{print $2}' | while read line; do echo openstack --insecure security group rule delete $line ; done
