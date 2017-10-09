@@ -6,3 +6,6 @@ openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | 
 
 #Show flavors for all VMs
 openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do echo $line && os server show $line | grep flavor | awk '{print "\t flavor:" $4}'; done
+
+#Show HOSTS for all VMs
+openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line ; do echo $line && os server show $line | grep hypervisor_hostname | awk '{print "\t availability:" $4}'; done
