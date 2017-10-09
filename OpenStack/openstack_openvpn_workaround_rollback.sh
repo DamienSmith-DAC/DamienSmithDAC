@@ -133,3 +133,10 @@ openstack --insecure security group rule delete f1dc878a-46e5-418c-8408-36150618
 openstack --insecure security group rule delete 3138e562-c8da-40ed-9e29-bf7fb2abcd09
 openstack --insecure security group rule delete 80eebc0e-aff1-434c-b14e-dc970f0a6fae
 openstack --insecure security group rule delete 4047500d-7192-4643-a02f-a0cc16acb5db
+
+# Deleting port 3307 from dp_security_group
+openstack --insecure security group rule delete d393d0a0-7b2f-4c2e-8f4d-cdf8b2365b41
+openstack --insecure security group rule delete 1ce71bbb-7c2d-4300-a0e7-85aa0025d294
+openstack --insecure security group rule delete 7e61405d-0cc4-4714-b4f8-5974944bc3ad
+openstack --insecure security group rule delete b3a820b4-f6b0-408e-9eb9-3d80fc6f8bfc
+os security group rule delete b3a820b4-f6b0-408e-9eb9-3d80fc6f8bfc
