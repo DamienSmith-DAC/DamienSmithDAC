@@ -48,3 +48,6 @@ do
   done
 done
 ) | column -t -s $'\t'
+
+#output above as csv
+cat output-of-secgrouplist | perl -pane 's%^([\w\_\-]*)?\s+?([\w\_\-]*)?\s+([\w\_\-]*)$%\1,\2,\3%'
