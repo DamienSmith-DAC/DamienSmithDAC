@@ -30,7 +30,7 @@ openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | 
 #!/bin/bash
 echo "Script is running - please be patient - it takes about 5 minutes to make all the API calls"
 (
-printf 'Server Name\tSubnet\tSecurity Group\n'
+printf 'ServerName\tSubnet\tSecurityGroup\n'
 openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line
 do 
   server_name=${line} 
