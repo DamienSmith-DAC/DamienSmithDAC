@@ -28,7 +28,7 @@ openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | 
 #List all subnets AND security groups applied to all VMs
 
 #!/bin/bash
-echo "Script is running - please be patient - it takes about 5 minutes to make all the API calls"
+# Script takes a while to run - please be patient - it takes about 5 minutes to make all the API calls
 (
 printf 'ServerName\tSubnet\tSecurityGroup\n'
 openstack --insecure server list | awk '{print $4}' | tail -n +4 | head -n -1 | while read line
@@ -36,15 +36,9 @@ do
   server_name=${line} 
   server_subnet=`openstack --insecure server show $server_name | grep '| addresses' | awk '{print $4}' | cut -d'=' -f1`
   server_sec_groups=`openstack --insecure server show $server_name | grep name= | awk '{print $3 $4}' | perl -pane "s%^\|?name\=\'([^']+)\'\|?%\1%g"`
-  sec_group_counter=0
   for sec_group in ${server_sec_groups}
   do
-    if (( sec_group_counter == 0 )); then
-      printf '\n%s\t%s\t%s\n' ${server_name} ${server_subnet} ${sec_group}
-    else
-      printf '%s\t%s\t%s\n' "$emptyvar" "$emptyvar" "${sec_group}"
-    fi
-    sec_group_counter=$((sec_group_counter+1))
+   printf '\n%s\t%s\t%s\n' ${server_name} ${server_subnet} ${sec_group}
   done
 done
 ) | column -t -s $'\t'
