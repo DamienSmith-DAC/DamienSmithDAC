@@ -2,7 +2,7 @@
 
 # Script used to update Hadoop cluster with require configs
 
-hosts=( np-data01 np-data02 np-data03 np-data04 np-master02 np-master01 )
+hosts=( np-data01 np-data02 np-data03 np-data04 np-edge np-master02 np-master01 )
 
 
 for h in "${hosts[@]}"
@@ -58,8 +58,24 @@ do
   #ssh $h "chown hdfs:hadoop /etc/security/http_secret"
   #ssh $h "ls -altr /etc/security/"
 
+  
+  # Install SSSD
+  #ssh $h "yum -y -q install sssd oddjob-mkhomedir authconfig sssd-krb5 sssd-ad sssd-tools libpam-sss libnss-sss libnss-ldap adcli"
+  #ssh $h "adcli join dac.local --login-user="np_bind_user" -v --show-details --domain-controller=p-dc-101.dac.local --domain-ou=OU=Computers,OU=NPE,OU=DAC,DC=DAC,DC=local"
+  #scp sssd.conf $h:/etc/sssd/sssd.conf
+  #ssh $h "chmod 0600 /etc/sssd/sssd.conf"
+  #ssh $h "sed -i s'/ldap_search_base = OU=NPE,OU=DAC,dc=dac,dc=local//'g /etc/sssd/sssd.conf"
+  #ssh $h "authconfig --enablesssd --enablesssdauth --enablemkhomedir --enablelocauthorize --update"
+  #ssh $h "chkconfig oddjobd on"
+  #ssh $h "service oddjobd restart"
+  #ssh $h "chkconfig sssd on"
+  #ssh $h "service sssd restart"
+  #ssh $h "sss_cache -E"
+  ssh $h "ls -atlr /etc/security/keytabs/"
 
   # OTHER COMMANDS
+  #ssh $h "sed s'/ldap_search_base = OU=NPE,OU=DAC,dc=dac,dc=local//'g /etc/sssd/sssd.conf"
+  #ssh $h 
   #ssh $h "usermod -G hadoop ambari"
   #ssh $h "echo 'ambari ALL=(ALL) NOPASSWD:SETENV: /bin/mkdir, /bin/cp, /bin/chmod, /bin/rm' >> /etc/sudoers"
   #ssh $h "sed -i s'/ambari ALL=(ALL) NOPASSWD:SETENV: \/bin\/mkdir, \/bin\/cp, \/bin\/chmod, \/bin\/rm//'g /etc/sudoers"
@@ -78,27 +94,20 @@ do
   #ssh $h "ambari-agent reset master02.dac.local"
   #ssh $h "ambari-agent start"
   #ssh $h "ambari-agent restart"
+  #ssh $h "service sssd restart"
   #ssh $h "ls /home/hdfs/"
   #scp /etc/security/http_secret $h:/etc/security/
   #ssh $h "chown hdfs:hadoop /etc/security/http_secret"
   #ssh $h "chmod 440 /etc/security/http_secret"
   #ssh $h "yum -y -q install sssd oddjob-mkhomedir authconfig sssd-krb5 sssd-ad sssd-tools libpam-sss libnss-sss libnss-ldap adcli"
-  #ssh $h "adcli join dac.local --login-user="bind_user" -v --show-details --domain-controller=p-dc-101.dac.local --domain-ou=OU=Computers,OU=PE,OU=DAC,DC=DAC,DC=local"
-  #scp ./sssd.conf $h:/etc/sssd/
-  #ssh $h "chmod 0600 /etc/sssd/sssd.conf"
-  #ssh $h "service sssd restart"
-  #ssh $h "authconfig --enablesssd --enablesssdauth --enablemkhomedir --enablelocauthorize --update"
-  #ssh $h "chkconfig oddjobd on"
-  #ssh $h "service oddjobd restart"
-  #ssh $h "chkconfig sssd on"
-  #ssh $h "service sssd restart"
-  #ssh $h "sss_cache -E"
   #ssh $h "id doej"
   #ssh $h "mkdir /etc/security/serverKeys/"
   #scp /etc/security/serverKeys/* $h:/etc/security/serverKeys/
   #ssh $h "chown yarn:hadoop /etc/security/serverKeys/*.jks; chmod 440 /etc/security/serverKeys/"
   #ssh $h "chown root:root /etc/security/serverKeys/; chmod 755 /etc/security/serverKeys/"
   #ssh $h "chmod 444 /etc/security/serverKeys/*"
+  #ssh $h "cat /etc/skel/.ssh/authorized_keys"
 
   echo ' '
 done
+
