@@ -1,0 +1,14 @@
+# SSL Self-Signed Cert for RStudio Server Pro
+
+cd /etc/ssl/certs/
+openssl genrsa -out rstudio-edge-01.dac.local.pass.key 2048
+openssl rsa -passin pass:x -in rstudio-edge-01.dac.local.pass.key -out rstudio-edge-01.dac.local.key
+rm rstudio-edge-01.dac.local.pass.key
+openssl req -new -key rstudio-edge-01.dac.local.key -out rstudio-edge-01.dac.local.csr
+openssl x509 -req -days 365 -in rstudio-edge-01.dac.local.csr -sign rstudio-edge-01.dac.local.key -out rstudio-edge-01.dac.local.crt
+
+# /etc/rstudio/rserver.conf
+echo "ssl-enabled=1" >> /etc/rstudio/rserver.conf
+echo "ssl-certificate=/etc/ssl/certs/rstudio-edge-01.dac.local.crt" >> /etc/rstudio/rserver.conf
+echo "ssl-certificate-key=/etc/ssl/certs/rstudio-edge-01.dac.local.key" >> /etc/rstudio/rserver.conf
+echo "www-port=8787" >> /etc/rstudio/rserver.conf
