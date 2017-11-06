@@ -1,0 +1,1977 @@
+# extended LDIF
+#
+# LDAPv3
+# base <OU=Users,OU=NPE,OU=DAC,DC=gls,DC=local> with scope subtree
+# filter: (CN=*)
+# requesting: ALL
+#
+
+# staging, Users, NPE, DAC, GLS.local
+dn: CN=staging,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: staging
+givenName: staging
+distinguishedName: CN=staging,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170815052745.0Z
+whenChanged: 20171013004420.0Z
+displayName: staging
+uSNCreated: 19441376
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 24810093
+name: staging
+objectGUID:: UDgfw2In2EiO/bah/EZ1og==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131472486208938352
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZD30AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: staging
+sAMAccountType: 805306368
+userPrincipalName: staging@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131523290602328112
+
+# Chris Soulier, Users, NPE, DAC, GLS.local
+dn: CN=Chris Soulier,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Chris Soulier
+sn: Soulier
+description: Servian Consulting
+givenName: Chris
+distinguishedName: CN=Chris Soulier,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170426064538.0Z
+whenChanged: 20171030093102.0Z
+displayName: Chris Soulier
+uSNCreated: 12500969
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26795378
+name: Chris Soulier
+objectGUID:: 3/v0oTjnOUumlZS11r0t7w==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogon: 131539797481254607
+pwdLastSet: 131484603766473678
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ8qAAAA==
+accountExpires: 9223372036854775807
+logonCount: 298
+sAMAccountName: csoulier
+sAMAccountType: 805306368
+userPrincipalName: csoulier@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131538294472236515
+landingZone: servian
+
+# Rohan Carter, Users, NPE, DAC, GLS.local
+dn: CN=Rohan Carter,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Rohan Carter
+sn: Carter
+givenName: Rohan
+distinguishedName: CN=Rohan Carter,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170815054428.0Z
+whenChanged: 20170928034955.0Z
+displayName: Rohan Carter
+uSNCreated: 19444095
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23475674
+name: Rohan Carter
+objectGUID:: q60mJvGRhEmERuDnYmXmYA==
+userAccountControl: 66048
+badPwdCount: 2
+codePage: 0
+countryCode: 0
+badPasswordTime: 131527792526110713
+lastLogoff: 0
+lastLogon: 131511207408436564
+pwdLastSet: 131510441959566465
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZSqEAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: rcarter
+sAMAccountType: 805306368
+userPrincipalName: rcarter@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131507833930385004
+msDS-SupportedEncryptionTypes: 0
+
+# Ronny Chew, Users, NPE, DAC, GLS.local
+dn: CN=Ronny Chew,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Ronny Chew
+sn: Chew
+givenName: Ronny
+distinguishedName: CN=Ronny Chew,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170815054146.0Z
+whenChanged: 20170815055156.0Z
+displayName: Ronny Chew
+uSNCreated: 19444096
+uSNChanged: 19444096
+name: Ronny Chew
+objectGUID:: onzAJz3BYUKD4XCrNGkMvA==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131472496960215717
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZSaEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: rchew
+sAMAccountType: 805306368
+userPrincipalName: rchew@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Hania Amjad, Users, NPE, DAC, GLS.local
+dn: CN=Hania Amjad,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Hania Amjad
+sn: Amjad
+givenName: Hania
+distinguishedName: CN=Hania Amjad,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170824215641.0Z
+whenChanged: 20171103031034.0Z
+displayName: Hania Amjad
+uSNCreated: 20263893
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27171753
+name: Hania Amjad
+objectGUID:: ui8efmj5pk+tG0pwg7ztOQ==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131541522253470735
+lastLogoff: 0
+lastLogon: 131541522342835086
+pwdLastSet: 131480985306130163
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZTaEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: amjadh
+sAMAccountType: 805306368
+userPrincipalName: amjadh@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131541522342835086
+
+# Franc Carter, Users, NPE, DAC, GLS.local
+dn: CN=Franc Carter,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Franc Carter
+sn: Carter
+givenName: Franc
+distinguishedName: CN=Franc Carter,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170419044948.0Z
+whenChanged: 20171003232236.0Z
+displayName: Franc Carter
+uSNCreated: 12127164
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23912356
+name: Franc Carter
+objectGUID:: zsOa0fVdUk+C6vSjL4oDBQ==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131515464770823808
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ7KAAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: fcarter
+sAMAccountType: 805306368
+userPrincipalName: fcarter@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131399596113024542
+
+# Chetna Sharma, Users, NPE, DAC, GLS.local
+dn: CN=Chetna Sharma,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Chetna Sharma
+sn: Sharma
+givenName: Chetna
+distinguishedName: CN=Chetna Sharma,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170824215731.0Z
+whenChanged: 20170926002229.0Z
+displayName: Chetna Sharma
+uSNCreated: 20263894
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176947
+name: Chetna Sharma
+objectGUID:: xm2G35wmwUqLaqIiVlcgiQ==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131484615779682606
+pwdLastSet: 131481079885347140
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZTqEAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: sharmac
+sAMAccountType: 805306368
+userPrincipalName: sharmac@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131481080607412706
+
+# Timothy Hayes, Users, NPE, DAC, GLS.local
+dn: CN=Timothy Hayes,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Timothy Hayes
+sn: Hayes
+givenName: Timothy
+distinguishedName: CN=Timothy Hayes,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170824215811.0Z
+whenChanged: 20171023230136.0Z
+displayName: Timothy Hayes
+uSNCreated: 20263895
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26260774
+name: Timothy Hayes
+objectGUID:: nqWyNPOjg0yNb6UL547nTw==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131480989836598111
+lastLogoff: 0
+lastLogon: 131483610718294486
+pwdLastSet: 131498216920832146
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZT6EAAA==
+accountExpires: 9223372036854775807
+logonCount: 2
+sAMAccountName: hayest2
+sAMAccountType: 805306368
+userPrincipalName: hayest2@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131532732966219615
+
+# Richard Carlstein, Users, NPE, DAC, GLS.local
+dn: CN=Richard Carlstein,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Richard Carlstein
+sn: Carlstein
+givenName: Richard
+distinguishedName: CN=Richard Carlstein,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170824215901.0Z
+whenChanged: 20171022222605.0Z
+displayName: Richard Carlstein
+uSNCreated: 20263896
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26064364
+name: Richard Carlstein
+objectGUID:: Nl6k/SvuFU2Ifh0Q2K9uoA==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131532694145426887
+lastLogoff: 0
+lastLogon: 131532694209795966
+pwdLastSet: 131480984962848735
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZUKEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: carlster
+sAMAccountType: 805306368
+userPrincipalName: carlster@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131531847652223220
+
+# Luke Ireland, Users, NPE, DAC, GLS.local
+dn: CN=Luke Ireland,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Luke Ireland
+sn: Ireland
+givenName: Luke
+distinguishedName: CN=Luke Ireland,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170824215949.0Z
+whenChanged: 20171025222346.0Z
+displayName: Luke Ireland
+uSNCreated: 20263897
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26576487
+name: Luke Ireland
+objectGUID:: ph0ymwaA6EaOFCxrSRbAZg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131534438187836454
+lastLogoff: 0
+lastLogon: 131534438269103297
+pwdLastSet: 131503550375201880
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZUaEAAA==
+accountExpires: 9223372036854775807
+logonCount: 4
+sAMAccountName: irelandl
+sAMAccountType: 805306368
+userPrincipalName: irelandl@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131534438269103297
+landingZone: DAC
+
+# Byron Allen, Users, NPE, DAC, GLS.local
+dn: CN=Byron Allen,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Byron Allen
+sn: Allen
+description: Servian Consulting
+givenName: Byron
+distinguishedName: CN=Byron Allen,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170427042704.0Z
+whenChanged: 20170807070650.0Z
+displayName: Byron Allen
+uSNCreated: 12540590
+memberOf: CN=DACE2_PROD_USERS,OU=DACE2_PROD_USERS,OU=PE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 18662722
+name: Byron Allen
+objectGUID:: 74zhI8AXgU2tI2EE/UZCGQ==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131377408244188634
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ9qAAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: ballen
+sAMAccountType: 805306368
+userPrincipalName: ballen@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131377410726471429
+
+# eljamalr, Users, NPE, DAC, GLS.local
+dn: CN=eljamalr,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: eljamalr
+sn: El-Jamal
+givenName: Ranger
+distinguishedName: CN=eljamalr,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170920040928.0Z
+whenChanged: 20170920042224.0Z
+displayName: eljamalr
+uSNCreated: 22619915
+memberOf: CN=admin,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 22619915
+name: eljamalr
+objectGUID:: 1lANLI79p02IIKuBSSkHdA==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131503541681796159
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ65UAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: eljamalr
+sAMAccountType: 805306368
+userPrincipalName: eljamalr@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131503548167733412
+
+# allenb, Users, NPE, DAC, GLS.local
+dn: CN=allenb,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: allenb
+givenName: allenb
+distinguishedName: CN=allenb,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170801055841.0Z
+whenChanged: 20171106051750.0Z
+displayName: allenb
+uSNCreated: 18094832
+memberOf: CN=admin,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27615598
+name: allenb
+objectGUID:: h3YbgPc8dke/fc5ZyUtRmg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131544209506850413
+lastLogon: 131544209907621814
+pwdLastSet: 131466329672594392
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZPaEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: allenb
+sAMAccountType: 805306368
+userPrincipalName: allenb@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131544190705516351
+landingZone: servian
+
+# Manan, Users, NPE, DAC, GLS.local
+dn: CN=Manan,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Manan
+givenName: Manan
+distinguishedName: CN=Manan,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170927225631.0Z
+whenChanged: 20171102002804.0Z
+displayName: tyagim
+uSNCreated: 23440357
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27049548
+name: Manan
+objectGUID:: FKhsooNysEGkxkfXUfmNrQ==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131518099489243563
+lastLogoff: 0
+lastLogon: 131518099665345747
+pwdLastSet: 131514557162660925
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZLn0AAA==
+accountExpires: 9223372036854775807
+logonCount: 5
+sAMAccountName: tyagim
+sAMAccountType: 805306368
+userPrincipalName: tyagim@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131540560847337558
+msDS-SupportedEncryptionTypes: 0
+landingZone: DAC
+
+# Mykola Grechaniuk, Users, NPE, DAC, GLS.local
+dn: CN=Mykola Grechaniuk,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Mykola Grechaniuk
+sn: Grechaniuk
+givenName: Mykola
+distinguishedName: CN=Mykola Grechaniuk,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170807051616.0Z
+whenChanged: 20170926002229.0Z
+displayName: Mykola Grechaniuk
+uSNCreated: 18652474
+uSNChanged: 23176951
+name: Mykola Grechaniuk
+objectGUID:: cfDKRbO0h0SnjgL+cvucgg==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZzpUAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: MGrechaniuk
+sAMAccountType: 805306368
+userPrincipalName: MGrechaniuk@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Ali Baig, Users, NPE, DAC, GLS.local
+dn: CN=Ali Baig,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Ali Baig
+sn: Baig
+givenName: Ali
+distinguishedName: CN=Ali Baig,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170705015332.0Z
+whenChanged: 20170913022218.0Z
+displayName: Ali Baig
+uSNCreated: 16150440
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 22024022
+name: Ali Baig
+objectGUID:: CCY4/5llA0+U59PCpLLPFg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+pwdLastSet: 131497420965367707
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZM6EAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: abaig
+sAMAccountType: 805306368
+userPrincipalName: abaig@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131492348539588223
+
+# Niki Sutisna, Users, NPE, DAC, GLS.local
+dn: CN=Niki Sutisna,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Niki Sutisna
+sn: Sutisna
+description: ABM Systems Consulstant
+givenName: Niki
+distinguishedName: CN=Niki Sutisna,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170929025856.0Z
+whenChanged: 20170929031154.0Z
+displayName: Niki Sutisna
+uSNCreated: 23550962
+uSNChanged: 23551080
+name: Niki Sutisna
+objectGUID:: T5q5ubklTU2Pp6QuSn+JrQ==
+userAccountControl: 512
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZc6EAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: sutisnan
+sAMAccountType: 805306368
+userPrincipalName: sutisnan@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Nicholas Preema, Users, NPE, DAC, GLS.local
+dn: CN=Nicholas Preema,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Nicholas Preema
+sn: Preema
+givenName: Nicholas
+distinguishedName: CN=Nicholas Preema,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170705020639.0Z
+whenChanged: 20171102133758.0Z
+displayName: Nicholas Preema
+uSNCreated: 16151437
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27089007
+name: Nicholas Preema
+objectGUID:: eKtjUnWVlUOXSN5QJWHgkA==
+userAccountControl: 66048
+badPwdCount: 1
+codePage: 0
+countryCode: 0
+badPasswordTime: 131448258289796693
+pwdLastSet: 131436939991976901
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZNKEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: npreema
+sAMAccountType: 805306368
+userPrincipalName: npreema@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131541026405156009
+landingZone: servian
+
+# Alexander Byrganov, Users, NPE, DAC, GLS.local
+dn: CN=Alexander Byrganov,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Alexander Byrganov
+sn: Byrganov
+description: DAC
+givenName: Alexander
+distinguishedName: CN=Alexander Byrganov,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=loca
+ l
+instanceType: 4
+whenCreated: 20171016012105.0Z
+whenChanged: 20171103041542.0Z
+displayName: Alexander Byrganov
+uSNCreated: 25120296
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27173191
+name: Alexander Byrganov
+objectGUID:: 5QxmmOeCxkSySJl461mknQ==
+userAccountControl: 512
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131541450556830787
+lastLogoff: 0
+lastLogon: 131541553691426924
+pwdLastSet: 131541561423337295
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZrJYAAA==
+accountExpires: 9223372036854775807
+logonCount: 5
+sAMAccountName: byrganoa
+sAMAccountType: 805306368
+userPrincipalName: byrganoa@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131541501586905043
+
+# hadoop_dev_user, Users, NPE, DAC, GLS.local
+dn: CN=hadoop_dev_user,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: hadoop_dev_user
+givenName: hadoop_dev_user
+distinguishedName: CN=hadoop_dev_user,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170705064644.0Z
+whenChanged: 20171103104457.0Z
+displayName: hadoop_dev_user
+uSNCreated: 16170297
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27181446
+name: hadoop_dev_user
+objectGUID:: YT5rkBt5o0aFdqrG4uccVA==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131437108040712072
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZN6EAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: hadoop_dev_user
+sAMAccountType: 805306368
+userPrincipalName: hadoop_dev_user@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131541794976413035
+
+# Yuveena Gopalan, Users, NPE, DAC, GLS.local
+dn: CN=Yuveena Gopalan,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Yuveena Gopalan
+sn: Gopalan
+givenName: Yuveena
+distinguishedName: CN=Yuveena Gopalan,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20171016042943.0Z
+whenChanged: 20171016043745.0Z
+displayName: Yuveena Gopalan
+uSNCreated: 25126268
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 25126268
+name: Yuveena Gopalan
+objectGUID:: y1gctpJA9U+RgwcFqpOBfQ==
+userAccountControl: 512
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZrZYAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: gopalany
+sAMAccountType: 805306368
+userPrincipalName: gopalany@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Peter Chiu, Users, NPE, DAC, GLS.local
+dn: CN=Peter Chiu,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Peter Chiu
+sn: Chiu
+description: DAC
+givenName: Peter
+distinguishedName: CN=Peter Chiu,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20171016215754.0Z
+whenChanged: 20171024051640.0Z
+displayName: Peter Chiu
+uSNCreated: 25222032
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26284406
+name: Peter Chiu
+objectGUID:: 8+kKQAsRU0mAjLq83y6feA==
+userAccountControl: 512
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131532953768920069
+lastLogoff: 0
+lastLogon: 131532958001707185
+pwdLastSet: 131532954438628746
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZrpYAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: chiup
+sAMAccountType: 805306368
+userPrincipalName: chiup@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131532958001707185
+mail: peter.chiu@finance.nsw.gov.au
+
+# Rory Angus, Users, NPE, DAC, GLS.local
+dn: CN=Rory Angus,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Rory Angus
+sn: Angus
+givenName: Rory
+distinguishedName: CN=Rory Angus,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170829233013.0Z
+whenChanged: 20171004234013.0Z
+displayName: Rory Angus
+uSNCreated: 20724256
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 24022165
+name: Rory Angus
+objectGUID:: /gAocfPhpkaTRTrdbCRz8A==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131485377875348438
+pwdLastSet: 131485376396600893
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZWKEAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: angusr
+sAMAccountType: 805306368
+userPrincipalName: angusr@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131516340131869958
+landingZone: 2.12_TFM
+
+# Chris S, Users, NPE, DAC, GLS.local
+dn: CN=Chris S,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Chris S
+sn: S
+givenName: Chris
+distinguishedName: CN=Chris S,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170808035323.0Z
+whenChanged: 20171012040742.0Z
+displayName: Chris S
+uSNCreated: 18788553
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 24785372
+name: Chris S
+objectGUID:: iRopz4v5H0+A8PCj/GsNqg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131466389497693810
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZQaEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: soulierc
+sAMAccountType: 805306368
+userPrincipalName: soulierc@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131522546589878891
+landingZone: servian
+
+# Passiona Cottee, Users, NPE, DAC, GLS.local
+dn: CN=Passiona Cottee,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Passiona Cottee
+sn: Cottee
+givenName: Passiona
+distinguishedName: CN=Passiona Cottee,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170830000644.0Z
+whenChanged: 20170926222230.0Z
+displayName: Passiona Cottee
+uSNCreated: 20724919
+uSNChanged: 23265592
+name: Passiona Cottee
+objectGUID:: sUFzi9ClG0a1i2DVmHuH6A==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZWaEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: Cotteep
+sAMAccountType: 805306368
+userPrincipalName: Cotteep@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+landingZone: 2.12_TFM
+
+# Rob Johnston, Users, NPE, DAC, GLS.local
+dn: CN=Rob Johnston,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Rob Johnston
+sn: Johnston
+description: Department of Education
+givenName: Rob
+distinguishedName: CN=Rob Johnston,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170808061546.0Z
+whenChanged: 20170926002229.0Z
+displayName: Rob Johnston
+uSNCreated: 18801762
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176954
+name: Rob Johnston
+objectGUID:: teSeqN2PmUKmZfUHpPQHxA==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131466478421907521
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ0pUAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: johnstonr
+sAMAccountType: 805306368
+userPrincipalName: johnstonr@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131466480899865213
+landingZone: DoE_CESE_ICSEA
+
+# Byrontest, Users, NPE, DAC, GLS.local
+dn: CN=Byrontest,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Byrontest
+givenName: Byrontest
+distinguishedName: CN=Byrontest,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170726003147.0Z
+whenChanged: 20170809072151.0Z
+displayName: Byrontest
+uSNCreated: 17624112
+uSNChanged: 18853841
+name: Byrontest
+objectGUID:: 0hOn/qBEH0mmBOpCoplYCw==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131467363877878001
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZeZUAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: byrontest
+sAMAccountType: 805306368
+userPrincipalName: byrontest@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131467364057070725
+
+# hadoop_dev_manager, Users, NPE, DAC, GLS.local
+dn: CN=hadoop_dev_manager,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: hadoop_dev_manager
+givenName: hadoop_dev_manager
+distinguishedName: CN=hadoop_dev_manager,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=loca
+ l
+instanceType: 4
+whenCreated: 20170726014950.0Z
+whenChanged: 20170726020136.0Z
+displayName: hadoop_dev_manager
+uSNCreated: 17631147
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 17631147
+name: hadoop_dev_manager
+objectGUID:: P+RsPzb/NUyT3yxqK57omQ==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131455073909145221
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZepUAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: hadoop_dev_manager
+sAMAccountType: 805306368
+userPrincipalName: hadoop_dev_manager@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Celia Walker, Users, NPE, DAC, GLS.local
+dn: CN=Celia Walker,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Celia Walker
+sn: Walker
+givenName: Celia
+distinguishedName: CN=Celia Walker,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231458.0Z
+whenChanged: 20170927061346.0Z
+displayName: Celia Walker
+uSNCreated: 18202132
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23321685
+name: Celia Walker
+objectGUID:: fvVKaO3aLUiWbhUy/0mkJg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131462138481434285
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZu5UAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: walkerc3
+sAMAccountType: 805306368
+userPrincipalName: walkerc3@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131509664262219622
+msDS-SupportedEncryptionTypes: 0
+
+# Dharmesh Thaker, Users, NPE, DAC, GLS.local
+dn: CN=Dharmesh Thaker,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Dharmesh Thaker
+sn: Thaker
+givenName: Dharmesh
+distinguishedName: CN=Dharmesh Thaker,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231608.0Z
+whenChanged: 20171101035333.0Z
+displayName: Dharmesh Thaker
+uSNCreated: 18202133
+memberOf: CN=SAG_U-DACAdmin,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27024233
+name: Dharmesh Thaker
+objectGUID:: qT/tupvqEki+oTpkfYO9Wg==
+userAccountControl: 512
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131511269469522978
+lastLogoff: 0
+lastLogon: 131490592145820073
+pwdLastSet: 131511297642233595
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZvJUAAA==
+accountExpires: 9223372036854775807
+logonCount: 2
+sAMAccountName: thakerd
+sAMAccountType: 805306368
+userPrincipalName: thakerd@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131539820131269813
+msDS-SupportedEncryptionTypes: 0
+landingZone: 2.12_TFM
+
+# Durand Sinclair, Users, NPE, DAC, GLS.local
+dn: CN=Durand Sinclair,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Durand Sinclair
+sn: Sinclair
+givenName: Durand
+distinguishedName: CN=Durand Sinclair,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231708.0Z
+whenChanged: 20170926002229.0Z
+displayName: Durand Sinclair
+uSNCreated: 18202440
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176957
+name: Durand Sinclair
+objectGUID:: Dbs992oSvkqp3DwJuFuoNQ==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131461984611307256
+pwdLastSet: 131462768204451272
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZvZUAAA==
+accountExpires: 0
+logonCount: 7
+sAMAccountName: sinclaid
+sAMAccountType: 805306368
+userPrincipalName: sinclaid@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131461969949772721
+msDS-SupportedEncryptionTypes: 0
+
+# eljamalh, Users, NPE, DAC, GLS.local
+dn: CN=eljamalh,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: eljamalh
+givenName: eljamalh
+distinguishedName: CN=eljamalh,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231823.0Z
+whenChanged: 20171102003705.0Z
+displayName: eljamalh
+uSNCreated: 18202441
+memberOf: CN=SAG_U-DACReadonly,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27049744
+name: eljamalh
+objectGUID:: LiTndtQq6UiRe+gDpLG2bw==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131516544902875197
+lastLogoff: 0
+lastLogon: 131516544997569111
+pwdLastSet: 131502501103625983
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZvpUAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: eljamalh
+sAMAccountType: 805306368
+userPrincipalName: eljamalh@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131540566254992986
+msDS-SupportedEncryptionTypes: 0
+
+# Jordan Finch, Users, NPE, DAC, GLS.local
+dn: CN=Jordan Finch,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Jordan Finch
+sn: Finch
+givenName: Jordan
+distinguishedName: CN=Jordan Finch,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231908.0Z
+whenChanged: 20170926002229.0Z
+displayName: Jordan Finch
+uSNCreated: 18202442
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176959
+name: Jordan Finch
+objectGUID:: QDG0vQkts0aLAAd38xqN7g==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZv5UAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: finchj
+sAMAccountType: 805306368
+userPrincipalName: finchj@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+msDS-SupportedEncryptionTypes: 0
+
+# Marijan Jukic, Users, NPE, DAC, GLS.local
+dn: CN=Marijan Jukic,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Marijan Jukic
+sn: Jukic
+givenName: Marijan
+distinguishedName: CN=Marijan Jukic,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802231954.0Z
+whenChanged: 20170922021739.0Z
+displayName: Marijan Jukic
+uSNCreated: 18202443
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 22784404
+name: Marijan Jukic
+objectGUID:: TBr+7QWJC0ieMmvpBhwZpA==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131505202516289154
+lastLogoff: 0
+lastLogon: 131505202593793202
+pwdLastSet: 131462786410506424
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZwJUAAA==
+accountExpires: 9223372036854775807
+logonCount: 2
+sAMAccountName: jukicm
+sAMAccountType: 805306368
+userPrincipalName: jukicm@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131505202593793202
+msDS-SupportedEncryptionTypes: 0
+
+# Michelle Martin, Users, NPE, DAC, GLS.local
+dn: CN=Michelle Martin,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Michelle Martin
+sn: Martin
+givenName: Michelle
+distinguishedName: CN=Michelle Martin,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802232034.0Z
+whenChanged: 20170926002229.0Z
+displayName: Michelle Martin
+uSNCreated: 18202444
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176960
+name: Michelle Martin
+objectGUID:: KpX6QP9K7kGubZXEyZ7Hew==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131462137828313514
+pwdLastSet: 131497465348036879
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZwZUAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: martinm3
+sAMAccountType: 805306368
+userPrincipalName: martinm3@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131462137828313514
+msDS-SupportedEncryptionTypes: 0
+
+# Shveta Gupta, Users, NPE, DAC, GLS.local
+dn: CN=Shveta Gupta,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Shveta Gupta
+sn: Gupta
+givenName: Shveta
+distinguishedName: CN=Shveta Gupta,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802232118.0Z
+whenChanged: 20171101031951.0Z
+displayName: Shveta Gupta
+uSNCreated: 18202445
+memberOf: CN=SAG_U-DACUser,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27023096
+name: Shveta Gupta
+objectGUID:: vFgpq59Fa0unL579ANtfqA==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131507706760183122
+lastLogoff: 0
+lastLogon: 131507706843460502
+pwdLastSet: 131468020777843178
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZwpUAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: guptas3
+sAMAccountType: 805306368
+userPrincipalName: guptas3@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131539799917505653
+msDS-SupportedEncryptionTypes: 0
+
+# William Azevedo, Users, NPE, DAC, GLS.local
+dn: CN=William Azevedo,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: William Azevedo
+sn: Azevedo
+givenName: William
+distinguishedName: CN=William Azevedo,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802232206.0Z
+whenChanged: 20171006042804.0Z
+displayName: William Azevedo
+uSNCreated: 18202446
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 24191661
+name: William Azevedo
+objectGUID:: iX4co8kp0k2gHV6dFG28/Q==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131468813323780133
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131468888307235210
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZw5UAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: azevedow
+sAMAccountType: 805306368
+userPrincipalName: azevedow@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131517376843013165
+msDS-SupportedEncryptionTypes: 0
+
+# Sushrut Karmudi, Users, NPE, DAC, GLS.local
+dn: CN=Sushrut Karmudi,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Sushrut Karmudi
+sn: Karmudi
+givenName: Sushrut
+distinguishedName: CN=Sushrut Karmudi,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170802232300.0Z
+whenChanged: 20170926002229.0Z
+displayName: Sushrut Karmudi
+uSNCreated: 18202447
+memberOf: CN=SAG_U-DACUser,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176962
+name: Sushrut Karmudi
+objectGUID:: m6bLZAZz8Eegm5l0ZvXk2Q==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131462136309246605
+pwdLastSet: 131468038985339350
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZxJUAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: karmudis
+sAMAccountType: 805306368
+userPrincipalName: karmudis@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131503425462533304
+msDS-SupportedEncryptionTypes: 0
+
+# hadoop_dev_test3, Users, NPE, DAC, GLS.local
+dn: CN=hadoop_dev_test3,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: hadoop_dev_test3
+givenName: hadoop_dev_test3
+distinguishedName: CN=hadoop_dev_test3,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170809071812.0Z
+whenChanged: 20170809072151.0Z
+displayName: hadoop_dev_test3
+uSNCreated: 18853857
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 18853857
+name: hadoop_dev_test3
+objectGUID:: u2JDPD5xYUmZiM4yU/zMOg==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131467366923815504
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZ1ZUAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: hadoop_dev_test3
+sAMAccountType: 805306368
+userPrincipalName: hadoop_dev_test3@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131467367532088423
+
+# Andy Chu, Users, NPE, DAC, GLS.local
+dn: CN=Andy Chu,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Andy Chu
+sn: Chu
+givenName: Andy
+distinguishedName: CN=Andy Chu,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170913045600.0Z
+whenChanged: 20171024225840.0Z
+displayName: Andy Chu
+uSNCreated: 22027593
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26399437
+name: Andy Chu
+objectGUID:: p7pyyVNXdU2UZVFiQC6aPw==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131529491853274113
+lastLogoff: 0
+lastLogon: 131529491902962928
+pwdLastSet: 131505127648626333
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZcaEAAA==
+accountExpires: 9223372036854775807
+logonCount: 8
+sAMAccountName: chua
+sAMAccountType: 805306368
+userPrincipalName: chua@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131533595200268328
+msDS-SupportedEncryptionTypes: 0
+landingZone: 2.09.2_SIRA_DASH
+
+# dactest4, Users, NPE, DAC, GLS.local
+dn: CN=dactest4,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: dactest4
+givenName: dactest4
+distinguishedName: CN=dactest4,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170810011421.0Z
+whenChanged: 20170926002229.0Z
+displayName: dactest4
+uSNCreated: 18934091
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176965
+name: dactest4
+objectGUID:: HMAZfai/J0iZ2OCgV+YW4w==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131468026651597147
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZB30AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: dactest4
+sAMAccountType: 805306368
+userPrincipalName: dactest4@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131468014098818125
+
+# dactest3, Users, NPE, DAC, GLS.local
+dn: CN=dactest3,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: dactest3
+givenName: dactest3
+distinguishedName: CN=dactest3,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170810011153.0Z
+whenChanged: 20170926002229.0Z
+displayName: dactest3
+uSNCreated: 18934282
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176964
+name: dactest3
+objectGUID:: d6ilmFxspUueyui+5+tKuw==
+userAccountControl: 66048
+badPwdCount: 1
+codePage: 0
+countryCode: 0
+badPasswordTime: 131468025239250575
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZRaEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: dactest3
+sAMAccountType: 805306368
+userPrincipalName: dactest3@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Dac Test5, Users, NPE, DAC, GLS.local
+dn: CN=Dac Test5,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Dac Test5
+sn: Test5
+givenName: Dac
+distinguishedName: CN=Dac Test5,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170810060532.0Z
+whenChanged: 20170926002229.0Z
+displayName: Dac Test5
+uSNCreated: 18942021
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176966
+name: Dac Test5
+objectGUID:: ofPMduZvcUGTMeiMAKA1JQ==
+userAccountControl: 66048
+badPwdCount: 1
+codePage: 0
+countryCode: 0
+badPasswordTime: 131510531444461805
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 131498271244407410
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZCH0AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: dactest5
+sAMAccountType: 805306368
+userPrincipalName: dactest5@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131468193215199348
+
+# carterf, Users, NPE, DAC, GLS.local
+dn: CN=carterf,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: carterf
+givenName: carterf
+distinguishedName: CN=carterf,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170811000812.0Z
+whenChanged: 20171101040757.0Z
+displayName: carterf
+uSNCreated: 19025926
+memberOf: CN=admin,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27024508
+name: carterf
+objectGUID:: 56G0FKTm90GMpN8mNCvCAg==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 131515451624055015
+lastLogoff: 0
+lastLogon: 131515529421397351
+pwdLastSet: 131515493738264336
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZCn0AAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: carterf
+sAMAccountType: 805306368
+userPrincipalName: carterf@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131539823968450711
+
+# baiga, Users, NPE, DAC, GLS.local
+dn: CN=baiga,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: baiga
+givenName: baiga
+distinguishedName: CN=baiga,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170811011636.0Z
+whenChanged: 20171106052316.0Z
+displayName: baiga
+uSNCreated: 19027939
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27615733
+name: baiga
+objectGUID:: 77C/pqNe70SIrrJc9GtSNg==
+userAccountControl: 66048
+badPwdCount: 2
+codePage: 0
+countryCode: 0
+badPasswordTime: 131533607334415529
+lastLogoff: 0
+lastLogon: 131523253624901748
+pwdLastSet: 131468887793315843
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZC30AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: baiga
+sAMAccountType: 805306368
+userPrincipalName: baiga@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131544193962705582
+
+# Paul Schaap, Users, NPE, DAC, GLS.local
+dn: CN=Paul Schaap,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Paul Schaap
+sn: Schaap
+givenName: Paul
+distinguishedName: CN=Paul Schaap,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20171103002100.0Z
+whenChanged: 20171103003759.0Z
+displayName: Paul Schaap
+uSNCreated: 27167904
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 27168248
+name: Paul Schaap
+objectGUID:: 0CFrCeFgx0ulgimqbGXc3w==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131541420603455484
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZt6QAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: schaapp
+sAMAccountType: 805306368
+userPrincipalName: schaapp@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+landingZone: ctp
+
+# hadoop_dev_test2, Users, NPE, DAC, GLS.local
+dn: CN=hadoop_dev_test2,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: hadoop_dev_test2
+givenName: hadoop_dev_test2
+distinguishedName: CN=hadoop_dev_test2,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170727053802.0Z
+whenChanged: 20170727054637.0Z
+displayName: hadoop_dev_test2
+uSNCreated: 17727449
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 17727449
+name: hadoop_dev_test2
+objectGUID:: brTOBuF490OqUu+8/oE4mw==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 131456074827920729
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZt5UAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: hadoop_dev_test2
+sAMAccountType: 805306368
+userPrincipalName: hadoop_dev_test2@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# peter brotherhood, Users, NPE, DAC, GLS.local
+dn: CN=peter brotherhood,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: peter brotherhood
+sn: brotherhood
+givenName: peter
+distinguishedName: CN=peter brotherhood,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170905214702.0Z
+whenChanged: 20170926002229.0Z
+displayName: peter brotherhood
+uSNCreated: 21427200
+uSNChanged: 23176938
+name: peter brotherhood
+objectGUID:: z32HAU4RRU278YuenyX/qA==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZXKEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: brotherhoodp
+sAMAccountType: 805306368
+userPrincipalName: brotherhoodp@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# nicholas moore, Users, NPE, DAC, GLS.local
+dn: CN=nicholas moore,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: nicholas moore
+sn: moore
+givenName: nicholas
+distinguishedName: CN=nicholas moore,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170905214902.0Z
+whenChanged: 20170926002229.0Z
+displayName: nicholas moore
+uSNCreated: 21427201
+uSNChanged: 23176939
+name: nicholas moore
+objectGUID:: qsxVlwpx1EatlZWGY+wp4w==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZXaEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: mooren
+sAMAccountType: 805306368
+userPrincipalName: mooren4@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# Mark Ohara, Users, NPE, DAC, GLS.local
+dn: CN=Mark Ohara,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Mark Ohara
+sn: Ohara
+givenName: Mark
+distinguishedName: CN=Mark Ohara,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170905220908.0Z
+whenChanged: 20170926002229.0Z
+displayName: Mark Ohara
+uSNCreated: 21430504
+memberOf: CN=DACE2_PROD_USERS,OU=DACE2_PROD_USERS,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176940
+name: Mark Ohara
+objectGUID:: SqHT/eXHMkGHwaC/OkOtcg==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZX6EAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: oharam
+sAMAccountType: 805306368
+userPrincipalName: oharam@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# dace2_test_user, Users, NPE, DAC, GLS.local
+dn: CN=dace2_test_user,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: dace2_test_user
+givenName: dace2_test_user
+distinguishedName: CN=dace2_test_user,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170905220954.0Z
+whenChanged: 20170926002229.0Z
+displayName: dace2_test_user
+uSNCreated: 21430505
+memberOf: CN=DACE2_PROD_USERS,OU=DACE2_PROD_USERS,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 23176941
+name: dace2_test_user
+objectGUID:: MJOlTlNnAkSC+suQJijTYg==
+userAccountControl: 66048
+codePage: 0
+countryCode: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZYKEAAA==
+accountExpires: 9223372036854775807
+sAMAccountName: dace2_test_user
+sAMAccountType: 805306368
+userPrincipalName: dace2_test_user@GLS.local
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 16010101000000.0Z
+
+# David Lin, Users, NPE, DAC, GLS.local
+dn: CN=David Lin,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: David Lin
+sn: Lin
+description: Sira
+givenName: David
+distinguishedName: CN=David Lin,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20171019230701.0Z
+whenChanged: 20171025003921.0Z
+displayName: David Lin
+uSNCreated: 25590002
+uSNChanged: 26412813
+name: David Lin
+objectGUID:: GvFtjkGXH0O+8fIqL86jdQ==
+userAccountControl: 512
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131533565792077758
+pwdLastSet: 131533655610272755
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZsZYAAA==
+accountExpires: 9223372036854775807
+logonCount: 1
+sAMAccountName: lind
+sAMAccountType: 805306368
+userPrincipalName: lind@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20171024063752.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131529488759849338
+mail:: ZGF2aWQubGluQHNpcmEubnN3Lmdvdi5hdSA=
+landingZone: ctp
+
+# Samuele Crescenti, Users, NPE, DAC, GLS.local
+dn: CN=Samuele Crescenti,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Samuele Crescenti
+sn: Crescenti
+givenName: Samuele
+distinguishedName: CN=Samuele Crescenti,OU=Users,OU=NPE,OU=DAC,DC=GLS,DC=local
+instanceType: 4
+whenCreated: 20170711052657.0Z
+whenChanged: 20171023075251.0Z
+displayName: Samuele Crescenti
+uSNCreated: 16589479
+memberOf: CN=hadoop_dev_group,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_U-DAC,OU=Groups,OU=NPE,OU=DAC,DC=GLS,DC=local
+memberOf: CN=SAG_P-DAC,OU=Groups,OU=PE,OU=DAC,DC=GLS,DC=local
+uSNChanged: 26140080
+name: Samuele Crescenti
+objectGUID:: iIUiyIYiAE+45y9doYbf0g==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 131520105215821271
+pwdLastSet: 131505381619868393
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAWmuIxZJl428EwgcZOqEAAA==
+accountExpires: 9223372036854775807
+logonCount: 19
+sAMAccountName: screscenti
+sAMAccountType: 805306368
+userPrincipalName: screscenti@GLS.local
+lockoutTime: 0
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=GLS,DC=local
+dSCorePropagationData: 20170807070650.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 131532185152980750
+msDS-SupportedEncryptionTypes: 0
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 54
+# numEntries: 53
