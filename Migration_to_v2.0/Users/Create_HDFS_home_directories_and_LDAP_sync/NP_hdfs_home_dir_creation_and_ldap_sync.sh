@@ -6,7 +6,7 @@
 #         4. Logs the output of this script in /var/log/hdfs-user-dir-creatino/hdfs-user-dir-creation.log
 
 #Log all errors from code below to hdfs-user-dir-creation.log, include a time stamp.
-exec &>> /var/log/hdfs-user-dir-creation/hdfs-user-dir-creation.log
+exec 2>> /var/log/hdfs-user-dir-creation/hdfs-user-dir-creation.log
 echo "$(date +'%h %d %H:%M:%S')"
 
 #Sync LDAP groups and send error output to /var/log/ldapsync/ldapsync.log
