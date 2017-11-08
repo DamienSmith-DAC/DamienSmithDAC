@@ -2,7 +2,8 @@
 # This script automates some of the user onboarding process. It:
 #         1. Sync's LDAP entires in Ambari
 #         2. Creates home directories for synced users in HDFS
-#         3. Logs the output of this script in /var/log/hdfs-user-dir-creatino/hdfs-user-dir-creation.log
+#         3. Makes the user the owner of their home directory, and belong to the hdfs group
+#         4. Logs the output of this script in /var/log/hdfs-user-dir-creatino/hdfs-user-dir-creation.log
 
 #Log all errors from code below to hdfs-user-dir-creation.log, include a time stamp.
 exec &>> /var/log/hdfs-user-dir-creation/hdfs-user-dir-creation.log
