@@ -7,10 +7,11 @@ sc <- spark_connect(master = "yarn-client", spark_home = Sys.getenv("SPARK_HOME"
 # Connect to a table in Hive
 library(dplyr)
 library(DBI)
-dbGetQuery(sc, "use databse_name")
+dbGetQuery(sc, "show databases")
 dbGetQuery(sc, "show tables")
-table = tbl(sc, "table_name")
+#table = tbl(sc, "table_name")
+table = tbl(sc, "pkmn_stats")
+table
 
 # When you finish a session please disconnect with one of the two commands
-spark_disconnect()
 spark_disconnect_all()
