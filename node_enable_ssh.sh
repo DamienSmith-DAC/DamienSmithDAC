@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # We use this os that we can test on a copy of the config files
-BASEDIR="/tmp/fcc"
+#BASEDIR="/tmp/fcc"
+BASEDIR="/"
 
 umask 027
 
