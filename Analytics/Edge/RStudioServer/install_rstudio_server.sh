@@ -20,7 +20,6 @@ R -e "print(1+1)" #test if R is running
 # Install enterprise edition
 wget https://download2.rstudio.org/rstudio-server-rhel-pro-1.0.153-x86_64.rpm
 yum -y install --nogpgcheck rstudio-server-rhel-pro-1.0.153-x86_64.rpm
-yum -y remove epel-release
 
 
 # Activate RStudio Server Pro 
@@ -33,7 +32,6 @@ echo $PEM > $RKEY
 IFS=$OLDIFS
 rstudio-server license-manager activate < $RKEY
 rstudio-server restart
-rm -f $RKEY
 
 
 # Install requirement for Kerberos
@@ -69,4 +67,9 @@ echo "readenv=1" >> /etc/environment
 yum -y install libxml2-devel
 echo "Install sparklyr with following command (execute manually to select CRAN mirror)"
 echo "R -e \"install.packages('sparklyr')\""
+
+
+# Remove some packages and files
+yum -y remove epel-release
+rm -f $RKEY
 
