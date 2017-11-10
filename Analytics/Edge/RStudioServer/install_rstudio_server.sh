@@ -28,10 +28,12 @@ OLDIFS=$IFS
 echo "Please enter your RStudio Server Pro license key followed by Ctrl + D:"
 IFS="   "
 PEM=`cat`
-echo $PEM > /rstudio_license_key
+RKEY=`mktemp -p /tmp rstudio_license-XXXX`
+echo $PEM > $RKEY
 IFS=$OLDIFS
-rstudio-server license-manager activate < /rstudio_license_key
+rstudio-server license-manager activate < $RKEY
 rstudio-server restart
+rm -f $RKEY
 
 
 # Install requirement for Kerberos
