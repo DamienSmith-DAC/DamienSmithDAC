@@ -18,6 +18,7 @@ R -e "print(1+1)" #test if R is running
 
 
 # Install enterprise edition
+yum -y install wget
 wget https://download2.rstudio.org/rstudio-server-rhel-pro-1.0.153-x86_64.rpm
 yum -y install --nogpgcheck rstudio-server-rhel-pro-1.0.153-x86_64.rpm
 
