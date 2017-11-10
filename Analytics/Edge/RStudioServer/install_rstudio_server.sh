@@ -16,3 +16,13 @@ R -e "print(1+1)" #test if R is running
 wget https://download2.rstudio.org/rstudio-server-rhel-pro-1.0.153-x86_64.rpm
 yum -y install --nogpgcheck rstudio-server-rhel-pro-1.0.153-x86_64.rpm
 yum -y remove epel-release
+
+# Install requirement for Kerberos
+yum -y install pam_krb5
+
+# Config files
+echo "readenv=1" >> /etc/environment
+
+# Install sparklyr (execute manually to select CRAN mirror)
+echo "Install sparklyr with following command (execute manually to select CRAN mirror)"
+echo "R -e \"install.packages('sparklyr')\""
