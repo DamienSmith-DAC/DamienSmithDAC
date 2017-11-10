@@ -24,5 +24,6 @@ yum -y install pam_krb5
 echo "readenv=1" >> /etc/environment
 
 # Install sparklyr (execute manually to select CRAN mirror)
+yum -y install libxml2-devel
 echo "Install sparklyr with following command (execute manually to select CRAN mirror)"
 echo "R -e \"install.packages('sparklyr')\""
