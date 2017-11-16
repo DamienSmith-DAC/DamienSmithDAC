@@ -15,7 +15,7 @@ MYSQL_PASSWORD=`ssh  np-a-mysql-01 "cat $MYSQL_PASSWORD_FILE"`
 exec &>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
 echo "$(date +'%h %d %H:%M:%S')"
 
-ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
+/usr/sbin/ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
 if [ $? -ne 0 ]; then
         exit
 fi
@@ -41,6 +41,7 @@ fi
 
 grep -Fxvf $EXISTING_HDFS_USERS $SQL_USER_LIST > $USER_DIFFERENCES
 if [ $? -ne 0 ]; then
+        echo 'Exiting - no users created'
         exit
 fi
 
@@ -49,7 +50,7 @@ while read LDAPUSER;
                         hdfs dfs -mkdir /user/$LDAPUSER
                         hdfs dfs -chown $LDAPUSER:hdfs /user/$LDAPUSER
         done < $USER_DIFFERENCES
-
 if [ $? -ne 0 ]; then
         exit
 fi
+echo 'Exiting - users created'
