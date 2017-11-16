@@ -14,8 +14,9 @@ MYSQL_PASSWORD=`ssh a-mysql-02 "cat $MYSQL_PASSWORD_FILE"`
 #NOTE A-MYSQL-02 IS THE PRIMARY DB, AND LOGIN IS HIVE. SQL PASSWORD STORED ON SQL SERVER
 
 exec &>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
+echo "$(date +'%h %d %H:%M:%S')"
 
-ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
+/usr/sbin/ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
 if [ $? -ne 0 ]; then
         exit
 fi
@@ -41,6 +42,7 @@ fi
 
 grep -Fxvf $EXISTING_HDFS_USERS $SQL_USER_LIST > $USER_DIFFERENCES
 if [ $? -ne 0 ]; then
+        echo 'Exiting, no user directories created'
         exit
 fi
 
@@ -53,3 +55,4 @@ while read LDAPUSER;
 if [ $? -ne 0 ]; then
         exit
 fi
+echo 'Exiting, user directories created'
