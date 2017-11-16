@@ -12,15 +12,22 @@ MYSQL_PASSWORD_FILE='/etc/onboardingautomation/sqlpassword.conf'
 MYSQL_PASSWORD=`ssh  np-a-mysql-01 "cat $MYSQL_PASSWORD_FILE"`
 
 
-exec &>> /var/log/onboardingautomation/create-hdfs-user-dir-and-sync-ldap.log
+exec &>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
 echo "$(date +'%h %d %H:%M:%S')"
-
-ssh np-a-mysql-01 'mysql -u root -p'"'"$MYSQL_PASSWORD"'"' -N -e '"'"$SQLQUERY"'" > $SQL_USER_LIST
 
 ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
 if [ $? -ne 0 ]; then
         exit
 fi
+
+sleep 30
+
+ssh np-a-mysql-01 'mysql -u root -p'"'"$MYSQL_PASSWORD"'"' -N -e '"'"$SQLQUERY"'" > $SQL_USER_LIST
+if [ $? -ne 0 ]; then
+        exit
+fi
+
+sleep 30
 
 kinit hdfs-npdace2@DAC.LOCAL -kt /etc/security/keytabs/hdfs.headless.keytab
 if [ $? -ne 0 ]; then
