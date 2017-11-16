@@ -41,7 +41,7 @@ fi
 
 grep -Fxvf $EXISTING_HDFS_USERS $SQL_USER_LIST > $USER_DIFFERENCES
 if [ $? -ne 0 ]; then
-        echo 'Exiting - no users created'
+        echo 'Exiting, no user directories created'
         exit
 fi
 
@@ -53,4 +53,4 @@ while read LDAPUSER;
 if [ $? -ne 0 ]; then
         exit
 fi
-echo 'Exiting - users created'
+echo 'Exiting, user directories created'
