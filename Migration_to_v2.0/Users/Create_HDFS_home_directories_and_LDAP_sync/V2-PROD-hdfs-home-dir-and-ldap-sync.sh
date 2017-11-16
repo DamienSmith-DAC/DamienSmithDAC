@@ -13,14 +13,21 @@ MYSQL_PASSWORD=`ssh a-mysql-02 "cat $MYSQL_PASSWORD_FILE"`
 
 #NOTE A-MYSQL-02 IS THE PRIMARY DB, AND LOGIN IS HIVE. SQL PASSWORD STORED ON SQL SERVER
 
-exec 2>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
-
-ssh a-mysql-02 'mysql -u hive -p'"'"$MYSQL_PASSWORD"'"' -N -e '"'"$SQLQUERY"'" > $SQL_USER_LIST
+exec &>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
 
 ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt --ldap-sync-admin-name=admin --ldap-sync-admin-password=$(< "$LDAP_PASSWORD")
 if [ $? -ne 0 ]; then
         exit
 fi
+
+sleep 30
+
+ssh a-mysql-02 'mysql -u hive -p'"'"$MYSQL_PASSWORD"'"' -N -e '"'"$SQLQUERY"'" > $SQL_USER_LIST
+if [ $? -ne 0 ]; then
+        exit
+fi
+
+sleep 30
 
 kinit hdfs-dace2@DAC.LOCAL -kt /etc/security/keytabs/hdfs.headless.keytab
 if [ $? -ne 0 ]; then
