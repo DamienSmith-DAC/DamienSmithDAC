@@ -16,7 +16,7 @@ for db in $databases;
 				echo 'Creating table '${t}
 				# Transform location of database from onegovdev to new cluster
 				sed -i s'/onegovdev/np-master02.dac.local:8020/'g ${path_to_dbs}${db}/${t}
-				hive -d ${db} -f ${path_to_dbs}${db}/${t}
+				hive --database ${db} -f ${path_to_dbs}${db}/${t}
 				echo ' ' 
 			done
 
