@@ -7,8 +7,8 @@
 # Upload text files (cluster 1 should be source of truth)
 cluster_1_output = raw_input('Path to cluster_1_output:')
 cluster_2_output = raw_input('Path to cluster_2_output:')
-cluster_1 = open('cluster_1_output', r)
-cluster_2 = open('cluster_2_output', r)
+cluster_1 = open('cluster_1_output', 'r')
+cluster_2 = open('cluster_2_output', 'r')
 
 # Create lists from text files
 cluster_1_list = cluster_1.split('\n')
