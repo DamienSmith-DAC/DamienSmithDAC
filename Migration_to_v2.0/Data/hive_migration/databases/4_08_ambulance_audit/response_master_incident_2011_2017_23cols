@@ -1,0 +1,39 @@
+CREATE TABLE `response_master_incident_2011_2017_23cols`(
+  `rmi_pk` string, 
+  `rmi_id` int, 
+  `rmi_opcentre` string, 
+  `master_incident_number` double, 
+  `base_response_number` string, 
+  `priority_number` double, 
+  `rmi_division` string, 
+  `rmi_jurisdication` string, 
+  `response_area` string, 
+  `determinant` string, 
+  `problem` string, 
+  `methodofcallrcvd` string, 
+  `caller_type` string, 
+  `cancel_reason` string, 
+  `call_disposition` string, 
+  `pickuplong_convert` double, 
+  `pickuplat_convert` double, 
+  `priority_code` string, 
+  `determinant number` string, 
+  `response_hour_type` string, 
+  `call_complete_time` string, 
+  `first_unit_response_time` string, 
+  `time_to_close_call` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/response_master_incident_2011_2017_23cols'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='89', 
+  'numRows'='4822782', 
+  'rawDataSize'='8604332885', 
+  'totalSize'='185967892', 
+  'transient_lastDdlTime'='1504486343')

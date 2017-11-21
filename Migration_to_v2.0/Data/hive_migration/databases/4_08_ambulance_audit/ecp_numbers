@@ -1,0 +1,25 @@
+CREATE TABLE `ecp_numbers`(
+  `year` string, 
+  `month` string, 
+  `day` string, 
+  `hour` int, 
+  `determinant_number` string, 
+  `priority_code` string, 
+  `geo_zone` string, 
+  `transport_outcome` string, 
+  `count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/ecp_numbers'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='87970', 
+  'rawDataSize'='4743113', 
+  'totalSize'='4831083', 
+  'transient_lastDdlTime'='1505955151')

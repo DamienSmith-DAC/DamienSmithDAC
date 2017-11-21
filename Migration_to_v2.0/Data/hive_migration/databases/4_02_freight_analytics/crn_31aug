@@ -1,0 +1,18 @@
+CREATE VIEW `crn_31aug` AS select  `a`.`train1`, `a`.`state`, `a`.`operator1`, `a`.`commodity`, `a`.`location_code`, `a`.`location_name`, `a`.`track_km`, `a`.`arrival_time_planned`, `a`.`arrival_time_actual`, `a`.`arrival_difference`, `a`.`arrival_diff_minutes`, `a`.`departure_time_planned`, `a`.`weekday`, `a`.`departure_time_actual`, `a`.`departure_difference`, `a`.`departure_diff_min`, `a`.`dumm1`, `a`.`dummy2` ,
+CASE
+  WHEN (NVL(cast(`a`.`arrival_diff_minutes` as int),0) = 0 ) THEN '0'
+  WHEN (`a`.`arrival_diff_minutes` between 1 and 60) THEN '1'
+  WHEN (`a`.`arrival_diff_minutes` between 61 and 120) THEN '2'
+  WHEN (`a`.`arrival_diff_minutes` between 121 and 180) THEN '3'
+  WHEN (`a`.`arrival_diff_minutes` between 181 and 240) THEN '4'
+   ELSE '5'
+END `arrival_delay_bucket` ,
+CASE
+   WHEN (NVL(`a`.`departure_diff_min`,0) = 0 ) THEN '0'
+  WHEN (`a`.`departure_diff_min` between 1 and 60) THEN '1'
+  WHEN (`a`.`departure_diff_min` between 61 and 120) THEN '2'
+  WHEN (`a`.`departure_diff_min` between 121 and 180) THEN '3'
+  WHEN (`a`.`departure_diff_min` between 181 and 240) THEN '4'
+   ELSE '5'
+END `dep_delay_bucket` 
+from `4_02_freight_analytics`.`crn_weekday` `a`

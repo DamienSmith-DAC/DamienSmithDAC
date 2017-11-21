@@ -1,0 +1,19 @@
+CREATE TABLE `calendar_dates`(
+  `service` string, 
+  `date1` string, 
+  `exception_type` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/calendar_dates'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='17662', 
+  'rawDataSize'='4768740', 
+  'totalSize'='10926', 
+  'transient_lastDdlTime'='1497932573')

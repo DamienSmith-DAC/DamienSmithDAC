@@ -1,0 +1,39 @@
+CREATE TABLE `response_transport_2011_2017`(
+  `rt_pk` string, 
+  `rt_id` int, 
+  `rt_master_incident_id` int, 
+  `rt_opcentre` string, 
+  `vehicle_assigned_id` int, 
+  `rt_response_date` timestamp, 
+  `destination_address` string, 
+  `destination_city` string, 
+  `escort` double, 
+  `destination_longitude` double, 
+  `destination_latitude` double, 
+  `destinationlong_convert` string, 
+  `destinationlat_convert` string, 
+  `destination_coord` string, 
+  `destination_name` string, 
+  `destination_type` string, 
+  `time_arrive_destination` string, 
+  `time_clearedthisdest` string, 
+  `time_depart_scene` string, 
+  `time_delayed_availability` string, 
+  `transport_protocol` string, 
+  `date_arrive_destination` string, 
+  `hour_arrive_destination` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/response_transport_2011_2017'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='91', 
+  'numRows'='4515907', 
+  'rawDataSize'='7479978871', 
+  'totalSize'='234409064', 
+  'transient_lastDdlTime'='1504750796')

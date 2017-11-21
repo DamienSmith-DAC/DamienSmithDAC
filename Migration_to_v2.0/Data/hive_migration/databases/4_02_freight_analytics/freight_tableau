@@ -1,0 +1,25 @@
+CREATE TABLE `freight_tableau`(
+  `level` string, 
+  `numberofrecords` string, 
+  `parentcategorylabel` string, 
+  `pathbin` string, 
+  `path` string, 
+  `productcategory` string, 
+  `location_code` string, 
+  `location_name` string, 
+  `sales` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/freight_tableau'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='6778', 
+  'rawDataSize'='500901', 
+  'totalSize'='507679', 
+  'transient_lastDdlTime'='1503449260')

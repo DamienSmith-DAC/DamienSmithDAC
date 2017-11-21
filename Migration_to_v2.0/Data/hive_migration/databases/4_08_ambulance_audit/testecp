@@ -1,0 +1,30 @@
+CREATE TABLE `testecp`(
+  `response_area` string, 
+  `geo_sector` string, 
+  `priority_category` string, 
+  `call_disposition` string, 
+  `year` string, 
+  `rva_pk` string, 
+  `rva_id` string, 
+  `rva_master_incident_id` string, 
+  `battalion` string, 
+  `hour_arrivedatscene` string, 
+  `hour_assigned` string, 
+  `vehicle_id` string, 
+  `cancel_reason` string, 
+  `vehicle_type` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/testecp'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='41', 
+  'numRows'='1122170', 
+  'rawDataSize'='171199986', 
+  'totalSize'='172322156', 
+  'transient_lastDdlTime'='1503538650')

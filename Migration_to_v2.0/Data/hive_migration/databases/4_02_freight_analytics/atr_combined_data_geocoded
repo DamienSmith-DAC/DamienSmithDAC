@@ -1,0 +1,41 @@
+CREATE TABLE `atr_combined_data_geocoded`(
+  `atr_id` int, 
+  `train` int, 
+  `train_date` timestamp, 
+  `operator` string, 
+  `train_status` string, 
+  `train_type` string, 
+  `train_commodity` string, 
+  `train_origin` string, 
+  `train_destination` string, 
+  `code_origin` string, 
+  `code_origin_kms` double, 
+  `sched_dept_date_time` timestamp, 
+  `act_dept_time` timestamp, 
+  `code_destination` string, 
+  `code_destination_kms` double, 
+  `sched_arr_date_time` timestamp, 
+  `act_arr_date_time` timestamp, 
+  `rmc_delay_reason` string, 
+  `dept_delay` double, 
+  `arr_delay` double, 
+  `weekday` string, 
+  `dept_delay_bin` int, 
+  `arr_delay_bin` int, 
+  `longitude` double, 
+  `latitude` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/atr_combined_data_geocoded'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='9', 
+  'numRows'='524538', 
+  'rawDataSize'='628042202', 
+  'totalSize'='10242377', 
+  'transient_lastDdlTime'='1504245360')

@@ -1,0 +1,30 @@
+CREATE TABLE `crn_weekdays`(
+  `train1` string, 
+  `state` string, 
+  `operator1` string, 
+  `commodity` string, 
+  `location_code` string, 
+  `location_name` string, 
+  `track_km` string, 
+  `arrival_time_planned` string, 
+  `arrival_time_actual` string, 
+  `arrival_difference` string, 
+  `departure_time_planned` string, 
+  `weekday` string, 
+  `departure_time_actual` string, 
+  `departure_difference` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/crn_weekdays'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='2', 
+  'numRows'='192832', 
+  'rawDataSize'='246690073', 
+  'totalSize'='2570901', 
+  'transient_lastDdlTime'='1501634880')

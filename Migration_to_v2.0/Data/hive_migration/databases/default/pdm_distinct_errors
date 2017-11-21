@@ -1,0 +1,17 @@
+CREATE TABLE `pdm_distinct_errors`(
+  `column3` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/pdm_distinct_errors'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='6', 
+  'rawDataSize'='37', 
+  'totalSize'='43', 
+  'transient_lastDdlTime'='1500182947')

@@ -1,0 +1,19 @@
+CREATE TABLE `pdm_errors`(
+  `column1` string, 
+  `column2` string, 
+  `column3` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/pdm_errors'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='3920', 
+  'rawDataSize'='1085840', 
+  'totalSize'='17069', 
+  'transient_lastDdlTime'='1500181243')

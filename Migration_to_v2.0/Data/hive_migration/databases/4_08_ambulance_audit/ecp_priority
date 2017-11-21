@@ -1,0 +1,23 @@
+CREATE TABLE `ecp_priority`(
+  `year` string, 
+  `geo_zone` string, 
+  `vehicle_type` string, 
+  `determinant` string, 
+  `problem` string, 
+  `priority_code` string, 
+  `count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/ecp_priority'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='24', 
+  'numRows'='320545', 
+  'rawDataSize'='22190956', 
+  'totalSize'='22511501', 
+  'transient_lastDdlTime'='1506043098')

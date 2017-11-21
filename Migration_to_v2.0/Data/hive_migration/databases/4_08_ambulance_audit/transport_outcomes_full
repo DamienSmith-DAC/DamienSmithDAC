@@ -1,0 +1,26 @@
+CREATE TABLE `transport_outcomes_full`(
+  `year` string, 
+  `month` string, 
+  `day` string, 
+  `hour` int, 
+  `priority_code` string, 
+  `vehicle_type` string, 
+  `geo_zone` string, 
+  `determinant_number` string, 
+  `transport_outcome` string, 
+  `count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/transport_outcomes_full'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='24', 
+  'numRows'='5232856', 
+  'rawDataSize'='390730353', 
+  'totalSize'='395963209', 
+  'transient_lastDdlTime'='1506310139')

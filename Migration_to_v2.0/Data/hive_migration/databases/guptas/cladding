@@ -1,0 +1,28 @@
+CREATE TABLE `cladding`(
+  `latitude` string, 
+  `longitude` string, 
+  `address` string, 
+  `acc_id` string, 
+  `acc_level` string, 
+  `assessment` string, 
+  `column7` string, 
+  `column8` string, 
+  `column9` string, 
+  `column10` string, 
+  `column11` string, 
+  `column12` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/cladding'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='3861', 
+  'rawDataSize'='4123548', 
+  'totalSize'='85728', 
+  'transient_lastDdlTime'='1497830698')

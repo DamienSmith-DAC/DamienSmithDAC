@@ -1,0 +1,22 @@
+CREATE TABLE `truck_mileage`(
+  `truckid` string, 
+  `driverid` string, 
+  `rdate` string, 
+  `miles` int, 
+  `gas` int, 
+  `mpg` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/test.db/truck_mileage'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='5400', 
+  'rawDataSize'='1495800', 
+  'totalSize'='55088', 
+  'transient_lastDdlTime'='1492584347')

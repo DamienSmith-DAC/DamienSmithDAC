@@ -1,0 +1,25 @@
+CREATE TABLE `buildings_nz`(
+  `column1` string, 
+  `column2` string, 
+  `column3` string, 
+  `column4` string, 
+  `column5` string, 
+  `column6` string, 
+  `column7` string, 
+  `column8` string, 
+  `column9` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/buildings_nz'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='9', 
+  'rawDataSize'='5908', 
+  'totalSize'='2009', 
+  'transient_lastDdlTime'='1495757973')

@@ -1,0 +1,55 @@
+CREATE EXTERNAL TABLE `metadata`(
+  `cyp_ppn` int, 
+  `doby` int, 
+  `dobm` int, 
+  `sex` int, 
+  `indstat` int, 
+  `plcroid` string, 
+  `plcsdy` int, 
+  `plcsdm` int, 
+  `plcsdd` int, 
+  `plcedy` int, 
+  `plcedm` int, 
+  `plcedd` int, 
+  `plctype` int, 
+  `plcgroup` int, 
+  `plcpurp` int, 
+  `plcenrea` int, 
+  `plcexrea` int, 
+  `prgroup` int, 
+  `businame` string, 
+  `district` int, 
+  `flgadop` int, 
+  `plcprov` int, 
+  `flgadopa` int, 
+  `oppndocs` string, 
+  `ppsdy` int, 
+  `ppsdm` int, 
+  `ppsdd` int, 
+  `ppedy` int, 
+  `ppedm` int, 
+  `ppedd` int, 
+  `indcarer` int, 
+  `mdskids_matched_id` string, 
+  `restored_flag` string, 
+  `mds_episode_exit_reason` string, 
+  `plcsd` timestamp, 
+  `ppsd` timestamp, 
+  `pped` timestamp, 
+  `plced` timestamp)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+  LINES TERMINATED BY '\n' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/metadata'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1508205697')

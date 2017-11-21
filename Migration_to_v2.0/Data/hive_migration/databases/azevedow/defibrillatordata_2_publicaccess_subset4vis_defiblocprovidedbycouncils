@@ -1,0 +1,19 @@
+CREATE TABLE `defibrillatordata_2_publicaccess_subset4vis_defiblocprovidedbycouncils`(
+  `desc defiblocprovidedbycouncils` string, 
+  `latitude defiblocprovidedbycouncils` double, 
+  `longitude defiblocprovidedbycouncils` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defibrillatordata_2_publicaccess_subset4vis_defiblocprovidedbycouncils'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='350', 
+  'rawDataSize'='43026', 
+  'totalSize'='8729', 
+  'transient_lastDdlTime'='1507494151')

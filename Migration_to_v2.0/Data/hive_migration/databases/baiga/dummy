@@ -1,0 +1,18 @@
+CREATE TABLE `dummy`(
+  `id` tinyint, 
+  `name` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/baiga.db/dummy'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1500430818')

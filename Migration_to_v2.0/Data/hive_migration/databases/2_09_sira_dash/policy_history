@@ -1,0 +1,51 @@
+CREATE TABLE `policy_history`(
+  `yearmanufactured` string, 
+  `policynumber` int, 
+  `insurerid` string, 
+  `date_incept` string, 
+  `rmseffectivedate` string, 
+  `rmsexpirydate` string, 
+  `transactiondate` string, 
+  `premiumtaxable` double, 
+  `gst` double, 
+  `mcislevy` double, 
+  `premiumtotal` double, 
+  `commission` double, 
+  `transactiontype` string, 
+  `distributionchannel` string, 
+  `policyduration` string, 
+  `bonusmalus` string, 
+  `owner_dob` string, 
+  `youngest_dob` string, 
+  `mailpostcode` string, 
+  `garagedpostcode` string, 
+  `ctpregion` string, 
+  `vehicleuse` string, 
+  `class` string, 
+  `shape` string, 
+  `make` string, 
+  `model` string, 
+  `enginetype` string, 
+  `vin` string, 
+  `insurancerating` string, 
+  `busregflag` string, 
+  `fleet_flag` string, 
+  `atfaultindicator` string, 
+  `youngest_age` string, 
+  `under25indicator` string, 
+  `uwyear_incept` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_09_sira_dash.db/policy_history'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='106', 
+  'numRows'='70481610', 
+  'rawDataSize'='176891085570', 
+  'totalSize'='1756456412', 
+  'transient_lastDdlTime'='1509324336')

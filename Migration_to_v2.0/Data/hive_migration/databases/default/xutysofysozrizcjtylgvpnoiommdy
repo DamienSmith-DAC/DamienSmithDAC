@@ -1,0 +1,25 @@
+CREATE TABLE `xutysofysozrizcjtylgvpnoiommdy`(
+  `column1` string, 
+  `column2` string, 
+  `column3` string, 
+  `column4` string, 
+  `column5` string, 
+  `column6` string, 
+  `column7` string, 
+  `column8` string, 
+  `column9` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '1' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/xutysofysozrizcjtylgvpnoiommdy'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1500013740')

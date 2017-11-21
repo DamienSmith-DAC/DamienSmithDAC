@@ -1,0 +1,42 @@
+CREATE EXTERNAL TABLE `responsevehicle_vehicletype`(
+  `rva_pk` string, 
+  `rva_id` string, 
+  `rva_master_incident_id` string, 
+  `rva_opcentre` string, 
+  `rva_response_date` string, 
+  `rmi_fk` string, 
+  `pt_rcd_id` string, 
+  `rvp_fk` string, 
+  `alog_fk` string, 
+  `battalion` string, 
+  `rva_division` string, 
+  `rva_jurisdiction` string, 
+  `radio_name` string, 
+  `response_number` string, 
+  `time_arrivedatscene` string, 
+  `date_arrivedatscene` string, 
+  `hour_arrivedatscene` string, 
+  `time_assigned` string, 
+  `date_assigned` string, 
+  `hour_assigned` string, 
+  `time_call_cleared` string, 
+  `time_delayed_availability` string, 
+  `time_enroute` string, 
+  `date_enroute` string, 
+  `hour_enroute` string, 
+  `vehicle_id` string, 
+  `time_staged` string, 
+  `cancel_reason` string, 
+  `vehicle_type` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit'
+TBLPROPERTIES (
+  'numFiles'='7', 
+  'totalSize'='3406159244', 
+  'transient_lastDdlTime'='1503453321')

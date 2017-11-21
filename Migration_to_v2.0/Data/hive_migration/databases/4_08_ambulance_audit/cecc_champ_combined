@@ -1,0 +1,20 @@
+CREATE EXTERNAL TABLE `cecc_champ_combined`(
+  `encounterstartdatetime` string, 
+  `encounterenddatetime` string, 
+  `finaltriagedisposition` string, 
+  `guidelineused` string, 
+  `outcomedescription` string, 
+  `min_number` string, 
+  `presentingproblem` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit/hd'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='7784623', 
+  'transient_lastDdlTime'='1506298577')

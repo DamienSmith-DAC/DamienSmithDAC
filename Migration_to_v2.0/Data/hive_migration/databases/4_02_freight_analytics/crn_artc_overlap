@@ -1,0 +1,19 @@
+CREATE TABLE `crn_artc_overlap`(
+  `trainid` string, 
+  `train1` string, 
+  `_c2` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/crn_artc_overlap'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='2600', 
+  'rawDataSize'='54607', 
+  'totalSize'='57207', 
+  'transient_lastDdlTime'='1503636851')

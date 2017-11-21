@@ -1,0 +1,20 @@
+CREATE TABLE `train`(
+  `mode` string, 
+  `tag2_ts_nm` string, 
+  `tag2_lat_val` string, 
+  `tag2_long_val` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/train'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='308', 
+  'rawDataSize'='115192', 
+  'totalSize'='5633', 
+  'transient_lastDdlTime'='1499054596')

@@ -1,0 +1,51 @@
+CREATE TABLE `artc_v1`(
+  `movementdestination` string, 
+  `movementorigin` string, 
+  `traindate` string, 
+  `trainid` string, 
+  `operatorcode` string, 
+  `operatordescription` string, 
+  `commoditycode` string, 
+  `commoditydescription` string, 
+  `trainorigincode` string, 
+  `trainorigindescription` string, 
+  `traindestinationcode` string, 
+  `traindestinationdescription` string, 
+  `movementoriginname` string, 
+  `movementdestinationname` string, 
+  `scheduleddeparture` string, 
+  `actualdeparture` string, 
+  `scheduledarrival` string, 
+  `actualarrival` string, 
+  `movementsequence` string, 
+  `reportinglocation` string, 
+  `delaycode` string, 
+  `delaycodedescriptions` string, 
+  `mainsequence` string, 
+  `weekdayscheduleddeparture` string, 
+  `knownreasonfordelay` boolean, 
+  `departuredelayminutes` string, 
+  `arrivaldelayminutes` string, 
+  `provider` string, 
+  `longitude_origin` double, 
+  `latitude_origin` double, 
+  `longitude_destination` double, 
+  `latitude_destination` double, 
+  `trip` string, 
+  `actualdeparturenogaps` string, 
+  `actualarrivalnumericnogaps` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/artc_v1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='7', 
+  'numRows'='341153', 
+  'rawDataSize'='947205199', 
+  'totalSize'='8098362', 
+  'transient_lastDdlTime'='1503632301')

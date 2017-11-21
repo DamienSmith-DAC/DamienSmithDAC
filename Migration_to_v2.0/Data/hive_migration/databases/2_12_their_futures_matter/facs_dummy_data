@@ -1,0 +1,50 @@
+CREATE TABLE `facs_dummy_data`(
+  `cyp_ppn` int, 
+  `doby` int, 
+  `dobm` int, 
+  `sex` int, 
+  `indstat` int, 
+  `plcroid` string, 
+  `plcsdy` int, 
+  `plcsdm` int, 
+  `plcsdd` int, 
+  `plcedy` int, 
+  `plcedm` int, 
+  `plcedd` int, 
+  `plctype` int, 
+  `plcgroup` int, 
+  `plcpurp` int, 
+  `plcenrea` int, 
+  `plcexrea` int, 
+  `prgroup` int, 
+  `businame` string, 
+  `district` int, 
+  `flgadop` int, 
+  `plcprov` int, 
+  `flgadopa` int, 
+  `oppndocs` string, 
+  `ppsdy` int, 
+  `ppsdm` int, 
+  `ppsdd` int, 
+  `ppedy` int, 
+  `ppedm` int, 
+  `ppedd` int, 
+  `indcarer` int, 
+  `mdskids_matched_id` string, 
+  `restored_flag` string, 
+  `mds_episode_exit_reason` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/facs_dummy_data'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='100000', 
+  'rawDataSize'='67704500', 
+  'totalSize'='3504671', 
+  'transient_lastDdlTime'='1505799087')

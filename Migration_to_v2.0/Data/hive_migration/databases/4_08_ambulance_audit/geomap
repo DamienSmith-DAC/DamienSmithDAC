@@ -1,0 +1,27 @@
+CREATE TABLE `geomap`(
+  `geo_id` int, 
+  `geo_battalion` string, 
+  `geo_battalion_display` string, 
+  `geo_zone` string, 
+  `geo_sector` string, 
+  `geo_sector_sort_order` int, 
+  `nsw` string, 
+  `geo_lhd` string, 
+  `station_id` string, 
+  `is_current` string, 
+  `station_type` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/geomap'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='393', 
+  'rawDataSize'='326190', 
+  'totalSize'='8384', 
+  'transient_lastDdlTime'='1502937509')

@@ -1,0 +1,20 @@
+CREATE TABLE `crap`(
+  `id` int, 
+  `name` string, 
+  `thirdcol` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/baiga.db/crap'
+TBLPROPERTIES (
+  'last_modified_by'='baiga', 
+  'last_modified_time'='1505106010', 
+  'numFiles'='5', 
+  'numRows'='4', 
+  'rawDataSize'='24', 
+  'totalSize'='39', 
+  'transient_lastDdlTime'='1505106047')

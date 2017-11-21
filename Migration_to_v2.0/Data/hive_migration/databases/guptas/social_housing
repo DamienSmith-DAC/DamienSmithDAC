@@ -1,0 +1,22 @@
+CREATE TABLE `social_housing`(
+  `id` string, 
+  `unit` string, 
+  `streetno` string, 
+  `streetname` string, 
+  `suburb` string, 
+  `postcode` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/social_housing'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='108936', 
+  'rawDataSize'='58062888', 
+  'totalSize'='954774', 
+  'transient_lastDdlTime'='1497829863')

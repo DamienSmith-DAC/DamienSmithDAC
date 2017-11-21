@@ -1,0 +1,40 @@
+CREATE TABLE `bocsar_dummy_data`(
+  `ppn` int, 
+  `caseno` int, 
+  `source` string, 
+  `mspdi` int, 
+  `indexcaseno` string, 
+  `indexdate` date, 
+  `jd` char(1), 
+  `convict` int, 
+  `dod` date, 
+  `provenoff` int, 
+  `offenceno` int, 
+  `offdate` date, 
+  `anzsoc` int, 
+  `lawpart` int, 
+  `outcome` int, 
+  `msr` int, 
+  `prinoff` int, 
+  `pencode` int, 
+  `penval` int, 
+  `penunit` string, 
+  `totval` double, 
+  `prinpen` int, 
+  `priscom` string, 
+  `key` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/bocsar_dummy_data'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\",\"COLUMN_STATS\":{\"ppn\":\"true\",\"caseno\":\"true\",\"source\":\"true\",\"mspdi\":\"true\",\"indexcaseno\":\"true\",\"indexdate\":\"true\",\"jd\":\"true\",\"convict\":\"true\",\"dod\":\"true\",\"provenoff\":\"true\",\"offenceno\":\"true\",\"offdate\":\"true\",\"anzsoc\":\"true\",\"lawpart\":\"true\",\"outcome\":\"true\",\"msr\":\"true\",\"prinoff\":\"true\",\"pencode\":\"true\",\"penval\":\"true\",\"penunit\":\"true\",\"totval\":\"true\",\"prinpen\":\"true\",\"priscom\":\"true\",\"key\":\"true\"}}', 
+  'numFiles'='1', 
+  'numRows'='100000', 
+  'rawDataSize'='67069480', 
+  'totalSize'='4486887', 
+  'transient_lastDdlTime'='1505797096')

@@ -1,0 +1,21 @@
+CREATE TABLE `year_mth`(
+  `yrmth` int, 
+  `yr` int, 
+  `mth` int, 
+  `mth_st_date` date, 
+  `mth_ed_date` date)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/year_mth'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='372', 
+  'rawDataSize'='46080', 
+  'totalSize'='692', 
+  'transient_lastDdlTime'='1508122821')

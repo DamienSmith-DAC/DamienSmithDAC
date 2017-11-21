@@ -1,0 +1,52 @@
+CREATE TABLE `cadm_master_vehicle_transport_geozone1`(
+  `rmi_pk` string, 
+  `rmi_id` int, 
+  `rmi_opcentre` string, 
+  `master_incident_number` double, 
+  `base_response_number` string, 
+  `priority_number` double, 
+  `rmi_division` string, 
+  `rmi_jurisdication` string, 
+  `response_area` string, 
+  `determinant` string, 
+  `problem` string, 
+  `methodofcallrcvd` string, 
+  `caller_type` string, 
+  `cancel_reason` string, 
+  `call_disposition` string, 
+  `pickuplong_convert` double, 
+  `pickuplat_convert` double, 
+  `priority_code` string, 
+  `determinant number` string, 
+  `response_hour_type` string, 
+  `call_complete_time` string, 
+  `first_unit_response_time` string, 
+  `time_to_close_call` string, 
+  `rva_pk` string, 
+  `rva_master_incident_id` int, 
+  `rmi_fk` string, 
+  `battalion` string, 
+  `vehicle_id` int, 
+  `vehicle_type` string, 
+  `rt_pk` string, 
+  `vehicle_assigned_id` string, 
+  `transport_protocol` string, 
+  `destination_name` string, 
+  `destination_type` string, 
+  `time_depart_scene` string, 
+  `geo_zone` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/cadm_master_vehicle_transport_geozone1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='122', 
+  'numRows'='5608548', 
+  'rawDataSize'='2759977342', 
+  'totalSize'='2765585890', 
+  'transient_lastDdlTime'='1505086605')

@@ -1,0 +1,20 @@
+CREATE TABLE `qeehbqyctpxnygzchpjapecsojyous`(
+  `jd_code` char(1), 
+  `jd_name` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\u0001' 
+WITH SERDEPROPERTIES ( 
+  'escape.delim'='\u0002') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/qeehbqyctpxnygzchpjapecsojyous'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1507261509')

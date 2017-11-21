@@ -1,0 +1,26 @@
+CREATE TABLE `sas_paym_p1705_clean`(
+  `insurer` int, 
+  `accident_number` int, 
+  `claim_number` string, 
+  `payment_type_full_detail` string, 
+  `gross_payment_amount` int, 
+  `net_payment_amount` int, 
+  `payment_date` string, 
+  `payment_adjustment_flag` string, 
+  `gst_type` string, 
+  `payment_made_to` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_09_sira_dash.db/sas_paym_p1705_clean'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='25', 
+  'numRows'='7628030', 
+  'rawDataSize'='4138399787', 
+  'totalSize'='40072785', 
+  'transient_lastDdlTime'='1507859561')

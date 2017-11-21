@@ -1,0 +1,26 @@
+CREATE TABLE `calendar`(
+  `service_id` string, 
+  `monday` string, 
+  `tuesday` string, 
+  `wednesday` string, 
+  `thursday` string, 
+  `friday` string, 
+  `saturday` string, 
+  `sunday` string, 
+  `start_date` string, 
+  `end_date` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/calendar'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='1238', 
+  'rawDataSize'='1080774', 
+  'totalSize'='8108', 
+  'transient_lastDdlTime'='1497930673')

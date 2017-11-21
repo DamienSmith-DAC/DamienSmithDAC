@@ -1,0 +1,45 @@
+CREATE TABLE `responsevehicle_vehicletype_2011_2017`(
+  `rva_pk` string, 
+  `rva_id` int, 
+  `rva_master_incident_id` int, 
+  `rva_opcentre` string, 
+  `rva_response_date` string, 
+  `rmi_fk` string, 
+  `pt_rcd_id` double, 
+  `rvp_fk` string, 
+  `alog_fk` string, 
+  `battalion` string, 
+  `rva_division` string, 
+  `rva_jurisdiction` string, 
+  `radio_name` int, 
+  `response_number` double, 
+  `time_arrivedatscene` string, 
+  `date_arrivedatscene` string, 
+  `hour_arrivedatscene` double, 
+  `time_assigned` string, 
+  `date_assigned` string, 
+  `hour_assigned` int, 
+  `time_call_cleared` string, 
+  `time_delayed_availability` string, 
+  `time_enroute` string, 
+  `date_enroute` string, 
+  `hour_enroute` double, 
+  `vehicle_id` int, 
+  `time_staged` string, 
+  `cancel_reason` string, 
+  `vehicle_type` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/responsevehicle_vehicletype_2011_2017'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1504483410')

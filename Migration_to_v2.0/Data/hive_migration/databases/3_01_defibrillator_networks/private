@@ -1,0 +1,20 @@
+CREATE TABLE `private`(
+  `desc` string, 
+  `latitude` double, 
+  `longitude` double, 
+  `type` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/3_01_defibrillator_networks.db/private'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='893', 
+  'rawDataSize'='180386', 
+  'totalSize'='13134', 
+  'transient_lastDdlTime'='1507854737')

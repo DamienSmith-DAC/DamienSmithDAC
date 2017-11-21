@@ -1,0 +1,22 @@
+CREATE EXTERNAL TABLE `st_movement`(
+  `atr_id` string, 
+  `code_origin` string, 
+  `code_origin_kms` string, 
+  `sched_dept_date_time` string, 
+  `act_dept_time` string, 
+  `code_destination` string, 
+  `code_destination_kms` string, 
+  `sched_arr_date_time` string, 
+  `act_arr_date_time` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/user/guptas3/TFNSW/ST'
+TBLPROPERTIES (
+  'numFiles'='5', 
+  'totalSize'='62122683', 
+  'transient_lastDdlTime'='1503981564')

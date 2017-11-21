@@ -1,0 +1,57 @@
+CREATE TABLE `da_2014`(
+  `report_id` int, 
+  `council_id` int, 
+  `application_id` int, 
+  `applicationtype` string, 
+  `constructionvalueestimate` int, 
+  `value_code` int, 
+  `lodged` string, 
+  `categoryofdevelopment` string, 
+  `category_code_0809` int, 
+  `concurrencerequired` string, 
+  `designateddevelopment` string, 
+  `integrateddevelopment` string, 
+  `stoptheclockdays` string, 
+  `referraldays` string, 
+  `determined` string, 
+  `determinationlevel` string, 
+  `determinationtype` string, 
+  `num_new_dwelling` int, 
+  `num_pre_dwelling` int, 
+  `num_dem_dwelling` int, 
+  `zoning` string, 
+  `lotsize` string, 
+  `sepp_council_control` string, 
+  `s96category` string, 
+  `useofprivateassessment` string, 
+  `useofihap` string, 
+  `num_submissions` string, 
+  `predameetingheld` string, 
+  `changeofuse` int, 
+  `advertised` string, 
+  `da_determined` char(1), 
+  `da_approved` string, 
+  `da_refused` string, 
+  `s96_determined` string, 
+  `s96_approved` string, 
+  `s96_refused` string, 
+  `cdc_determined` char(1), 
+  `cdc_approved` char(1), 
+  `cdc_valid_date` char(3), 
+  `gross_days` int, 
+  `net_days` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/da_2014'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='15557', 
+  'rawDataSize'='39889558', 
+  'totalSize'='259185', 
+  'transient_lastDdlTime'='1496292733')

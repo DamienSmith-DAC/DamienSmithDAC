@@ -1,0 +1,19 @@
+CREATE TABLE `defibrillatordata_2_publicaccess_subset4vis_geohospitalsnsw`(
+  `desc geohospitalsnsw` string, 
+  `latitude geohospitalsnsw` double, 
+  `longitude geohospitalsnsw` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defibrillatordata_2_publicaccess_subset4vis_geohospitalsnsw'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='507', 
+  'rawDataSize'='64389', 
+  'totalSize'='8376', 
+  'transient_lastDdlTime'='1507479157')

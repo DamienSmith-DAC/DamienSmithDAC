@@ -1,0 +1,57 @@
+CREATE TABLE `da_2015_mod`(
+  `column1` string, 
+  `column2` string, 
+  `column3` string, 
+  `column4` string, 
+  `column5` string, 
+  `column6` string, 
+  `column7` string, 
+  `column8` string, 
+  `column9` string, 
+  `column10` string, 
+  `column11` string, 
+  `column12` string, 
+  `column13` string, 
+  `column14` string, 
+  `column15` string, 
+  `column16` string, 
+  `column17` string, 
+  `column18` string, 
+  `column19` string, 
+  `column20` string, 
+  `column21` string, 
+  `column22` string, 
+  `column23` string, 
+  `column24` string, 
+  `column25` string, 
+  `column26` string, 
+  `column27` string, 
+  `column28` string, 
+  `column29` string, 
+  `column30` string, 
+  `column31` string, 
+  `column32` string, 
+  `column33` string, 
+  `column34` string, 
+  `column35` string, 
+  `column36` string, 
+  `column37` string, 
+  `column38` string, 
+  `column39` string, 
+  `column40` string, 
+  `column41` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/da_2015_mod'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='17169', 
+  'rawDataSize'='60949950', 
+  'totalSize'='385957', 
+  'transient_lastDdlTime'='1496295125')

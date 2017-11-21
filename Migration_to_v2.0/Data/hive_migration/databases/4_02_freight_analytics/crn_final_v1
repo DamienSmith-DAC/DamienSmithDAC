@@ -1,0 +1,36 @@
+CREATE TABLE `crn_final_v1`(
+  `train1` string, 
+  `state` string, 
+  `operator1` string, 
+  `commodity` string, 
+  `location_code` string, 
+  `location_name` string, 
+  `track_km` double, 
+  `arrival_time_planned` string, 
+  `arrival_time_actual` string, 
+  `arrival_difference` string, 
+  `arrival_diff_minutes` string, 
+  `departure_time_planned` string, 
+  `weekday` string, 
+  `departure_time_actual` string, 
+  `departure_difference` string, 
+  `departure_diff_min` int, 
+  `arrival_delay_bucket` string, 
+  `dep_delay_bucket` string, 
+  `lat` double, 
+  `long` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/crn_final_v1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='210578', 
+  'rawDataSize'='31577715', 
+  'totalSize'='31788293', 
+  'transient_lastDdlTime'='1504141309')

@@ -1,0 +1,31 @@
+CREATE TABLE `delay_by_number`(
+  `weekday` string, 
+  `depth` bigint, 
+  `layer` string, 
+  `contoursequence` string, 
+  `train_date` string, 
+  `locationid` string, 
+  `latitude` double, 
+  `longitude` double, 
+  `markid` string, 
+  `tripid` string, 
+  `numberofrecords` string, 
+  `operatorcode` string, 
+  `signalid` string, 
+  `signalstrength` string, 
+  `commoditydescription` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/delay_by_number'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='3596', 
+  'rawDataSize'='372329', 
+  'totalSize'='375925', 
+  'transient_lastDdlTime'='1504671200')

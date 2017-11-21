@@ -1,0 +1,19 @@
+CREATE TABLE `defibrillatordata_2_publicaccess_subset4vis_firestationsosm`(
+  `desc firestationsosm` string, 
+  `latitude firestationsosm` double, 
+  `longitude firestationsosm` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defibrillatordata_2_publicaccess_subset4vis_firestationsosm'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='434', 
+  'rawDataSize'='48608', 
+  'totalSize'='6863', 
+  'transient_lastDdlTime'='1507493469')

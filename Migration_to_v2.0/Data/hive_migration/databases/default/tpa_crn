@@ -1,0 +1,29 @@
+CREATE TABLE `tpa_crn`(
+  `train1` string, 
+  `state` string, 
+  `operator1` string, 
+  `commodity` string, 
+  `location_code` string, 
+  `location_name` string, 
+  `track_km` string, 
+  `arrival_time_planned` string, 
+  `arrival_time_actual` string, 
+  `arrival_difference` string, 
+  `departure_time_planned` string, 
+  `departure_time_actual` string, 
+  `departure_difference` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/tpa_crn'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='2', 
+  'numRows'='192833', 
+  'rawDataSize'='229322903', 
+  'totalSize'='2543774', 
+  'transient_lastDdlTime'='1501548007')

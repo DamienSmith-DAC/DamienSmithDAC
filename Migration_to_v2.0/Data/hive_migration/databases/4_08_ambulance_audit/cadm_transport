@@ -1,0 +1,36 @@
+CREATE EXTERNAL TABLE `cadm_transport`(
+  `rt_pk` string, 
+  `rt_id` string, 
+  `rt_master_incident_id` string, 
+  `rt_opcentre` string, 
+  `vehicle_assigned_id` string, 
+  `rt_response_date` string, 
+  `destination_address` string, 
+  `destination_city` string, 
+  `escort` string, 
+  `destination_longitude` string, 
+  `destination_latitude` string, 
+  `destinationlong_convert` string, 
+  `destinationlat_convert` string, 
+  `destination_coord` string, 
+  `destination_name` string, 
+  `destination_type` string, 
+  `time_arrive_destination` string, 
+  `time_clearedthisdest` string, 
+  `time_depart_scene` string, 
+  `time_delayed_availability` string, 
+  `transport_protocol` string, 
+  `date_arrive_destination` string, 
+  `hour_arrive_destination` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit/Response_Transport'
+TBLPROPERTIES (
+  'numFiles'='11', 
+  'totalSize'='1503524243', 
+  'transient_lastDdlTime'='1504246286')

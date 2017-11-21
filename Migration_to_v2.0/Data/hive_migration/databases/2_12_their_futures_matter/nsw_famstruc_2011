@@ -1,0 +1,28 @@
+CREATE TABLE `nsw_famstruc_2011`(
+  `measure` int, 
+  `no_dep_child` string, 
+  `fmcf_mdcp` int, 
+  `fam_comp_mar_stat` string, 
+  `state` int, 
+  `state_name` string, 
+  `regiontype` string, 
+  `region` int, 
+  `asgs_2011` string, 
+  `frequency` string, 
+  `time` int, 
+  `value` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/nsw_famstruc_2011'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='13475', 
+  'rawDataSize'='8017625', 
+  'totalSize'='36385', 
+  'transient_lastDdlTime'='1504057748')

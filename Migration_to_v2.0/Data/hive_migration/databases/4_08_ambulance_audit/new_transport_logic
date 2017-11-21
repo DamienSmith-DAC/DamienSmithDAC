@@ -1,0 +1,18 @@
+CREATE TABLE `new_transport_logic`(
+  `rmi_pk` string, 
+  `_c1` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/new_transport_logic'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='14', 
+  'numRows'='59900', 
+  'rawDataSize'='2096526', 
+  'totalSize'='2156426', 
+  'transient_lastDdlTime'='1506662329')

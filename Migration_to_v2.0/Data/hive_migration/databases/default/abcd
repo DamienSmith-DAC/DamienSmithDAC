@@ -1,0 +1,19 @@
+CREATE TABLE `abcd`(
+  `column1` string, 
+  `column2` string, 
+  `streetno` string, 
+  `streetname` string, 
+  `suburb` string, 
+  `column6` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/abcd'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='296645', 
+  'transient_lastDdlTime'='1497834762')

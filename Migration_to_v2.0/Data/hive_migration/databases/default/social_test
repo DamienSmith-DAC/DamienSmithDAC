@@ -1,0 +1,22 @@
+CREATE TABLE `social_test`(
+  `column1` string, 
+  `column2` string, 
+  `streetno` string, 
+  `streetname` string, 
+  `suburb` string, 
+  `column6` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/social_test'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='108936', 
+  'rawDataSize'='58062888', 
+  'totalSize'='954859', 
+  'transient_lastDdlTime'='1497833138')

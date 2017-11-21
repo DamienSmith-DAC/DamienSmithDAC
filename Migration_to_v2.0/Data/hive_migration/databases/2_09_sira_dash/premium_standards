@@ -1,0 +1,21 @@
+CREATE TABLE `premium_standards`(
+  `week_date` string, 
+  `new scheme assumtpion` int, 
+  `expected weekly low` int, 
+  `expected weekly high` int, 
+  `actual` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_09_sira_dash.db/premium_standards'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='42', 
+  'rawDataSize'='4410', 
+  'totalSize'='683', 
+  'transient_lastDdlTime'='1508976473')

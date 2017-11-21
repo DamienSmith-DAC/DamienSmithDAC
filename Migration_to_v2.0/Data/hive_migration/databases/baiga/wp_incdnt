@@ -1,0 +1,46 @@
+CREATE TABLE `wp_incdnt`(
+  `id` string, 
+  `unique number` string, 
+  `incident date` string, 
+  `incident type` string, 
+  `fatal illness` string, 
+  `fatal injury` string, 
+  `date deceased` string, 
+  `age at time of incident` string, 
+  `investigation category` string, 
+  `response category` string, 
+  `industry type` string, 
+  `workplace suburb` string, 
+  `workplace state` string, 
+  `workplace postcode` string, 
+  `triage status` string, 
+  `employer type` string, 
+  `employer industry type` string, 
+  `party against employer anzsic` string, 
+  `party against employer anzsic desc` string, 
+  `party against employer reference` string, 
+  `party against suburb` string, 
+  `party against state` string, 
+  `party against postcode` string, 
+  `wi hazard cat1` string, 
+  `wi hazard desc1` string, 
+  `wi priority issue 1` string, 
+  `wi priority issue 2` string, 
+  `wi priority issue 3` string, 
+  `priority issue description` string, 
+  `priority industry description` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/baiga.db/wp_incdnt'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1500432165')

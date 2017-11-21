@@ -1,0 +1,37 @@
+CREATE TABLE `drivers1000`(
+  `insurer` int, 
+  `accident_number` string, 
+  `accident_date` int, 
+  `person_number` int, 
+  `person_role` string, 
+  `driver_flag` string, 
+  `owner_flag` string, 
+  `date_of_birth` string, 
+  `sex` string, 
+  `type_of_id` string, 
+  `licence_state` string, 
+  `area_code` string, 
+  `unit_number` string, 
+  `street_number` string, 
+  `street_name` string, 
+  `suburb` string, 
+  `person_postcode` int, 
+  `motor_rider_flag` string, 
+  `preprocessed_address` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_09_sira_dash.db/drivers1000'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'last_modified_by'='chua', 
+  'last_modified_time'='1506663319', 
+  'numFiles'='1', 
+  'numRows'='1000', 
+  'rawDataSize'='1359804', 
+  'totalSize'='44068', 
+  'transient_lastDdlTime'='1506663319')

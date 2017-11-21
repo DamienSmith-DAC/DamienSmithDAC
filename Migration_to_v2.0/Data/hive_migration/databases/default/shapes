@@ -1,0 +1,21 @@
+CREATE TABLE `shapes`(
+  `shape_id` string, 
+  `shape_pt_lat` string, 
+  `shape_pt_lon` string, 
+  `shape_pt_sequence` string, 
+  `shape_dist_traveled` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/shapes'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='31', 
+  'numRows'='3648771', 
+  'rawDataSize'='1765101284', 
+  'totalSize'='28863140', 
+  'transient_lastDdlTime'='1497935933')

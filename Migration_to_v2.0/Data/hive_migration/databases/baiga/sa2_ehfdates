@@ -1,0 +1,21 @@
+CREATE TABLE `sa2_ehfdates`(
+  `id` int, 
+  `sa2` string, 
+  `ehfdate` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/baiga.db/sa2_ehfdates'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'last_modified_by'='baiga', 
+  'last_modified_time'='1505109344', 
+  'numFiles'='1', 
+  'numRows'='743964', 
+  'rawDataSize'='20719887', 
+  'totalSize'='21463851', 
+  'transient_lastDdlTime'='1505109344')

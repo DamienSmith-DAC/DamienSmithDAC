@@ -1,0 +1,42 @@
+CREATE TABLE `freightdataset`(
+  `traindate` string, 
+  `trainid` string, 
+  `operatorcode` string, 
+  `operatordescription` string, 
+  `commoditycode` string, 
+  `commoditydescription` string, 
+  `trainorigincode` string, 
+  `trainorigindescription` string, 
+  `traindestinationcode` string, 
+  `traindestinationdescription` string, 
+  `movementorigin` string, 
+  `movementoriginname` string, 
+  `movementdestination` string, 
+  `movementdestinationname` string, 
+  `scheduleddeparture` string, 
+  `actualdeparture` string, 
+  `scheduledarrival` string, 
+  `actualarrival` string, 
+  `movementsequence` string, 
+  `reportinglocation` string, 
+  `delaycode` string, 
+  `delaycodedescriptions` string, 
+  `weekdayscheduleddeparture` string, 
+  `reason` string, 
+  `d_delayminutes` string, 
+  `a_delayminutes` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/freightdataset'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='4', 
+  'numRows'='302873', 
+  'rawDataSize'='709763166', 
+  'totalSize'='3772806', 
+  'transient_lastDdlTime'='1501483910')

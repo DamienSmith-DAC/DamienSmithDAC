@@ -1,0 +1,18 @@
+CREATE TABLE `avg_miles_per_model_dec12`(
+  `model` string, 
+  `_c1` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/avg_miles_per_model_dec12'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='11', 
+  'rawDataSize'='210', 
+  'totalSize'='221', 
+  'transient_lastDdlTime'='1500180620')

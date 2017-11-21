@@ -1,0 +1,54 @@
+CREATE TABLE `freight_geocoded`(
+  `x` double, 
+  `y` double, 
+  `oid_` int, 
+  `objectid` double, 
+  `tsn` int, 
+  `xa` double, 
+  `ya` double, 
+  `snapped_x` double, 
+  `snapped_y` double, 
+  `transitsto` string, 
+  `name` string, 
+  `status` string, 
+  `region` string, 
+  `street` string, 
+  `locality` string, 
+  `lastupdate` string, 
+  `kerb_heigh` string, 
+  `lightning` string, 
+  `shelter` string, 
+  `seattype` string, 
+  `signtype` string, 
+  `wheelchair` string, 
+  `surface_co` string, 
+  `pid` string, 
+  `gps_availa` string, 
+  `pickup` string, 
+  `reliefpoin` string, 
+  `school` string, 
+  `notpublic` string, 
+  `inactive` string, 
+  `defunct` string, 
+  `radius` double, 
+  `outerradiu` double, 
+  `setdownonl` string, 
+  `outerrad_1` double, 
+  `region_nam` string, 
+  `region_id` double, 
+  `ddlatlon` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/freight_geocoded'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='390', 
+  'rawDataSize'='894660', 
+  'totalSize'='24055', 
+  'transient_lastDdlTime'='1502341434')

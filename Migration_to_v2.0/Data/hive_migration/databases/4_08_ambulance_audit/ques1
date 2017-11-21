@@ -1,0 +1,22 @@
+CREATE TABLE `ques1`(
+  `year` string, 
+  `month` string, 
+  `hour` string, 
+  `priority_code` string, 
+  `geo_zone` string, 
+  `priority_count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/ques1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='11', 
+  'numRows'='230876', 
+  'rawDataSize'='8418838', 
+  'totalSize'='8649714', 
+  'transient_lastDdlTime'='1505091695')

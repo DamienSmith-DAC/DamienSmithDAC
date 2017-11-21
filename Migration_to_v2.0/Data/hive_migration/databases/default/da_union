@@ -1,0 +1,57 @@
+CREATE TABLE `da_union`(
+  `year` string, 
+  `report_id` string, 
+  `council_id` string, 
+  `application_id` string, 
+  `applicationtype` string, 
+  `constructionvalueestimate` string, 
+  `value_code` string, 
+  `lodged` string, 
+  `categoryofdevelopment` string, 
+  `category_code_0809` string, 
+  `concurrencerequired` string, 
+  `designateddevelopment` string, 
+  `integrateddevelopment` string, 
+  `stoptheclockdays` string, 
+  `referraldays` string, 
+  `determined` string, 
+  `determinationlevel` string, 
+  `determinationtype` string, 
+  `num_new_dwelling` string, 
+  `num_pre_dwelling` string, 
+  `num_dem_dwelling` string, 
+  `zoning` string, 
+  `lotsize` string, 
+  `sepp_council_control` string, 
+  `s96category` string, 
+  `useofprivateassessment` string, 
+  `useofihap` string, 
+  `num_submissions` string, 
+  `predameetingheld` string, 
+  `changeofuse` string, 
+  `advertised` string, 
+  `da_determined` string, 
+  `da_approved` string, 
+  `da_refused` string, 
+  `s96_determined` string, 
+  `s96_approved` string, 
+  `s96_refused` string, 
+  `cdc_determined` string, 
+  `cdc_approved` string, 
+  `cdc_valid_date` string, 
+  `gross_days` string, 
+  `net_days` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/da_union'
+TBLPROPERTIES (
+  'numFiles'='200', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"Year\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"report_id\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"council_id\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"application_id\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"applicationtype\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"constructionvalueestimate\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value_code\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"lodged\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryofdevelopment\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category_code_0809\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"concurrencerequired\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"designateddevelopment\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"integrateddevelopment\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"stoptheclockdays\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"referraldays\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"determined\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"determinationlevel\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"determinationtype\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"num_new_dwelling\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"num_pre_dwelling\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"num_dem_dwelling\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"zoning\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"lotsize\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sepp_council_control\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"s96category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"useofprivateassessment\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"useofihap\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"num_submissions\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predameetingheld\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"changeofuse\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"advertised\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"da_determined\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"da_approved\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"da_refused\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"s96_determined\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"s96_approved\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"s96_refused\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"cdc_determined\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"cdc_approved\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"cdc_valid_date\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"gross_days\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"net_days\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='17671481', 
+  'transient_lastDdlTime'='1496295354')

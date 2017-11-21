@@ -1,0 +1,22 @@
+CREATE TABLE `agency`(
+  `agency_id` string, 
+  `agency_name` string, 
+  `agency_url` string, 
+  `agency_timezone` string, 
+  `agency_lang` string, 
+  `agency_phone` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/agency'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='141', 
+  'rawDataSize'='80370', 
+  'totalSize'='2623', 
+  'transient_lastDdlTime'='1497930522')

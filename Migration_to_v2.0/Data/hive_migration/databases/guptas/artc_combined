@@ -1,0 +1,42 @@
+CREATE EXTERNAL TABLE `artc_combined`(
+  `traindate` string, 
+  `trainid` string, 
+  `operatorcode` string, 
+  `operatordescription` string, 
+  `commoditycode` string, 
+  `commoditydescription` string, 
+  `trainorigincode` string, 
+  `trainorigindescription` string, 
+  `traindestinationcode` string, 
+  `traindestinationdescription` string, 
+  `movementorigin` string, 
+  `movementoriginname` string, 
+  `movementdestination` string, 
+  `movementdestinationname` string, 
+  `scheduleddeparture` string, 
+  `actualdeparture` string, 
+  `scheduledarrival` string, 
+  `actualarrival` string, 
+  `movementsequence` string, 
+  `reportinglocation` string, 
+  `delaycode` string, 
+  `delaycodedescriptions` string, 
+  `delayminutes` string, 
+  `delaycode1` string, 
+  `delaycodedescriptions1` string, 
+  `delayminutes1` string, 
+  `delaycode2` string, 
+  `delaycodedescriptions2` string, 
+  `delayminutes2` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/user/guptas3/TFNSW'
+TBLPROPERTIES (
+  'numFiles'='3', 
+  'totalSize'='39406524', 
+  'transient_lastDdlTime'='1499049820')

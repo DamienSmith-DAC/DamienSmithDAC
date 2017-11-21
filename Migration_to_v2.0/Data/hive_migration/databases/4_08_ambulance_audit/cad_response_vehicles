@@ -1,0 +1,44 @@
+CREATE TABLE `cad_response_vehicles`(
+  `rva_pk` string, 
+  `rva_id` string, 
+  `rva_master_incident_id` string, 
+  `rva_opcentre` string, 
+  `rva_response_date` string, 
+  `rmi_fk` string, 
+  `pt_rcd_id` string, 
+  `rvp_fk` string, 
+  `alog_fk` string, 
+  `battalion` string, 
+  `rva_division` string, 
+  `rva_jurisdiction` string, 
+  `radio_name` string, 
+  `response_number` string, 
+  `time_arrivedatscene` string, 
+  `date_arrivedatscene` date, 
+  `hour_arrivedatscene` string, 
+  `time_assigned` string, 
+  `date_assigned` string, 
+  `hour_assigned` string, 
+  `time_call_cleared` string, 
+  `time_delayed_availability` string, 
+  `time_enroute` string, 
+  `date_enroute` string, 
+  `hour_enroute` string, 
+  `vehicle_id` string, 
+  `time_staged` string, 
+  `cancel_reason` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/cad_response_vehicles'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='112', 
+  'numRows'='17310126', 
+  'rawDataSize'='7752327670', 
+  'totalSize'='7769637796', 
+  'transient_lastDdlTime'='1502327096')

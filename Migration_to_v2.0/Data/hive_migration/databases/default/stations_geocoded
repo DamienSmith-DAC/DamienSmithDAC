@@ -1,0 +1,51 @@
+CREATE TABLE `stations_geocoded`(
+  `fid` int, 
+  `objectid` int, 
+  `tsn` int, 
+  `x` double, 
+  `y` double, 
+  `snapped_x` int, 
+  `snapped_y` int, 
+  `transitsto` string, 
+  `name` string, 
+  `status` string, 
+  `region` string, 
+  `street` string, 
+  `locality` string, 
+  `lastupdate` string, 
+  `kerb_heigh` string, 
+  `lightning` string, 
+  `shelter` string, 
+  `seattype` string, 
+  `signtype` string, 
+  `wheelchair` string, 
+  `surface_co` string, 
+  `pid` string, 
+  `gps_availa` string, 
+  `pickup` string, 
+  `reliefpoin` string, 
+  `school` string, 
+  `notpublic` string, 
+  `inactive` string, 
+  `defunct` string, 
+  `radius` int, 
+  `outerradiu` int, 
+  `setdownonl` string, 
+  `outerrad_1` int, 
+  `region_nam` string, 
+  `region_id` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/stations_geocoded'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='390', 
+  'rawDataSize'='842010', 
+  'totalSize'='14726', 
+  'transient_lastDdlTime'='1502930993')

@@ -1,0 +1,24 @@
+CREATE TABLE `routes`(
+  `route_id` string, 
+  `agency_id` string, 
+  `route_short_name` string, 
+  `route_long_name` string, 
+  `route_desc` string, 
+  `route_type` string, 
+  `route_color` string, 
+  `route_text_color` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/routes'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='1445', 
+  'rawDataSize'='1096755', 
+  'totalSize'='27321', 
+  'transient_lastDdlTime'='1497932731')

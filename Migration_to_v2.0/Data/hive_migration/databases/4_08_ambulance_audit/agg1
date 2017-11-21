@@ -1,0 +1,20 @@
+CREATE TABLE `agg1`(
+  `response_area` string, 
+  `priority_number` string, 
+  `call_disposition` string, 
+  `c3` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/agg1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='7', 
+  'numRows'='30656', 
+  'rawDataSize'='1087803', 
+  'totalSize'='1118459', 
+  'transient_lastDdlTime'='1502843875')

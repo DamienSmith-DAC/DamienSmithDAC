@@ -1,0 +1,53 @@
+CREATE TABLE `policy_history`(
+  `veh_year` string, 
+  `policy_num` int, 
+  `ctp_insurer` string, 
+  `date_incept` string, 
+  `date_eff` string, 
+  `date_expiry` string, 
+  `date_tran` string, 
+  `premium_taxable` double, 
+  `gst` double, 
+  `mcis_levy` double, 
+  `premium_total` double, 
+  `commission` double, 
+  `tran_type` string, 
+  `dist_chan` string, 
+  `policy_duration` string, 
+  `bonus_malus` string, 
+  `owner_dob` string, 
+  `youngest_dob` string, 
+  `mail_pcode` string, 
+  `gar_pcode` string, 
+  `ctp_region` string, 
+  `veh_use` string, 
+  `veh_class` string, 
+  `veh_shape` string, 
+  `veh_make` string, 
+  `veh_model` string, 
+  `veh_eng_type` string, 
+  `vin_num` string, 
+  `irc` string, 
+  `busregflag` string, 
+  `fleet_flag` string, 
+  `at_fault_ind` string, 
+  `youngest_age` string, 
+  `u25_ind` string, 
+  `uwyear_incept` int, 
+  `placeholder1` string, 
+  `placeholder2` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/policy_history'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1502336244')

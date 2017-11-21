@@ -1,0 +1,61 @@
+CREATE TABLE `policy_onegov`(
+  `insurerid` string, 
+  `insurername` string, 
+  `pircode` int, 
+  `policyrownumber` int, 
+  `make` string, 
+  `model` string, 
+  `class` string, 
+  `shape` string, 
+  `enginetype` string, 
+  `enginecapacity` int, 
+  `vehicleuse` string, 
+  `yearmanufactured` string, 
+  `vin` string, 
+  `ownertype` string, 
+  `ownerage` string, 
+  `under25indicator` string, 
+  `policynumber` string, 
+  `rmsnumber` int, 
+  `transactiontype` string, 
+  `transactionid` double, 
+  `transactiondate` string, 
+  `policyduration` string, 
+  `policyloading` double, 
+  `bonusmalus` string, 
+  `atfaultindicator` string, 
+  `ctpregion` string, 
+  `rmsused` string, 
+  `rmseffectivedate` string, 
+  `insurereffectivedate` string, 
+  `rmsexpirydate` string, 
+  `distributionchannel` string, 
+  `garagedsuburb` string, 
+  `garagedpostcode` string, 
+  `mailpostcode` string, 
+  `insurancerating` string, 
+  `premiumtaxable` double, 
+  `premiumtotal` double, 
+  `commission` double, 
+  `mcislevy` double, 
+  `gst` double, 
+  `taxcredit` string, 
+  `created` string, 
+  `lastupdated` string, 
+  `tokenid` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_09_sira_dash.db/policy_onegov'
+TBLPROPERTIES (
+  'last_modified_by'='guptas3', 
+  'last_modified_time'='1509324190', 
+  'numFiles'='15', 
+  'numRows'='871936', 
+  'rawDataSize'='2099515362', 
+  'totalSize'='49370045', 
+  'transient_lastDdlTime'='1509324190')

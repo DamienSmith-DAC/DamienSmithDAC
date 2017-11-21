@@ -1,0 +1,19 @@
+CREATE TABLE `q6`(
+  `destination_name` string, 
+  `vehicle_type` string, 
+  `transport_count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/q6'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='6', 
+  'numRows'='90', 
+  'rawDataSize'='2190', 
+  'totalSize'='2280', 
+  'transient_lastDdlTime'='1505092640')

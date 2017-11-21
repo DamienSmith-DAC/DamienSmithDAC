@@ -1,0 +1,23 @@
+CREATE TABLE `test_long2`(
+  `id` int, 
+  `age` int, 
+  `gender` string, 
+  `treat` string, 
+  `one` double, 
+  `two` string, 
+  `three` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_02_heatwaves.db/test_long2'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='204', 
+  'rawDataSize'='75188', 
+  'totalSize'='4876', 
+  'transient_lastDdlTime'='1502849481')

@@ -1,0 +1,19 @@
+CREATE EXTERNAL TABLE `erp`(
+  `sa2` string, 
+  `year` string, 
+  `sex` string, 
+  `agebracket` string, 
+  `erp` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/user/baiga/data/heatwave/ERP'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'skip.header.line.count'='1', 
+  'totalSize'='2469297', 
+  'transient_lastDdlTime'='1502947459')

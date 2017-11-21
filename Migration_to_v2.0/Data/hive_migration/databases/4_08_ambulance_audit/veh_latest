@@ -1,0 +1,16 @@
+CREATE EXTERNAL TABLE `veh_latest`(
+  `radio_name` string, 
+  `specialty_group` string, 
+  `transport_type` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\t' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit/veh_latest'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='63977', 
+  'transient_lastDdlTime'='1508303650')

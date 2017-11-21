@@ -1,0 +1,19 @@
+CREATE TABLE `defibrillatordata_3_privateaccess_subset4vis_unis`(
+  `desc unis` string, 
+  `latitude unis` double, 
+  `longitude unis` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defibrillatordata_3_privateaccess_subset4vis_unis'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='166', 
+  'rawDataSize'='19588', 
+  'totalSize'='2273', 
+  'transient_lastDdlTime'='1507496444')

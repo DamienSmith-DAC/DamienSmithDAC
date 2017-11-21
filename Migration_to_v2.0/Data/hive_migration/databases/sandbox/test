@@ -1,0 +1,21 @@
+CREATE EXTERNAL TABLE `test`(
+  `year` string, 
+  `lag1` string, 
+  `lag2` string, 
+  `lag3` string, 
+  `lag4` string, 
+  `lag5` string, 
+  `volume` string, 
+  `direction` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/user/irelandl/test'
+TBLPROPERTIES (
+  'numFiles'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1510875699')

@@ -1,0 +1,25 @@
+CREATE TABLE `healthdirect_910`(
+  `rmi_pk` string, 
+  `year` string, 
+  `month` string, 
+  `priority_number` string, 
+  `response_code` string, 
+  `cancel_reason` string, 
+  `call_disposition` string, 
+  `transport_outcome` string, 
+  `geo_zone` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/healthdirect_910'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='112', 
+  'numRows'='390070', 
+  'rawDataSize'='44424019', 
+  'totalSize'='44814089', 
+  'transient_lastDdlTime'='1507502258')

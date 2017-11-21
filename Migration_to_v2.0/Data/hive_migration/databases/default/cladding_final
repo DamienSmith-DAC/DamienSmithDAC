@@ -1,0 +1,31 @@
+CREATE TABLE `cladding_final`(
+  `lat` string, 
+  `long` string, 
+  `add` string, 
+  `acc` string, 
+  `acclevel` string, 
+  `ass` string, 
+  `column7` string, 
+  `column8` string, 
+  `column9` string, 
+  `column10` string, 
+  `column11` string, 
+  `column12` string, 
+  `street` string, 
+  `suburb` string, 
+  `streetname` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/cladding_final'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='3862', 
+  'rawDataSize'='5198252', 
+  'totalSize'='116669', 
+  'transient_lastDdlTime'='1497831744')

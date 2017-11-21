@@ -1,0 +1,27 @@
+CREATE TABLE `ecp_breakdown`(
+  `priority_code` string, 
+  `year` string, 
+  `month` string, 
+  `day` string, 
+  `hour` int, 
+  `vehicle_type` string, 
+  `geo_zone` string, 
+  `determinant_number` string, 
+  `transport_outcome` string, 
+  `call_disposition` string, 
+  `count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/ecp_breakdown'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='95371', 
+  'rawDataSize'='6649031', 
+  'totalSize'='6744402', 
+  'transient_lastDdlTime'='1505789790')

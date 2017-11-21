@@ -1,0 +1,19 @@
+CREATE TABLE `defibrillatordata_3_privateaccess_subset4vis_schools`(
+  `desc schools` string, 
+  `latitude schools` double, 
+  `longitude schools` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defibrillatordata_3_privateaccess_subset4vis_schools'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='160', 
+  'rawDataSize'='18080', 
+  'totalSize'='2954', 
+  'transient_lastDdlTime'='1507496467')

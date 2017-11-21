@@ -1,0 +1,62 @@
+CREATE EXTERNAL TABLE `eddc_dummy_data`(
+  `ppn` string, 
+  `project_recid` string, 
+  `referred_to_on_departure_recode` string, 
+  `facility_identifier` string, 
+  `code1` string, 
+  `value1` string, 
+  `desc1` string, 
+  `code2` string, 
+  `value2` string, 
+  `desc2` string, 
+  `code3` string, 
+  `value3` string, 
+  `desc3` string, 
+  `compensable_status` string, 
+  `ed_source_of_referral` string, 
+  `ed_visit_type` string, 
+  `indigenous_status` string, 
+  `mode_of_arrival` string, 
+  `mode_of_separation` string, 
+  `need_interpreter_service` string, 
+  `preferred_language_ascl` string, 
+  `triage_category` string, 
+  `recognised_ph_flag` string, 
+  `facility_type` string, 
+  `peer_group` string, 
+  `ed_diagnosis_code` string, 
+  `clinical_codeset` string, 
+  `ed_diagnosis_code_sct` string, 
+  `lga_2001_code` string, 
+  `lga_2006_code` string, 
+  `lga_2008_code` string, 
+  `lga_2011_code` string, 
+  `lga_2012_code` string, 
+  `lga_2013_code` string, 
+  `sex` string, 
+  `patient_postcode` string, 
+  `state_of_usual_residence` string, 
+  `marital_status_nhdd` string, 
+  `ahshos` string, 
+  `month_actualdeparture_date` string, 
+  `year_actualdeparture_date` string, 
+  `month_arrival_date` string, 
+  `year_arrival_date` string, 
+  `month_birth` string, 
+  `year_birth` string, 
+  `month_departureready_date` string, 
+  `year_departureready_date` string, 
+  `month_triage_date` string, 
+  `year_triage_date` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_02_Freight_Analytics/OOHC'
+TBLPROPERTIES (
+  'numFiles'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1505887095')

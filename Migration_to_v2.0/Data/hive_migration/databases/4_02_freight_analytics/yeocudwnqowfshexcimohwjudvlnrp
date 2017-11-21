@@ -1,0 +1,21 @@
+CREATE TABLE `yeocudwnqowfshexcimohwjudvlnrp`(
+  `desc convstores` string, 
+  `latitude convstores` double, 
+  `longitude convstores` double)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\u0001' 
+WITH SERDEPROPERTIES ( 
+  'escape.delim'='\u0002') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/yeocudwnqowfshexcimohwjudvlnrp'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1507270301')

@@ -1,0 +1,61 @@
+CREATE TABLE `facs_all_episodes_generic_schema`(
+  `cyp_ppn` int, 
+  `doby` int, 
+  `dobm` int, 
+  `sex` int, 
+  `indstat` int, 
+  `plcroid` string, 
+  `plcsdy` int, 
+  `plcsdm` int, 
+  `plcsdd` int, 
+  `plcedy` int, 
+  `plcedm` int, 
+  `plcedd` int, 
+  `plctype` int, 
+  `plcgroup` int, 
+  `plcpurp` int, 
+  `plcenrea` int, 
+  `plcexrea` int, 
+  `prgroup` int, 
+  `businame` string, 
+  `district` int, 
+  `flgadop` int, 
+  `plcprov` int, 
+  `flgadopa` int, 
+  `oppndocs` string, 
+  `ppsdy` int, 
+  `ppsdm` int, 
+  `ppsdd` int, 
+  `ppedy` int, 
+  `ppedm` int, 
+  `ppedd` int, 
+  `indcarer` int, 
+  `mdskids_matched_id` string, 
+  `restored_flag` string, 
+  `mds_episode_exit_reason` string, 
+  `plcsd` timestamp, 
+  `ppsd` timestamp, 
+  `pped` timestamp, 
+  `plced` timestamp, 
+  `placestart_yyyymm` bigint, 
+  `placestart_yyyymmdd` timestamp, 
+  `placeend_yyyymm` bigint, 
+  `placeend_yyyymmdd` timestamp, 
+  `dob_yyyymm01` timestamp, 
+  `age_at_event` bigint)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+  LINES TERMINATED BY '\n' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/2_12_their_futures_matter.db/facs_all_episodes_generic_schema'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'skip.header.line.count'='1', 
+  'totalSize'='31070451', 
+  'transient_lastDdlTime'='1508817410')

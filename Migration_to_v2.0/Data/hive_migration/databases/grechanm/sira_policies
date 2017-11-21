@@ -1,0 +1,49 @@
+CREATE EXTERNAL TABLE `sira_policies`(
+  `veh_year` string, 
+  `policy_num` string, 
+  `ctp_insurer` string, 
+  `date_incept` string, 
+  `date_eff` string, 
+  `date_expiry` string, 
+  `date_tran` string, 
+  `premium_taxable` string, 
+  `gst` string, 
+  `mcis_levy` string, 
+  `premium_total` string, 
+  `commission` string, 
+  `tran_type` string, 
+  `dist_chan` string, 
+  `policy_duration` string, 
+  `bonus_malus` string, 
+  `owner_dob` string, 
+  `youngest_dob` string, 
+  `mail_pcode` string, 
+  `gar_pcode` string, 
+  `ctp_region` string, 
+  `veh_use` string, 
+  `veh_class` string, 
+  `veh_shape` string, 
+  `veh_make` string, 
+  `veh_model` string, 
+  `veh_eng_type` string, 
+  `vin_num` string, 
+  `irc` string, 
+  `busregflag` string, 
+  `fleet_flag` string, 
+  `at_fault_ind` string, 
+  `youngest_age` string, 
+  `u25_ind` string, 
+  `uwyear_incept` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+  LINES TERMINATED BY '\n' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/user/grechanm/SIRA_Policies_NoCompression'
+TBLPROPERTIES (
+  'numFiles'='70', 
+  'totalSize'='19237380115', 
+  'transient_lastDdlTime'='1495601014')

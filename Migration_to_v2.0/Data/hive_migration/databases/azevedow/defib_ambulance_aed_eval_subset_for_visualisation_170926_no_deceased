@@ -1,0 +1,27 @@
+CREATE TABLE `defib_ambulance_aed_eval_subset_for_visualisation_170926_no_deceased`(
+  `determinant` string, 
+  `cancel_reason` string, 
+  `call_disposition` string, 
+  `pickuplong_convert` double, 
+  `pickuplat_convert` double, 
+  `vehicle_id` int, 
+  `vehicle_type` string, 
+  `deceased on examination1` boolean, 
+  `deceased on examination2` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defib_ambulance_aed_eval_subset_for_visualisation_170926_no_deceased'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'last_modified_by'='azevedow', 
+  'last_modified_time'='1507268348', 
+  'numFiles'='0', 
+  'numRows'='0', 
+  'rawDataSize'='0', 
+  'totalSize'='0', 
+  'transient_lastDdlTime'='1507268348')

@@ -1,0 +1,19 @@
+CREATE TABLE `defib_deathsbirthsmarr_defibrillatordata_1_arrests_subset4vis`(
+  `desc nswcardiacarrestdeaths2000_2017` string, 
+  `latitude nswcardiacarrestdeaths2000_2017` double, 
+  `longitude nswcardiacarrestdeaths2000_2017` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/azevedow.db/defib_deathsbirthsmarr_defibrillatordata_1_arrests_subset4vis'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='23490', 
+  'rawDataSize'='2349000', 
+  'totalSize'='280685', 
+  'transient_lastDdlTime'='1507468152')

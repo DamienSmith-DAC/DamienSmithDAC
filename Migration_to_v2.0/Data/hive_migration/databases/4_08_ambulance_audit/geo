@@ -1,0 +1,24 @@
+CREATE EXTERNAL TABLE `geo`(
+  `geo_id` string, 
+  `geo_battalion` string, 
+  `geo_battalion_display` string, 
+  `geo_zone` string, 
+  `geo_sector` string, 
+  `geo_sector_sort_order` string, 
+  `nsw` string, 
+  `geo_lhd` string, 
+  `station_id` string, 
+  `is_current` string, 
+  `station_type` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '|' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit/geo_map'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='34043', 
+  'transient_lastDdlTime'='1504851804')

@@ -1,0 +1,20 @@
+CREATE TABLE `location_weekday_delays_crn`(
+  `location_code` string, 
+  `location_name` string, 
+  `weekday` string, 
+  `delay_cnt` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/guptas.db/location_weekday_delays_crn'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='1238', 
+  'rawDataSize'='341688', 
+  'totalSize'='4691', 
+  'transient_lastDdlTime'='1502337420')

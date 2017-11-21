@@ -1,0 +1,53 @@
+CREATE TABLE `artc_170830`(
+  `movementdestination` string, 
+  `movementorigin` string, 
+  `traindate` date, 
+  `trainid` string, 
+  `operatorcode` string, 
+  `operatordescription` string, 
+  `commoditycode` string, 
+  `commoditydescription` string, 
+  `trainorigincode` string, 
+  `trainorigindescription` string, 
+  `traindestinationcode` string, 
+  `traindestinationdescription` string, 
+  `movementoriginname` string, 
+  `movementdestinationname` string, 
+  `scheduleddeparture` timestamp, 
+  `actualdeparture` string, 
+  `scheduledarrival` timestamp, 
+  `actualarrival` string, 
+  `movementsequence` int, 
+  `reportinglocation` string, 
+  `delaycode` string, 
+  `delaycodedescriptions` string, 
+  `mainsequence` int, 
+  `weekdayscheduleddeparture` string, 
+  `reasonfordelay` boolean, 
+  `departuredelayminutes` string, 
+  `arrivaldelayminutes` string, 
+  `provider` string, 
+  `longitude_origin` double, 
+  `latitude_origin` double, 
+  `longitude_destination` double, 
+  `latitude_destination` double, 
+  `trip` string, 
+  `actualdeparturenogaps` timestamp, 
+  `actualarrivalnumericnogaps` timestamp, 
+  `departure_delay_minutes_category` string, 
+  `arrival_delay_minutes_category` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/artc_170830'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='7', 
+  'numRows'='341153', 
+  'rawDataSize'='848355978', 
+  'totalSize'='5244833', 
+  'transient_lastDdlTime'='1504073265')

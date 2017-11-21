@@ -1,0 +1,55 @@
+CREATE EXTERNAL TABLE `full_master_response`(
+  `rmi_pk` string COMMENT 'from deserializer', 
+  `rmi_id` string COMMENT 'from deserializer', 
+  `rmi_opcentre` string COMMENT 'from deserializer', 
+  `rmi_response_date` string COMMENT 'from deserializer', 
+  `master_incident_number` string COMMENT 'from deserializer', 
+  `base_response_number` string COMMENT 'from deserializer', 
+  `priority_number` string COMMENT 'from deserializer', 
+  `rmi_division` string COMMENT 'from deserializer', 
+  `rmi_jurisdication` string COMMENT 'from deserializer', 
+  `response_area` string COMMENT 'from deserializer', 
+  `time_response` string COMMENT 'from deserializer', 
+  `date_response` string COMMENT 'from deserializer', 
+  `hour_response` string COMMENT 'from deserializer', 
+  `calltaking_performed_by` string COMMENT 'from deserializer', 
+  `time_phonepickup` string COMMENT 'from deserializer', 
+  `time_firstcalltakingkeystroke` string COMMENT 'from deserializer', 
+  `time_callenteredqueue` string COMMENT 'from deserializer', 
+  `date_callenteredqueue` string COMMENT 'from deserializer', 
+  `hour_callenteredqueue` string COMMENT 'from deserializer', 
+  `time_calltakingcomplete` string COMMENT 'from deserializer', 
+  `time_first_unit_assigned` string COMMENT 'from deserializer', 
+  `time_first_unit_enroute` string COMMENT 'from deserializer', 
+  `time_first_unit_arrived` string COMMENT 'from deserializer', 
+  `time_callclosed` string COMMENT 'from deserializer', 
+  `determinant` string COMMENT 'from deserializer', 
+  `problem` string COMMENT 'from deserializer', 
+  `methodofcallrcvd` string COMMENT 'from deserializer', 
+  `caller_type` string COMMENT 'from deserializer', 
+  `cancel_reason` string COMMENT 'from deserializer', 
+  `call_disposition` string COMMENT 'from deserializer', 
+  `pickup_address` string COMMENT 'from deserializer', 
+  `pickup_location` string COMMENT 'from deserializer', 
+  `pickup_city` string COMMENT 'from deserializer', 
+  `pickup_postal_code` string COMMENT 'from deserializer', 
+  `pickup_longitude` string COMMENT 'from deserializer', 
+  `pickup_latitude` string COMMENT 'from deserializer', 
+  `pickuplong_convert` string COMMENT 'from deserializer', 
+  `pickuplat_convert` string COMMENT 'from deserializer', 
+  `pickup_coord` string COMMENT 'from deserializer')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( 
+  'quoteChar'='\"', 
+  'separatorChar'=',') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/projects/4_08_Ambulance_Audit/Response_Master_Full'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='3975996107', 
+  'transient_lastDdlTime'='1505708963')

@@ -1,0 +1,35 @@
+CREATE TABLE `geolocated`(
+  `dummy` int, 
+  `location_name` string, 
+  `location_code` string, 
+  `lat` double, 
+  `long` double, 
+  `train1` string, 
+  `state` string, 
+  `operator1` string, 
+  `commodity` string, 
+  `track_km` double, 
+  `arrival_time_planned` string, 
+  `arrival_time_actual` string, 
+  `arrival_difference` string, 
+  `arrival_diff_minutes` string, 
+  `departure_time_planned` string, 
+  `weekday` string, 
+  `departure_time_actual` string, 
+  `departure_difference` string, 
+  `departure_diff_min` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_02_freight_analytics.db/geolocated'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='2', 
+  'numRows'='192831', 
+  'rawDataSize'='268006317', 
+  'totalSize'='3204285', 
+  'transient_lastDdlTime'='1504059003')

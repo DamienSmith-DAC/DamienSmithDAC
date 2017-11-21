@@ -1,0 +1,19 @@
+CREATE TABLE `q4`(
+  `priority_code` string, 
+  `vehicle_type` string, 
+  `vehicle_count` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/4_08_ambulance_audit.db/q4'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='10', 
+  'numRows'='192', 
+  'rawDataSize'='3444', 
+  'totalSize'='3636', 
+  'transient_lastDdlTime'='1505092263')

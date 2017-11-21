@@ -1,0 +1,45 @@
+CREATE TABLE `cmc_delaydata07to09`(
+  `train_date` string, 
+  `train_id` string, 
+  `operator_code` string, 
+  `operator_desc` string, 
+  `commodity_code` string, 
+  `comm_desc` string, 
+  `train_origin_code` string, 
+  `train_origin_desc` string, 
+  `train_destination_code` string, 
+  `traindestinationdescription` string, 
+  `movementorigin` string, 
+  `movementoriginname` string, 
+  `movementdestination` string, 
+  `movementdestinationname` string, 
+  `scheduleddeparture` string, 
+  `actualdeparture` string, 
+  `scheduledarrival` string, 
+  `actualarrival` string, 
+  `movementsequence` string, 
+  `reportinglocation` string, 
+  `delaycode` string, 
+  `delaycodedescriptions` string, 
+  `delayminutes` string, 
+  `delaycode1` string, 
+  `delaycodedescriptions1` string, 
+  `delayminutes1` string, 
+  `delaycode2` string, 
+  `delaycodedescriptions2` string, 
+  `delayminutes2` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.SequenceFileInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat'
+LOCATION
+  'hdfs://onegovdev/apps/hive/warehouse/cmc_delaydata07to09'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='{\"BASIC_STATS\":\"true\"}', 
+  'numFiles'='1', 
+  'numRows'='65645', 
+  'rawDataSize'='11690529', 
+  'totalSize'='12729875', 
+  'transient_lastDdlTime'='1498793745')
