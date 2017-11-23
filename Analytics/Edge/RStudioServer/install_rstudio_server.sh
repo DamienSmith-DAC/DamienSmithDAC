@@ -31,7 +31,7 @@ PEM=`cat`
 RKEY=`mktemp -p /tmp rstudio_license-XXXX`
 echo $PEM > $RKEY
 IFS=$OLDIFS
-rstudio-server license-manager activate `cat $RKEK`
+rstudio-server license-manager activate `cat $RKEY`
 rstudio-server restart
 
 
