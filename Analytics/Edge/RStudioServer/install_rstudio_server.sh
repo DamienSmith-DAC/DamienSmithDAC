@@ -53,6 +53,10 @@ account    required       pam_krb5.so debug
 session    requisite      pam_krb5.so debug
 EOF
 
+sed -i s'/auth      requisite      pam_succeed_if.so uid >= 500 quiet/#auth      requisite      pam_succeed_if.so uid >= 500 quiet/'g /etc/pam.d/rstudio
+sed -i s'/auth      required       pam_unix.so nodelay/#auth      required       pam_unix.so nodelay/'g /etc/pam.d/rstudio
+sed -i s'/account   required       pam_unix.so/#account   required       pam_unix.so/'g /etc/pam.d/rstudio
+
 cat >> /etc/pam.d/rstudio-session <<EOF
 auth        required      pam_krb5.so debug
 auth        optional      pam_mount.so use_first_pass
