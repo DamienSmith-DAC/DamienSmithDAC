@@ -10,11 +10,11 @@ DC_HOSTNAME=P-DC-101
 DOMAIN_OU=OU=Computers,OU=PE,OU=DAC,DC=DAC,DC=local
 DOMAIN=DAC.LOCAL
 
-# Join domain 
-adcli join dac.local --login-user="${BINDUSER}" -v --show-details --domain-controller=${DOMAIN_CONTROLLER} domain-ou=${DOMAIN_OU}
-
 # Install required libs
 yum -y -q install sssd oddjob-mkhomedir authconfig sssd-krb5 sssd-ad sssd-tools libpam-sss libnss-sss libnss-ldap adcli
+
+# Join domain 
+adcli join dac.local --login-user="${BINDUSER}" -v --show-details --domain-controller=${DOMAIN_CONTROLLER} domain-ou=${DOMAIN_OU}
 
 # Write SSSD config file
 
