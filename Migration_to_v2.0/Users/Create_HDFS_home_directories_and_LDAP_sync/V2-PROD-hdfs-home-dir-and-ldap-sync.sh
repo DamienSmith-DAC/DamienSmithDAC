@@ -56,3 +56,46 @@ if [ $? -ne 0 ]; then
         exit
 fi
 echo 'Exiting, user directories created'
+
+# Create user directories in edge nodes
+while read LDAPUSER;
+        do
+		EDGE_NODES=( zeppelin-edge-01.dac.local rstudio-edge-01.dac.local )
+		for h in "${EDGE_NODES[@]}"
+		do
+			ssh $h "hostname -f"
+			ssh $h "mkdir -p /home/${LDAPUSER}/.ssh"
+			ssh $h "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
+			ssh $h "touch /home/${LDAPUSER}/.bashrc"
+			ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
+			ssh $h "touch /home/${LDAPUSER}/.bash_profile"
+			ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
+			ssh $h "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
+			ssh $h "chmod 700 /home/${LDAPUSER}"
+			ssh $h "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
+			ssh $h "ls -atlr /home"
+		done
+
+		EDGE_NODES=( spyder-edge-01.dac.local )
+		for h in "${EDGE_NODES[@]}"
+		do
+			ssh $h "hostname -f"
+			ssh $h "mkdir -p /home/${LDAPUSER}/.ssh"
+			ssh $h "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
+			ssh $h "touch /home/${LDAPUSER}/.bashrc"
+			ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
+			ssh $h "touch /home/${LDAPUSER}/.bash_profile"
+			ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
+			# Note the space in domain users group
+			ssh $h "cd /home; chown -R ${LDAPUSER}:'domain users' ${LDAPUSER};"
+			ssh $h "chmod 700 /home/${LDAPUSER}"
+			ssh $h "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
+			ssh $h "ls -atlr /home"
+		done	
+        done < $USER_DIFFERENCES
+
+if [ $? -ne 0 ]; then
+        exit
+fi
+
+echo 'Exiting, user directories in edge nodes created'
