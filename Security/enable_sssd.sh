@@ -14,7 +14,7 @@ DOMAIN=DAC.LOCAL
 yum -y -q install sssd oddjob-mkhomedir authconfig sssd-krb5 sssd-ad sssd-tools libpam-sss libnss-sss libnss-ldap adcli
 
 # Join domain 
-adcli join dac.local --login-user="${BINDUSER}" -v --show-details --domain-controller=${DOMAIN_CONTROLLER} domain-ou=${DOMAIN_OU}
+adcli join ${DOMAIN} --login-user=${BIND_USER} -v --show-details --domain-controller=${DOMAIN_CONTROLLER} domain-ou=${DOMAIN_OU}
 
 # Write SSSD config file
 
