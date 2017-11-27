@@ -6,7 +6,7 @@ EXISTING_HDFS_USERS="/etc/onboardingautomation/existing-hdfs-users.txt"
 USER_DIFFERENCES="/etc/onboardingautomation/user-differences.txt"
 
 MYSQL_PASSWORD_FILE="/etc/onboardingautomation/sqlpassword.conf" #This is stored on the mysql server
-SQLQUERY='use ambari;select user_name from users;'
+SQLQUERY='use ambariviews;select user_name from users;'
 SQL_USER_LIST="/etc/onboardingautomation/sql-user-list.txt"
 MYSQL_PASSWORD_FILE='/etc/onboardingautomation/sqlpassword.conf'
 MYSQL_PASSWORD=`ssh a-mysql-02 "cat $MYSQL_PASSWORD_FILE"`
