@@ -43,7 +43,7 @@ while read LDAPUSER;
 		ssh -n np-edge.dac.local "chmod 700 /home/${LDAPUSER}"
 		ssh -n np-edge.dac.local "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
 			
-        done < user_differences.txt
+        done < $USER_DIFFERENCES
 
 if [ $? -ne 0 ]; then
         exit
