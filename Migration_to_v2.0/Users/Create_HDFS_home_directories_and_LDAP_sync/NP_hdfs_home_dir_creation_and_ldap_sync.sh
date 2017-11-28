@@ -32,25 +32,31 @@ while read LDAPUSER;
                         hdfs dfs -chown $LDAPUSER:hdfs /user/$LDAPUSER
         done < user_differences.txt
 
+if [ $? -ne 0 ]; then
+        exit
+fi
+echo 'Exiting, user directories in HDFS created'
+
 # Create user directory	in edge node(s)
 EDGE_NODES=( np-edge.dac.local )
 while read LDAPUSER;
 	do
 		for h in "${EDGE_NODES[@]}"
 			do
-				ssh $h "hostname -f"
-        			ssh $h "mkdir -p /home/${LDAPUSER}/.ssh"
-				ssh $h "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
-				ssh $h "touch /home/${LDAPUSER}/.bashrc"
-				ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
-        			ssh $h "touch /home/${LDAPUSER}/.bash_profile"
-       				ssh $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
-				ssh $h "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
-				ssh $h "chmod 700 /home/${LDAPUSER}"
-				ssh $h "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
-				ssh $h "ls -atlr /home"
+				ssh -n $h "hostname -f"
+        			ssh -n $h "mkdir -p /home/${LDAPUSER}/.ssh"
+				ssh -n $h "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
+				ssh -n $h "touch /home/${LDAPUSER}/.bashrc"
+				ssh -n $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
+        			ssh -n $h "touch /home/${LDAPUSER}/.bash_profile"
+       				ssh -n $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
+				ssh -n $h "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
+				ssh -n $h "chmod 700 /home/${LDAPUSER}"
+				ssh -n $h "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
+				ssh -n $h "ls -atlr /home"
 			done
 	done < $USER_DIFFERENCES
+
 if [ $? -ne 0 ]; then
         exit
 fi
