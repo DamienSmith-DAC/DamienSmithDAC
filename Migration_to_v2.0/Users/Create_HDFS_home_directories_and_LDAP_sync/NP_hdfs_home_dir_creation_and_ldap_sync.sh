@@ -25,39 +25,27 @@ hdfs dfs -ls /user | awk '{print $8}' | awk '{gsub("/user/", "");print}' | tail 
 grep -Fxvf existing-hdfs-users.txt user_list.txt > user_differences.txt
 
 
-#Loop through user_differences.txt and create the HDFS home directories for these users.
+#Loop through user_differences.txt 
 while read LDAPUSER;
         do
-                        hdfs dfs -mkdir /user/$LDAPUSER
-                        hdfs dfs -chown $LDAPUSER:hdfs /user/$LDAPUSER
+		# Create the HDFS home directories for these users
+		hdfs dfs -mkdir /user/$LDAPUSER
+		hdfs dfs -chown $LDAPUSER:hdfs /user/$LDAPUSER
+
+		# Create the np-edge node home directories for these users.
+		ssh -n np-edge.dac.local "mkdir -p /home/${LDAPUSER}/.ssh"
+		ssh -n np-edge.dac.local "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
+		ssh -n np-edge.dac.local "touch /home/${LDAPUSER}/.bashrc"
+		ssh -n np-edge.dac.local "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
+		ssh -n np-edge.dac.local "touch /home/${LDAPUSER}/.bash_profile"
+		ssh -n np-edge.dac.local "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
+		ssh -n np-edge.dac.local "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
+		ssh -n np-edge.dac.local "chmod 700 /home/${LDAPUSER}"
+		ssh -n np-edge.dac.local "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
+			
         done < user_differences.txt
 
 if [ $? -ne 0 ]; then
         exit
 fi
-echo 'Exiting, user directories in HDFS created'
-
-# Create user directory	in edge node(s)
-EDGE_NODES=( np-edge.dac.local )
-while read LDAPUSER;
-	do
-		for h in "${EDGE_NODES[@]}"
-			do
-				ssh -n $h "hostname -f"
-        			ssh -n $h "mkdir -p /home/${LDAPUSER}/.ssh"
-				ssh -n $h "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
-				ssh -n $h "touch /home/${LDAPUSER}/.bashrc"
-				ssh -n $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
-        			ssh -n $h "touch /home/${LDAPUSER}/.bash_profile"
-       				ssh -n $h "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
-				ssh -n $h "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
-				ssh -n $h "chmod 700 /home/${LDAPUSER}"
-				ssh -n $h "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
-				ssh -n $h "ls -atlr /home"
-			done
-	done < $USER_DIFFERENCES
-
-if [ $? -ne 0 ]; then
-        exit
-fi
-echo 'Exiting, user directories in edge nodes created'
+echo 'Exiting, user directories in HDFS and edge node created'
