@@ -22,7 +22,7 @@ for USER in ${USERS[@]}; do
 
 	echo ${USER}
 	hdfs dfs -rmdir /user/${USER}
-	ssh -n np-edge.dac.local "rmdir --ignore-fail-on-non-empty /home/${USER}"
+	ssh -n np-edge.dac.local "cd /home; rm -rf ${USER};"
 	#ssh -n .dac.local "rmdir /home/${USER}"
 	#ssh -n .dac.local "rmdir /home/${USER}"
 	#mysql -u root -p -e "${USER}"
