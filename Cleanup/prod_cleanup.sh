@@ -13,9 +13,9 @@ for USER in ${USERS[@]}; do
 
 	echo ${USER}
 	hdfs dfs -rmdir /user/${USER}
-	ssh -n zeppelin-edge-1.dac.local "rmdir --ignore-fail-on-non-empty /home/${USER}"
-	ssh -n rstudio-edge-1.dac.local "rmdir --ignore-fail-on-non-empty /home/${USER}"
-	ssh -n spyder-edge-1.dac.local "rmdir --ignore-fail-on-non-empty /home/${USER}"
+	ssh -n zeppelin-edge-1.dac.local "cd /home; rm -rf ${USER};"
+	ssh -n rstudio-edge-1.dac.local "cd /home; rm -rf ${USER};"
+	ssh -n spyder-edge-1.dac.local "cd /home; rm -rf ${USER};"
 	#mysql -u root -p -e "${USER}"
 
 done
