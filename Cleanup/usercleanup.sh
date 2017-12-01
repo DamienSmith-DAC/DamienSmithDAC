@@ -43,7 +43,10 @@ if [ -s ${USER_TO_DELETE} ]; then
 			ssh -n np-master02.dac.local "kinit hdfs-dace2@DAC.LOCAL -kt /etc/security/keytabs/hdfs.headless.keytab; hdfs dfs -rm -r /user/${USER_NAME}" 
 			
 			# Remove Edge Node(s) Directories 
-			ssh -n np-edge.dac.local "cd /home; rm -rfv ${USER_NAME};"
+			ssh -n zeppelin-edge-01.dac.local "cd /home; rm -rfv ${USER_NAME};"
+			ssh -n rstudio-edge-01.dac.local "cd /home; rm -rfv ${USER_NAME};"
+			ssh -n syder-edge-01.dac.local "cd /home; rm -rfv ${USER_NAME};"
+			ssh -n ambari-edge-01.dac.local "cd /home; rm -rfv ${USER_NAME};"
 			
 			
 			else
