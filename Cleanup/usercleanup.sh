@@ -16,11 +16,9 @@ echo "$(date +'%h %d %H:%M:%S')"
 echo 'Backing up Ambari database...'
 mysqldump -u hive -d ambariviews -p${MYSQL_PASSWORD} > ${BASE_DIR}/ambariviews.sql.backup
 
-
 # Find Inactive Users and Remove User Directories
 echo 'Creating users_to_delete.txt...'
 mysql -u hive -D ambariviews -p${MYSQL_PASSWORD} -e "select user_id from users where active = 0;" > ${USER_TO_DELETE}
-
 
 # If file is not zero size
 if [ -s ${USER_TO_DELETE} ]; then
