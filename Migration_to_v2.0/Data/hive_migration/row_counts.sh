@@ -13,7 +13,7 @@ for db in $databases;
 		
 		for t in $tables;
 			do
-				echo ${db}_${t}_count_`hive -e "use ${db}; select count(*) from ${t};"` >> row_counts 
+				echo ${db}_${t}_count_`hive -e "use ${db}; select count(*) from ${t};"` >> row_counts.txt 
 			done
 	done
 
