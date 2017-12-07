@@ -10,12 +10,13 @@
 wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
 yum repolist # to confirm
 yum -y install ambari-agent
-ambariServer=master02.dac.local
-sed -i "s/^hostname.*$/hostname=$ambariServer/g" /etc/ambari-agent/conf/ambari-agent.ini
+AMBARI_MASTER_SERVER=master02.dac.local
+sed -i "s/^hostname.*$/hostname=$AMBARI_MASTER_SERVER/g" /etc/ambari-agent/conf/ambari-agent.ini
 sed -i "s:^logdir.*$:logdir=/hadoop/log/ambari-agent:g" /etc/ambari-agent/conf/ambari-agent.ini
 sed -i "/;\ ignore.*$/a public_hostname_script=\/var\/lib\/ambari-agent\/public_hostname.sh" \/etc/ambari-agent/conf/ambari-agent.ini
 
-cat >> /var/lib/ambari-agent/ named public_hostname.sh << EOF
+touch /var/lib/ambari-agent/public_hostname.sh
+cat >> /var/lib/ambari-agent/public_hostname.sh << EOF
 #!/bin/bash
 echo `hostname -f`
 EOF
