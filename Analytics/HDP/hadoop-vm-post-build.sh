@@ -22,13 +22,24 @@ mkfs.ext4 /dev/vdb
 echo "/dev/vdb /hadoop/log ext4 defaults 0 2" >> /etc/fstab
 mount /dev/vdb /hadoop/log
 
-# Reduce swapiness to 0
+# Reduce swapiness to 0 and disable IPv6
 echo 0 > /proc/sys/vm/swappiness
-
-# Disable IPv6
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6 
 echo 1 > /proc/sys/net/ipv6/conf/lo/disable_ipv6 
+
+cat >> /etc/sysctl.conf << EOF
+# disable ipv6 optional but useful to avoid troubleshooting issues.
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+# Set swappiness to 0 or 1
+vm.swappiness = 0
+EOF
+
+# Enable chronyd
+chkconfig chronyd on
+service chronyd start
 
 # Instantiate changes
 sysctl -p
