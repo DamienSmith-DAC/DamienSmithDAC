@@ -9,12 +9,10 @@
 mkdir /etc/security/serverKeys
 mkdir /etc/security/keytabs
 
-# DIFFERENT SERVER
 # From Ambari Server Master, transfer truststore, certs, the Ambari Keytab, and kerb config
 scp -r /etc/security/serverKeys root@np-ambari-edge-test:/etc/security/
 scp /etc/security/keytabs/ambari.server.keytab root@np-ambari-edge-test:/etc/security/keytabs/
 scp /etc/krb5.conf root@np-ambari-edge-test:/etc/
-
 
 # In the edge node
 chmod 755 /etc/security/serverKeys/
@@ -24,7 +22,6 @@ chmod 444 /etc/security/serverKeys/*
 yum -y install ambari-server
 yum -y install mysql-connector-java
 
-# DIFFERENT SERVER
 # In the external metastore server 
 mysql -u ambari -p -e "create database ambariviews01;"
 mysql -u ambari -p -D ambariviews01 < Ambari-DDL-MySQL-CREATE.sql
@@ -49,11 +46,14 @@ ambari-server setup-security
 ambari-server start
 
 # Sync AD and new Ambari Edge
-# DIFFERENT SERVER
-# Transfer groups.txt 
+# From Ambari Server Master, transfer ldap sync configs
 scp /etc/ambari-server/conf/groups.txt np-ambari-edge-test:/etc/ambari-server/conf/
-# ON AMBARI EDGE
-ambari-server setup-ldap
+scp /etc/ambari-server/conf/password.dat np-ambari-edge-test:/etc/ambari-server/conf/
+scp /etc/ambari-server/conf/ambari.properties np-ambari-edge-test:/etc/ambari-server/conf/
+
+# In the edge node
+ambari-server setup-ldap # you may or may not need to run this
+ambari-server restart
 /usr/sbin/ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt
 
 # Go to http://<AmbariEdgeIP>:8080/views/ADMIN_VIEW/2.5.2.0/INSTANCE/#/remoteClusters
