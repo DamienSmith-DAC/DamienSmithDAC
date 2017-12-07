@@ -1,5 +1,8 @@
 # Instructions for installing Ambari Views on an Edge Node
 
+# DO NOT MAKE THIS FILE EXECUTABLE
+# IT NEEDS FURTHER DEV TO AUTOMATE THE BUILD FOR AMBARI VIEWS ON AN EDGE NODE
+
 # Pre-flight checklist
 	# Added host to DNS
 	# Executed hadoop-vm-post-build.sh
