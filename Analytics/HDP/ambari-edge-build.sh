@@ -4,12 +4,7 @@
 # IT NEEDS FURTHER DEV TO AUTOMATE THE BUILD FOR AMBARI VIEWS ON AN EDGE NODE
 
 # Pre-flight checklist
-	# Added host to DNS
-	# Executed hadoop-vm-post-build.sh
-	# Executed ambari-agent-build.sh
-	# Ensure edge security group is applied
-
-# Add to cluster / add clients i.e. add host in Ambari
+	# Executed and follow instructions in ambari-agent-build.sh
 
 # In the edge node
 mkdir /etc/security/serverKeys
