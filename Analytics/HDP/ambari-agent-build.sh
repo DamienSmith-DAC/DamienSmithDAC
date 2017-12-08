@@ -23,6 +23,7 @@ EOF
 
 # Final instructions
 echo "Please update the following when this ends"
+echo "Go to Ambari Master and add host"
 echo "# scp -r /etc/security/serverKeys <node>:/etc/security/"
 echo "# ssh <node>"
 echo "# chmod 755 /etc/security/serverKeys/"
