@@ -7,6 +7,7 @@
 	# Added host to DNS
 	# Executed hadoop-vm-post-build.sh
 	# Executed ambari-agent-build.sh
+	# Ensure edge security group is applied
 
 # In the edge node
 mkdir /etc/security/serverKeys
