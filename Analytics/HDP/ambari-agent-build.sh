@@ -21,11 +21,13 @@ cat >> /var/lib/ambari-agent/public_hostname.sh << EOF
 echo `hostname -f`
 EOF
 
+ambari-agent start
+
 # Final instructions
 echo "Please update the following when this ends"
+echo "Please reboot this server"
 echo "Go to Ambari Master and add host"
 echo "# scp -r /etc/security/serverKeys <node>:/etc/security/"
 echo "# ssh <node>"
 echo "# chmod 755 /etc/security/serverKeys/"
 echo "# chmod 444 /etc/security/serverKeys/*"
-echo "Please reboot this server"
