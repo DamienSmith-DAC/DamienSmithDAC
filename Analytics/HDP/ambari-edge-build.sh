@@ -9,6 +9,8 @@
 	# Executed ambari-agent-build.sh
 	# Ensure edge security group is applied
 
+# Add to cluster / add clients i.e. add host in Ambari
+
 # In the edge node
 mkdir /etc/security/serverKeys
 mkdir /etc/security/keytabs
@@ -51,15 +53,10 @@ ambari-server setup-security
 ambari-server start
 
 # Sync AD and new Ambari Edge
-# From Ambari Server Master, transfer ldap sync configs
-scp /etc/ambari-server/conf/groups.txt np-ambari-edge-test:/etc/ambari-server/conf/
-scp /etc/ambari-server/conf/password.dat np-ambari-edge-test:/etc/ambari-server/conf/
-scp /etc/ambari-server/conf/ambari.properties np-ambari-edge-test:/etc/ambari-server/conf/
-
-# In the edge node
-ambari-server setup-ldap # you may or may not need to run this
+scp ambari-edge-02:/etc/ambari-server/conf/groups.txt /etc/ambari-server/conf/ 
+ambari-server setup-ldap # See /etc/ambari-server/conf/ambari.properties in exiting Ambari Server or Edge Node for more details
 ambari-server restart
-/usr/sbin/ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt
+/usr/sbin/ambari-server sync-ldap --groups /etc/ambari-server/conf/groups.txt 
 
 # Go to http://<AmbariEdgeIP>:8080/views/ADMIN_VIEW/2.5.2.0/INSTANCE/#/remoteClusters
 # Register the 'remote' cluster
