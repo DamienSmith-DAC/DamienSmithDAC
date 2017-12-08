@@ -39,7 +39,7 @@ ambari-server setup
 
 # Set up security
 ambari-server setup-security
-# Select and configure [3] Setup Ambari kerberos JAAS configuration.
+# Select and configure [3] Setup Ambari kerberos JAAS configuration (use ambari-server-dace2@DAC.LOCAL)
 # Select and configure [4] Setup truststore using /etc/security/serverKeys/all.jks 
 
 # Enable SSSD
