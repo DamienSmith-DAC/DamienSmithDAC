@@ -4,7 +4,9 @@
 # Use when developing new master, data, or edge node that does not host ambari-server
 
 # Pre-flight checklist
-	# Pleas manually add host to DNS
+	# Added host to DNS
+	# Executed hadoop-vm-post-build.sh
+	# Ensure edge security group is applied
 
 # Install ambari-agent
 wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
