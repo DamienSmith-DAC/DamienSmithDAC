@@ -10,8 +10,6 @@
   # The ldap_default_authtok config below has been updated 
   # Variables below have been updated as needed
 
-
-
 # Variables
 BIND_USER=bind_user
 DOMAIN_CONTROLLER=p-dc-101.dac.local
@@ -82,7 +80,6 @@ EOF
 chmod 0600 /etc/sssd/sssd.conf
 
 # Start services 
-service sssd restart
 authconfig --enablesssd --enablesssdauth --enablemkhomedir --enablelocauthorize --update
 chkconfig oddjobd on
 service oddjobd restart
