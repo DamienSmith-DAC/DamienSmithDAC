@@ -111,7 +111,7 @@ take_backup () {
     mv "${todays_dir}/${backup_type}-${now}.xbstream.incomplete" "${todays_dir}/${backup_type}-${now}.xbstream"
 }
 
-#Main - call functions
+#Main - call functions #
 sanity_check && set_options && rotate_old && take_backup
 
 # Check success and print message
