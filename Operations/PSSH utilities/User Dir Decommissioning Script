@@ -4,9 +4,9 @@
 # need to install pssh to work
 # sudo apt-get install pssh
 
-pscp -O StrictHostKeyChecking=no -h /root/test_list.txt /root/USERLIST.txt /root/
+pscp -O StrictHostKeyChecking=no -h /root/address_list.txt /root/USERLIST.txt /root/
 
-pssh -O StrictHostKeyChecking=no -h /root/test_list.txt -t 15 -p 15 -i '
+pssh -O StrictHostKeyChecking=no -h /root/address_list.txt -t 15 -p 15 -i '
         DELUSERS=0;
         ls /home > /root/homedir.txt;
 
