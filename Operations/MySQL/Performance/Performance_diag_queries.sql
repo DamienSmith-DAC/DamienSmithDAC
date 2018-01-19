@@ -37,7 +37,7 @@ order by sum_timer_wait desc;
 -- Check current queries
 show full processlist;
 
-
+-- Check processlist table
 SELECT PROCESSLIST_ID AS id, PROCESSLIST_USER AS user, PROCESSLIST_HOST AS host, PROCESSLIST_DB AS db
      , PROCESSLIST_COMMAND AS command, PROCESSLIST_TIME AS time, PROCESSLIST_STATE AS state, LEFT(PROCESSLIST_INFO, 80) AS info
   FROM performance_schema.threads
