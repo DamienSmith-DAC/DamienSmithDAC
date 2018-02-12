@@ -1,14 +1,15 @@
 #!/bin/bash
 
-#########################################################################
+####################################################################################################
 # Copy dataproducts backup files from dp-mysql-data-02 to backup-master01.
 # This is a data pull.
 # This script is called by root cron job scheduled to run
 # every day 2 hours after dataproducts backup cronjob on  dp-mysql-data-02
-#########################################################################
+# This is not in use anymore - superceded by copy_dp_incr_backup.sh and copy_dp_full_backup.sh
+#####################################################################################################
 # Version: 1.0
 # Developer: Indu N
-#########################################################################
+#####################################################################################################
 
 export LC_ALL=C
 

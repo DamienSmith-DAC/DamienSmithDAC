@@ -1,0 +1,12 @@
+###############################################################
+# cron job to copy MySQL backup files to backup server
+# root user cronjob
+###############################################################
+# Version: 1.0
+# Developer: Indu N
+##############################################################
+#Full backup on Sunday 2 hours after full backup on dp-mysql-data-02
+00 16 * * 6 /dataproducts/config/copy_dp_full_backup.sh
+
+#Incremental Backups 2 hours after full backup on dp-mysql-data-02
+00 16 * * 0,1,2,3,4,5 /dataproducts/config/copy_dp_incr_backup.sh
