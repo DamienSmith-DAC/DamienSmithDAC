@@ -45,19 +45,24 @@ if [ $? -eq 0 ]; then
 
    log_info "Info:File ${REMOTE_INCR_DIR}@${REMOTE_HOST} exists. Start copy"
    rsync -re  "ssh -i /root/dace2_data_product_root_private_key" root@${REMOTE_HOST}:${REMOTE_INCR_DIR} ${TODAYS_INCR_DIR}
-   log_info "Info:  Copy of ${REMOTE_INCR_DIR}@${REMOTE_HOST} directory has completed execution at"
-
-   # Start deletion of remote dir in remote host
-   log_info "Info:  Start deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} at"
-
-   ssh -i /root/dace2_data_product_root_private_key root@${REMOTE_HOST} "rm -rf ${REMOTE_INCR_DIR}"
 
    if [ $? -eq 0 ]; then
-      log_info "Info:  Completed deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} at"
-   else
-      log_info "Error: Deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} Directory has failed execution at"
-      exit
-   fi
+         log_info "Info:  Copy of ${REMOTE_INCR_DIR}@${REMOTE_HOST} directory has completed execution at"
+
+         # Start deletion of remote dir in remote host
+         log_info "Info:  Start deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} at"
+
+         ssh -i /root/dace2_data_product_root_private_key root@${REMOTE_HOST} "rm -rf ${REMOTE_INCR_DIR}"
+
+         if [ $? -eq 0 ]; then
+              log_info "Info:  Completed deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} at"
+         else
+              log_info "Error: Deletion of ${REMOTE_INCR_DIR}@${REMOTE_HOST} Directory has failed execution at"
+              exit
+         fi
+  else
+        log_info "Error:  Copy of ${REMOTE_INCR_DIR}@${REMOTE_HOST} directory has failed execution at"
+  fi
 
 else
 
