@@ -31,7 +31,7 @@ LOG_PATH="/dataproducts/log/backup_COPY_$(date +%a%Y%m%d).log"
 function log_info()
  {   
     log_time=`date "+%Y-%m-%d:%H:%M:%S"`
-    echo -e "$* $log_time" >>:q!:q!: ${LOG_PATH}
+    echo -e "$* $log_time" >> ${LOG_PATH}
  }
 
 #Copy
