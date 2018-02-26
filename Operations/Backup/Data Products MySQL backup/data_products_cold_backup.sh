@@ -91,7 +91,7 @@ OK=0
 $RSYNC "${weekly_source_dir_full}"  "${destination_local_dir_full}";
     if [ $? -eq 0 ]; then
         log_info "Info: Copy Completed for ${weekly_source_dir_full}"
-        #rm -rf "${{weekly_source_dir_full}";
+        #rm -rf "${weekly_source_dir_full}";
           #if [ $? -eq 0 ]; then
              #log_info "Info: Deletion Complete for ${weekly_source_dir_full}"
          #else
