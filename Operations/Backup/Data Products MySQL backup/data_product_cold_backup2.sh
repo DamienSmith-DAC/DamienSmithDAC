@@ -35,7 +35,7 @@ function log_info()
 RSYNC="rsync -a"
 
 #start logging
-log_info "Info: Starting incremental backup "
+log_info "Info: Start copy of incremental backup "
 
 # create local directory if it doesnt exit
 [ ! -d ${destination_local_dir_incr} ] && mkdir -p ${destination_local_dir_incr}
@@ -52,27 +52,28 @@ for i in {0..5}; do
     source_local_dir_incr=$(date -d "$(date) - $i day" +"%Y/%m/%d")
     $RSYNC "${source_parent_dir_incr}/${source_local_dir_incr}"  "${destination_local_dir_incr}";
     if [ $? -eq 0 ]; then
-       log_info "Info: Copy Completed for ${source_Local_Dir_incr}"
-        #rm -rf "${source_parent_dir_incr}/${source_local_dir_incr}";
-          #if [ $? -eq 0 ]; then
-             #log_info "Info: Deletion Complete for ${source_local_dir_incr}"
-          #else
-            # log_info "Info: Error (?) in Deleting ${source_local_dir_incr}"
-         #fi
+        log_info "Info: Copy Completed for ${source_parent_dir_incr}/${source_local_dir_incr}"
+        rm -rf "${source_parent_dir_incr}/${source_local_dir_incr}";
+        if [ $? -eq 0 ]; then
+            log_info "Info: Deletion Complete for ${source_parent_dir_incr}/${source_local_dir_incr}"
+        else
+            log_info "Info: Error in Deleting ${source_parent_dir_incr}/${source_local_dir_incr}"
+            ok=1
+        fi
     else
-       log_info "Info:Error (?) in copy of ${source_Parent_Dir}/${source_local_dir_incr}"
+       log_info "Info: Error in copy incremenatal backup ${source_parent_dir_incr}/${source_local_dir_incr}"
        ok=1
    fi
 done
 
 if [ $ok -eq 0 ]; then
-    log_info "Info: Incremental Backup Completed"
+    log_info "Info: Incremental Backup Copy Completed"
 else
-    log_info "Info:Error in Incremental Backup"
+    log_info "Info: Error in Incremental Backup Copy"
 fi
 
 #start logging
-log_info "Info: Starting full backup"
+log_info "Info: Start copy of full backup"
 
  # create local directory if it doesnt exit
   [ ! -d ${destination_local_dir_full} ] && mkdir -p ${destination_local_dir_full}
@@ -87,21 +88,21 @@ fi
 OK=0
 $RSYNC "${weekly_source_dir_full}"  "${destination_local_dir_full}";
     if [ $? -eq 0 ]; then
-       log_info "Info: Copy Completed for ${weekly_source_dir_full}"
-        #rm -rf "${{weekly_source_dir_full}";
-          #if [ $? -eq 0 ]; then
-             #log_info "Info: Deletion Complete for ${weekly_source_dir_full}"
-         #else
-             #log_info "Info: Error (?) in Deleting ${weekly_source_dir_full}"
-         #fi
- else
-       log_info "Info:Error (?) in Backup ${weekly_source_dir_full}"
+        log_info "Info: Copy Completed for ${weekly_source_dir_full}"
+        rm -rf "${{weekly_source_dir_full}";
+        if [ $? -eq 0 ]; then
+             log_info "Info: Deletion Complete for ${weekly_source_dir_full}"
+        else
+             log_info "Info: Error in Deleting ${weekly_source_dir_full}"
+             OK=1
+        fi
+   else
+       log_info "Info:Error in copying Full Backup ${weekly_source_dir_full}"
        OK=1
 
-    fi
+   fi
 if [ $OK -eq 0 ]; then
-    log_info "Info: full Backup Completed"
+    log_info "Info: Full Backup Copy Completed"
 else
-    log_info "Info:Error in full Backup"
+    log_info "Info: Error in Full Backup Copy"
 fi
-
