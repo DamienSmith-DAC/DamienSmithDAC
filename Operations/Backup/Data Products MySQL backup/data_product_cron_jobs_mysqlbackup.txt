@@ -1,0 +1,19 @@
+###############################################################
+# cron job for MySQL incremental xtrabackup
+###############################################################
+# Version: 1.0
+# Developer: Indu N
+##############################################################
+#02 14 * * * /db/mysql_backup/config/backup_mysql.sh
+
+###############################################################
+# cron job for MySQL Backups
+###############################################################
+#Full backup on Sunday 1AM AEDT time
+00 14 * * 6 /db/mysql_backup/config/full_backup.sh
+
+#Incremental Backups on weekdays 1AM AEDT
+30 14 * * 0,1,2,3,4,5 /db/mysql_backup/config/incremental_backup.sh
+#59 03 * * 0,1,2,3,4,5 /db/mysql_backup/config/incremental_backup.sh
+~
+~
