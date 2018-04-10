@@ -5,8 +5,12 @@
 # MySQL back up user is backup_admin
 #
 ####################################################################################################
-# Version: 1.0
+# Version: 1.1
 # Developer: Indu N
+####################################################################################################
+# Revision History
+# Version 1: First cut
+# Version 1.1: Changed email address to dacsupport@treasury.nsw.gov.au
 ####################################################################################################
 # set up local variables
 BACKUP_DIR="/db/hw_mysql_backup"
@@ -17,7 +21,7 @@ MYSQLDUMP=/usr/bin/mysqldump
 MYSQLDUMP_CONFIG="/db/hw_mysql_backup/config"
 DAY=$(date +"%a%Y%m%d")
 TODAYS_DIR=HW_MYSQL_$DAY
-EMAIL_ADDRESS="indu.neelakandan@treasury.nsw.gov.au"
+EMAIL_ADDRESS="dacsupport@treasury.nsw.gov.au"
 REMOTE_HOST="10.74.12.108"
 REMOTE_DIR="/analytics/hw_mysql_backup"
 
