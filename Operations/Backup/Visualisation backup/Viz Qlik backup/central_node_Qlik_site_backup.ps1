@@ -89,14 +89,26 @@ Copy-Item  $SenseProgramData\Qlik -Destination $TodaysTargetLocation\ProgramData
 "Restarting Qlik Services ...." | Out-File -FilePath $LogFileName -Append
 
 
-start-service QlikSenseRepositoryService -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikSenseEngineService -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikSenseSchedulerService -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikSensePrintingService -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikSenseServiceDispatcher -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikSenseProxyService -WarningAction SilentlyContinue *>> $LogFileName
-start-service QlikLoggingService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSenseRepositoryService *>> $LogFileName
+Get-Service QlikSenseRepositoryService *>> $LogFileName
 
+start-service QlikSenseEngineService *>> $LogFileName
+Get-Service QlikSenseEngineService *>> $LogFileName
+
+start-service QlikSenseSchedulerService *>> $LogFileName
+Get-Service QlikSenseSchedulerService *>> $LogFileName
+
+start-service QlikSensePrintingService *>> $LogFileName
+Get-Service QlikSensePrintingService *>> $LogFileName
+
+start-service QlikSenseServiceDispatcher *>> $LogFileName
+Get-Service QlikSenseServiceDispatcher *>> $LogFileName
+
+start-service QlikSenseProxyService *>> $LogFileName
+Get-Service QlikSenseProxyService *>> $LogFileName
+
+start-service QlikLoggingService *>> $LogFileName
+Get-Service QlikLoggingService *>> $LogFileName
 
 "Qlik Services restarted...." | Out-File -FilePath $LogFileName -Append
 
