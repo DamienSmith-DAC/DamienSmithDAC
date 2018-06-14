@@ -32,13 +32,13 @@ $TodaysTargetLocation  =  Join-Path -ChildPath $StartTime -Path $BackupTargetLoc
 
 "Stopping Qlik Services ...." | Out-File -FilePath $LogFileName -Append
  
-stop-service QlikSenseProxyService -WarningAction SilentlyContinue
-stop-service QlikSenseEngineService -WarningAction SilentlyContinue
-stop-service QlikSenseSchedulerService -WarningAction SilentlyContinue
-stop-service QlikSensePrintingService -WarningAction SilentlyContinue
-stop-service QlikSenseServiceDispatcher -WarningAction SilentlyContinue
-stop-service QlikLoggingService -WarningAction SilentlyContinue
-stop-service QlikSenseRepositoryService -WarningAction SilentlyContinue
+stop-service QlikSenseProxyService -force *>> $LogFileName
+stop-service QlikSenseEngineService -force *>> $LogFileName
+stop-service QlikSenseSchedulerService -force *>> $LogFileName
+stop-service QlikSensePrintingService -force *>> $LogFileName
+stop-service QlikSenseServiceDispatcher -force *>> $LogFileName
+stop-service QlikLoggingService -force *>> $LogFileName
+stop-service QlikSenseRepositoryService -force *>> $LogFileName
 
  
 "Backing up PostgreSQL Repository Database ...." | Out-File -FilePath $LogFileName -Append
@@ -74,13 +74,13 @@ Copy-Item  $SenseProgramData\Qlik -Destination $TodaysTargetLocation\ProgramData
 "Restarting Qlik Services ...." | Out-File -FilePath $LogFileName -Append
 
 
-start-service QlikSenseRepositoryService -WarningAction SilentlyContinue
-start-service QlikSenseEngineService -WarningAction SilentlyContinue
-start-service QlikSenseSchedulerService -WarningAction SilentlyContinue
-start-service QlikSensePrintingService -WarningAction SilentlyContinue
-start-service QlikSenseServiceDispatcher -WarningAction SilentlyContinue
-start-service QlikSenseProxyService -WarningAction SilentlyContinue
-start-service QlikLoggingService -WarningAction SilentlyContinue
+start-service QlikSenseRepositoryService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSenseEngineService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSenseSchedulerService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSensePrintingService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSenseServiceDispatcher -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikSenseProxyService -WarningAction SilentlyContinue 2>> $LogFileName
+start-service QlikLoggingService -WarningAction SilentlyContinue 2>> $LogFileName
 
 
 "Qlik Services restarted...." | Out-File -FilePath $LogFileName -Append
