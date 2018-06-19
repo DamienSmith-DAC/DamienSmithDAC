@@ -94,7 +94,6 @@ while read BACKUP; do
 			DP="$(echo $FOLDER | sed 's/^.//')"
 			if [ "$BACKUPSIZE" -ge "$SEGMENTSIZE" ]; then
                         	swift upload DAC_BACKUP/$DP -S "$SEGMENTSIZE" $BASEFILE.tar.gz.enc
-				echo "SEGMENTING FILE"
 			else
 				swift upload DAC_BACKUP/$DP $BASEFILE.tar.gz.enc
                 	fi
@@ -165,7 +164,30 @@ while read BACKUP; do
 
 		log_info "Info: $BASEFILE.list sent to DAC_BACKUP. Removing $BASEFILE.list locally."
 		rm -f $BASEFILE.list
+
+		log_info "Info: $FOLDER successfully backed up. Removing this backup locally."
 		rm -rf $FOLDER
+
+		if [ "$?" -ne 0 ]; then
+                        log_info "Error: removing $FOLDER locally failed."
+                (
+                        echo To: $EMAILADDRESS
+                        echo Subject: "[SWIFT BACKUP] Error: sending $BASEFILE.list to DAC_BACKUP failed."
+                        echo "Mime-Version: 1.0"
+                        echo 'Content-Type: multipart/mixed; boundary="GvXjxJ+pjyke8COw"'
+                        echo ""
+                        echo "--GvXjxJ+pjyke8COw"
+                        echo "Content-Type: text/html"
+                        echo "Content-Disposition: inline"
+                        echo ""
+                        echo "rm -rf of $FOLDER failed. Check log file under /analytics/log for more information."
+                        echo "--GvXjxJ+pjyke8COw"
+                        echo "Content-Type: application/text/html"
+                        echo "Content-Transfer-Encoding: base64"
+                        echo ""
+                ) | /usr/sbin/sendmail -t
+                        exit 1
+                fi
 
 	done < ${DATE}_backup_directory_list.txt
 
