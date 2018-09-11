@@ -1,0 +1,14 @@
+Instructions
+1. Create LDAP user in LDAP server
+2. Assign user to AD group
+3. AD integrate MySQL server to LDAP server
+4. Install LDAP plugins in MySQL
+5. Set up resource group by running the following scripts in order:
+   001_create_resource_group.sql
+   002_create_db_log_table.sql
+   003_set_resource_group.sql
+   004_audit_user_login.sql
+   005_create_role.sql
+   006_create_external_user.sql
+   007_set_init_connect_procedure.sql
+6. Check implementation using Tech_verification_resource_group.sql   
