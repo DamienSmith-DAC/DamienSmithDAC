@@ -1,0 +1,10 @@
+- name: Power off Azure VM
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Power On
+      azure_rm_virtualmachine:
+        resource_group: myResourceGroup
+        name: myVM
+
