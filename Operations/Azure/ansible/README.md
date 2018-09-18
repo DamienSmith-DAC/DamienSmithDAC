@@ -1,1 +1,1 @@
-ansible-playbooks <<yml file>>
+ansible-playbooks yml-file
