@@ -10,6 +10,7 @@ SQL_USER_LIST="/etc/onboardingautomation/sql-user-list.txt"
 MYSQL_PASSWORD_FILE='/etc/onboardingautomation/sqlpassword.conf'
 MYSQL_PASSWORD=`ssh  np-a-mysql-01 "cat $MYSQL_PASSWORD_FILE"`
 
+EDGE_NODE_HOSTNAME="np-anaconda.dac.local"
 
 exec &>> /var/log/onboardingautomation/create-hdfs-home-dir-and-ldap-sync.log
 echo "$(date +'%h %d %H:%M:%S')"
@@ -49,15 +50,15 @@ while read LDAPUSER;
 		hdfs dfs -chown $LDAPUSER:hdfs /user/$LDAPUSER
 
 		# Create the np-edge node home directories for these users.
-		ssh -n np-edge.dac.local "mkdir -p /home/${LDAPUSER}/.ssh"
-		ssh -n np-edge.dac.local "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
-		ssh -n np-edge.dac.local "touch /home/${LDAPUSER}/.bashrc"
-		ssh -n np-edge.dac.local "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
-		ssh -n np-edge.dac.local "touch /home/${LDAPUSER}/.bash_profile"
-		ssh -n np-edge.dac.local "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
-		ssh -n np-edge.dac.local "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
-		ssh -n np-edge.dac.local "chmod 700 /home/${LDAPUSER}"
-		ssh -n np-edge.dac.local "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
+		ssh -n $EDGE_NODE_HOSTNAME "mkdir -p /home/${LDAPUSER}/.ssh"
+		ssh -n $EDGE_NODE_HOSTNAME "cp ~/.ssh/authorized_keys /home/${LDAPUSER}/.ssh/"
+		ssh -n $EDGE_NODE_HOSTNAME "touch /home/${LDAPUSER}/.bashrc"
+		ssh -n $EDGE_NODE_HOSTNAME "cat ~/.bashrc >> /home/${LDAPUSER}/.bashrc"
+		ssh -n $EDGE_NODE_HOSTNAME "touch /home/${LDAPUSER}/.bash_profile"
+		ssh -n $EDGE_NODE_HOSTNAME "cat ~/.bashrc >> /home/${LDAPUSER}/.bash_profile"
+		ssh -n $EDGE_NODE_HOSTNAME "cd /home; chown -R ${LDAPUSER}:domain_users ${LDAPUSER};"
+		ssh -n $EDGE_NODE_HOSTNAME "chmod 700 /home/${LDAPUSER}"
+		ssh -n $EDGE_NODE_HOSTNAME "chmod 600 /home/${LDAPUSER}/.ssh/authorized_keys"
 			
         done < $USER_DIFFERENCES
 
