@@ -1,0 +1,19 @@
+- hosts: cluster_nodes
+  remote_user: root
+  tasks:
+    - name: 'Copy report creation script to remote'
+      copy:
+        src: ./make_cert_report.py
+        dest: /tmp/make_cert_report.py
+        force: yes
+        mode: 0750
+    - name: 'Create report'
+      shell: |
+        python /tmp/make_cert_report.py
+    - name: 'Fetch report'
+      fetch:
+        src: /tmp/__cert_report__.csv
+        dest: ./reports/{{ inventory_hostname }}_cert_report.csv
+        flat: yes
+    - name: 'Combine all reports'
+      local_action: shell echo "host,crt_file,expiry_date" > combined_report.csv; cat reports/* >> combined_report.csv
