@@ -1,7 +1,7 @@
 """
 Python Version: 2.7
 """
-import subprocess, shlex, re, socket, csv
+import subprocess, shlex, re, socket, csv, datetime
 
 #### CONSTANTS ####
 
@@ -16,7 +16,17 @@ def get_expiry_date(crt_path):
 	process_output = process.communicate()[0]
 	# Remove 'notAfter=' that preceeds the date in openssl output.
 	# Using rstrip to remove new line at the end of the string
-	return re.sub('notAfter=', '', process_output.rstrip())
+	expiry_date = re.sub('notAfter=', '', process_output.rstrip())
+	
+	try:
+		expiry_datetime = datetime.datetime.strptime(expiry_date, '%b %d %H:%M:%S %Y %Z')
+		expiry_date = expiry_datetime.strftime('%Y-%m-%d %H:%M:%S %z')
+	except ValueError:
+		pass
+		# do nothing
+
+	return expiry_date
+	
 
 def write_csv(records, path):
 	with open(path, 'wb') as dest_file:
