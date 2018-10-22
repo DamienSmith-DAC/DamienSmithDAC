@@ -1,0 +1,28 @@
+$prod = [
+        { app => "Landing                        ", url => "https://dace2-upload.dac.nsw.gov.au/login",			}, 
+        { app => "HSDH Landing                   ", url => "https://dace2-hsdh.dac.nsw.gov.au/login",				}, 
+        { app => "Password Change Link           ", url => "https://rdweb.dac.nsw.gov.au/RDWeb/Pages/en-US/password.aspx",	}, 
+        { app => "MySQL-Data-01 (MicroStrategy)  ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MySQL-Data-02 (MicroStrategy)  ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MySQL-Meta-01 (MicroStrategy)  ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MySQL-Meta-02 (MicroStrategy)  ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MSTR-Web-01 (MicroStrategy)    ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MSTR-Web-01 (MicroStrategy)    ", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MSTR-Intelli-01 (MicroStrategy)", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "MSTR-Intelli-02 (MicroStrategy)", url => "https://dace2-analytics.dac.nsw.gov.au",				}, 
+        { app => "qlik-central-01                ", url => "https://dace2-siractp.dac.nsw.gov.au/prod-okta/hub",		}, 
+        { app => "qlik-web-01                    ", url => "https://dace2-siractp.dac.nsw.gov.au/prod-okta/hub",		}, 
+        { app => "Tableau Server                 ", url => "https://tableau.dac.nsw.gov.au",				}, 
+];
+$np = [
+        { app => "Landing                        ", url => "https://np-dace2-upload.dac.nsw.gov.au/login",			}, 
+        { app => "HSDH Landing                   ", url => "https://np-dace2-hsdh.dac.nsw.gov.au/login",			}, 
+        { app => "Password Change Link           ", url => "https://rdweb.dac.nsw.gov.au/RDWeb/Pages/en-US/login.aspx",	}, 
+        { app => "MySQL-DataMeta (MicroStrategy) ", url => "https://np-dace2-analytics.dac.nsw.gov.au",			}, 
+        { app => "NP-MSTR-Web (MicroStrategy)    ", url => "https://np-dace2-analytics.dac.nsw.gov.au",			}, 
+        { app => "NP-MSTR-Intelli (MicroStrategy)", url => "https://np-dace2-analytics.dac.nsw.gov.au",			}, 
+        { app => "Qlik Central Node              ", url => "https://np-dace2-siractp.dac.nsw.gov.au/dev-okta/hub",		}, 
+        { app => "Qlik Web Server                ", url => "https://np-dace2-siractp.dac.nsw.gov.au/dev-okta/hub",		}, 
+        { app => "Tableau Server                 ", url => "https://nptableau.dac.nsw.gov.au/",				}, 
+];
+
