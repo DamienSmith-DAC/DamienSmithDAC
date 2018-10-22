@@ -15,11 +15,11 @@ Check the certificate expiration status for each of application.
 ## USAGE
 
 1.  clone the module:
-    a.  git clone [https://github.com/NSWDAC/Platform.gi](https://github.com/NSWDAC/Platform.git)t
+    1.  git clone [https://github.com/NSWDAC/Platform.gi](https://github.com/NSWDAC/Platform.git)t
 2.  change to Certificate Expiry Check directory:
-    b.  cd "Certificate Expiry Check"
+    2.  cd "Certificate Expiry Check"
 3.  run the script:
-    c.  perl [cert-expiry.pl](http://cert-expiry.pl)
+    3.  perl [cert-expiry.pl](http://cert-expiry.pl)
 4.  it will send the emails with html format to users declared by $to in the script
 
 ## NOTE
