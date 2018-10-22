@@ -27,6 +27,7 @@ Check the certificate expiration status for each of application.
 -   The check list captured from [DAC Platform User Applications](http://nswdac.atlassian.net/wiki/spaces/DELV/pages/63766934/DAC+Platform+User+Applications).
 -   Update the hash array in the module for checking the required applications or links.
 -   This script needs openssl to parsing the certificate details, check the availability of openssl in the server before run the script.
+-   Documented in Confluence: https://nswdac.atlassian.net/wiki/spaces/DELV/pages/823164982/Platform+maintenance
 
 ## SNAPSHOT
 
