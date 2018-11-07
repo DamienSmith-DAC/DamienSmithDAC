@@ -17,7 +17,7 @@ REMOTE_HOST="10.74.31.105"
 PARENT_FULL_DIR="/db/mysql_backup"
 REMOTE_FULL_DIR=${PARENT_FULL_DIR}
 LOCAL_PARENT_FULL_DIR="/sira/full"
-TODAYS_FULL_DIR="${LOCAL_PARENT_FULL_DIR}/$(date "+%Y")/$(date "+%m")"
+TODAYS_FULL_DIR="${LOCAL_PARENT_FULL_DIR}/$(date "+%Y")/$(date "+%m")/$(date "+%d")"
 LOG_DIR="/sira/log"
 LOG_PATH="$LOG_DIR/FULL_COPY_$(date +%a%Y%m%d).log"
 # time for daytime saving
@@ -55,7 +55,7 @@ if [ $? -eq 0 ]; then
 
    log_info "Info:File ${REMOTE_FULL_DIR}@${REMOTE_HOST} exists. Start copy"
    rsync --remove-source-files -re  "ssh" root@${REMOTE_HOST}:${REMOTE_FULL_DIR} ${TODAYS_FULL_DIR}
-   CONTENT="Sira daily backup is done at"
+   CONTENT="Sira daily backup is done successfully at"
 
 else
 
