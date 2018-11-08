@@ -1,0 +1,4 @@
+stage 'package'
+node() {
+    sh("pwd()/src/foo.sh")
+}
