@@ -16,11 +16,12 @@ export LC_ALL=C
 REMOTE_HOST="10.74.31.105"
 PARENT_FULL_DIR="/db/mysql_backup"
 REMOTE_FULL_DIR=${PARENT_FULL_DIR}
-LOCAL_PARENT_FULL_DIR="/sira/full"
+ROOTDIR="/analytics/sira_mysql_backup"
+LOCAL_PARENT_FULL_DIR="$ROOTDIR/full"
 TODAYS_FULL_DIR="${LOCAL_PARENT_FULL_DIR}/$(date "+%Y")/$(date "+%m")/$(date "+%d")"
-LOG_DIR="/sira/log"
+LOG_DIR="$ROOTDIR/log"
 LOG_PATH="$LOG_DIR/FULL_COPY_$(date +%a%Y%m%d).log"
-# time for daytime saving
+# time offset for daytime saving
 OFFSET=11
 
 # Log function
