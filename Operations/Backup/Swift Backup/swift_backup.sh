@@ -25,6 +25,8 @@ while read BACKUP; do
 	if [ "$BACKUP" == "dataproducts_cold_backup" ]; then
 		find /analytics/dataproducts_cold_backup/full/ -mindepth 3 -type d -mtime +14 -mtime -28 > ${DATE}_backup_directory_list.txt #same as below for dp.
 		#find /root/testdir/encrypt/dp/full/ -mindepth 3 -type d -mtime +14 -mtime -28 > ${DATE}_backup_directory_list.txt #test environment
+	elif [ "$BACKUP" == "sira_mysql_backup" ]; then
+		find /analytics/$BACKUP/full/ -mindepth 3 -type d -mtime +14 -mtime -28 > ${DATE}_backup_directory_list.txt 
 	else
 		find /analytics/$BACKUP/ -mindepth 1 -maxdepth 1 -type d -mtime +14 -mtime -28 > ${DATE}_backup_directory_list.txt #create list all 2+week old folders
 		 #find /root/testdir/encrypt/$BACKUP/ -mindepth 1 -maxdepth 1 -type d -mtime +14 -mtime -28 > ${DATE}_backup_directory_list.txt #test environment
@@ -99,6 +101,13 @@ while read BACKUP; do
                 	fi
 
 			#openstack --insecure object create DAC_BACKUP/$DP $BASEFILE.tar.gz.enc #sends zipped, encrypted file to openstack container.
+		elif [ "$BACKUP" == "sira_mysql_backup" ]; then
+			SIRADIR="$(echo $FOLDER | sed 's/^.//')"
+			if [ "$BACKUPSIZE" -ge "$SEGMENTSIZE" ]; then
+                        	swift upload DAC_BACKUP/$SIRADIR -S "$SEGMENTSIZE" $BASEFILE.tar.gz.enc
+			else
+				swift upload DAC_BACKUP/$SIRADIR $BASEFILE.tar.gz.enc
+                	fi
 		else
 			if [ "$BACKUPSIZE" -ge "$SEGMENTSIZE" ]; then
                         	swift upload DAC_BACKUP/analytics/$BACKUP -S "$SEGMENTSIZE" $BASEFILE.tar.gz.enc
@@ -136,6 +145,8 @@ while read BACKUP; do
 		if [ "$BACKUP" == "dataproducts_cold_backup" ]; then
 			swift upload DAC_BACKUP/$DP $BASEFILE.list
 			#openstack --insecure object create DAC_BACKUP/$DP $BASEFILE.list #sends zipped, encrypted file to openstack container.
+		elif [ "$BACKUP" == "sira_mysql_backup" ]; then
+			swift upload DAC_BACKUP/$SIRADIR $BASEFILE.list
                 else
                         swift upload DAC_BACKUP/analytics/$BACKUP $BASEFILE.list
 			#openstack --insecure object create DAC_BACKUP/analytics/$BACKUP $BASEFILE.list #sends zipped, encrypted file to openstack container.
