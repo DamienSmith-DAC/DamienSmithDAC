@@ -6,7 +6,7 @@ use open ':std', ':encoding(UTF-8)';
 use File::Copy;
 use POSIX qw/difftime mktime strftime/;
 use Text::CSV;
-use constant TEST => 1;
+use constant TEST => 0;
 
 sub day;
 sub hh;
@@ -125,7 +125,7 @@ if (!$total) {
 		$html .= $r->{html} if $r->{'stat'} !~ /ok/gi;
 	}
 }
-$html .= sprintf qq(<tr><td colspan=%d align=right>%s</td><td nowrap>%s</td></tr>), (scalar @th)-1, icon(), " generated at $NOW";
+$html .= sprintf qq(<tr><td colspan=%d align=right>%s</td><td nowrap>%s</td></tr>), (scalar @th)-1, icon(), " Generated at $NOW";
 $html .= "</table>\n</td></tr>\n</table>";
 
 exit mailer("Error: invalid format in the CSV file\n".system("cat $cfile")) unless $text;
@@ -192,6 +192,6 @@ sub icon {
 sub icons {
         my $s = shift;
         my $e = shift;
-        return map { '&#'.($s +$_).';' }(0..$e-1);
+        return map { '&#'.($s+$_).';' }(0..$e-1);
 }
 
