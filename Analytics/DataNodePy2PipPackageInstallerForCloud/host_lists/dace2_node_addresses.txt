@@ -1,0 +1,8 @@
+root@data01.dac.local
+root@data02.dac.local
+root@data03.dac.local
+root@data04.dac.local
+root@data05.dac.local
+
+#Zeppelin edge node
+root@zeppelin-edge01.dac.local
