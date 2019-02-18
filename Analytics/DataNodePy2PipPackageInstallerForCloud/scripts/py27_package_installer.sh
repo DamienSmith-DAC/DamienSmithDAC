@@ -24,7 +24,7 @@ pip install -U setuptools
 # Need mpicxx in PATH when installing the horovod package
 PATH="${PATH}:${MPICXX_EXE}"
 
-PIP_PACKAGES="request dbutils scipy numpy matplotlib pandas statsmodels scikit-learn theano tensorflow keras plotly seaborn horovod pyocr pillow scrapy dialogflow apiai h5py spark-sklearn tensorflowonspark xlrd datarobot docx-mailmerge faker"
+PIP_PACKAGES="request dbutils scipy numpy matplotlib pandas statsmodels scikit-learn theano tensorflow keras plotly seaborn horovod pyocr pillow scrapy dialogflow apiai h5py spark-sklearn tensorflowonspark xlrd datarobot docx-mailmerge faker pyspark "
 
 IFS=" "
 
