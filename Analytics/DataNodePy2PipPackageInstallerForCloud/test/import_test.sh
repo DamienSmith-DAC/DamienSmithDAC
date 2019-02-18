@@ -25,7 +25,10 @@ import apiai
 import h5py
 #import spark_sklearn 
 import tensorflowonspark
-
+import xlrd
+import mailmerge
+import faker
+import pyspark
 
 ENDOFSCRIPT
 
