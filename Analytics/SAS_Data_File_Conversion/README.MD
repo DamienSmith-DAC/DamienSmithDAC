@@ -18,6 +18,16 @@ To execute the code, run the following command
 ```Python
 spark-submit --jars spark-sas7bdat-2.1.0-s_2.11.jar,parso-2.0.10.jar sas  sas_to_csv_conversion.py | tee /tmp/sas_to_csv_conversion.log
 ```
+## Making changes in Code
+To change the code for your purpose, you might need to change just a few variables, primarily the ones mentioned below 
+```python
+# Directory where SAS data files reside
+source_dir 
+# Direcotry where the converted files (CSV) files will reside
+target_dir = "/user/baiga/sas_data/converted_files/"
+# The extension of the files that are to be read by the program from the source directory
+file_ext = "sas7bdat"
+```
 
 ## Caveats
 spark-csv writes out null as "null" in csv text output. This means if you read it back for a string type, you might actually read "null" instead of null. The safest option is to export in parquet format where null is properly recorded. See https://github.com/databricks/spark-csv/pull/147 for alternative solution.
