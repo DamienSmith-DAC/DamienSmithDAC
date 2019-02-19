@@ -24,6 +24,6 @@ spark-csv writes out null as "null" in csv text output. This means if you read i
 
 ## Reference
 
-https://nswdac.atlassian.net/wiki/spaces/TEC/pages/edit-v2/876314971
+[Convert SAS data file to CSV] (https://nswdac.atlassian.net/wiki/spaces/TEC/pages/edit-v2/876314971)
 
-https://nswdac.atlassian.net/wiki/spaces/TEC/pages/876282290/Iterate+over+HDFS+files+in+Python+and+Pyspark
+[Iterate over HDFS files in Python and Pyspark] (https://nswdac.atlassian.net/wiki/spaces/TEC/pages/876282290/Iterate+over+HDFS+files+in+Python+and+Pyspark)
