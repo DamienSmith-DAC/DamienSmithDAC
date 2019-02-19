@@ -18,3 +18,9 @@ To execute the code, run the following command
 ```Python
 spark-submit --jars spark-sas7bdat-2.1.0-s_2.11.jar,parso-2.0.10.jar sas  sas_to_csv_conversion.py | tee /tmp/sas_to_csv_conversion.log
 ```
+
+# Reference
+
+https://nswdac.atlassian.net/wiki/spaces/TEC/pages/edit-v2/876314971
+
+https://nswdac.atlassian.net/wiki/spaces/TEC/pages/876282290/Iterate+over+HDFS+files+in+Python+and+Pyspark
