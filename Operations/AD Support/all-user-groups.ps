@@ -1,0 +1,25 @@
+-- Prod
+Get-ADUser -Filter '*' -Properties * -SearchBase 'OU=Users,OU=PE,OU=DAC,DC=dac,DC=local' | 
+Where {$_.GivenName -ne $Null -AND $_.Surname -ne $Null -AND $_.Name -ne $Null} | % {
+New-Object PSObject -Property @{
+FullName = $_.Name
+Username = $_.DisplayName
+Email=$_.EmailAddress
+ldap=$_.DistinguishedName
+Groups = ($_.memberof | Get-ADGroup | Select -ExpandProperty Name) -join ","
+}
+} | Select * |
+Export-CSV all-user-groups-prod.csv
+
+-- Non Prod
+Get-ADUser -Filter '*' -Properties * -SearchBase 'OU=Users,OU=NPE,OU=DAC,DC=dac,DC=local' | 
+Where {$_.GivenName -ne $Null -AND $_.Surname -ne $Null -AND $_.Name -ne $Null} | % {
+New-Object PSObject -Property @{
+FullName = $_.Name
+Username = $_.DisplayName
+Email=$_.EmailAddress
+ldap=$_.DistinguishedName
+Groups = ($_.memberof | Get-ADGroup | Select -ExpandProperty Name) -join ","
+}
+} | Select * |
+Export-CSV all-user-groups-np.csv
