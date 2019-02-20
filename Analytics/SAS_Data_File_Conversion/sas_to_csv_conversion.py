@@ -3,8 +3,6 @@ import os
 import pyspark
 from pyspark.sql import SparkSession
 
-print("Connecting to Spark")
-
 spark = SparkSession.\
         builder.\
         appName("SAS_to_CSV").\
@@ -19,14 +17,17 @@ spark = SparkSession.\
         enableHiveSupport().\
         getOrCreate()
 
-cmd = "hdfs dfs -ls /raw/SIRA/PIR/Original | grep '/*.sas7bdat' | sed 's/  */ /g' | cut -d\  -f8"
+source_dir = "/raw/SIRA/PIR/Original/"
+target_dir = "/raw/SIRA/PIR/CSV/"
+file_ext = "sas7bdat"
+
+cmd = "hdfs dfs -ls " + source_dir + " | grep '/*." + file_ext + "' | sed 's/  */ /g' | cut -d\  -f8"
+
 files = subprocess.check_output(cmd, shell=True).strip().split('\n')
 for path in files:
 	file_path, file_extension = os.path.splitext(path)
 	file_name = file_path[file_path.rfind('/')+1 : ]
 	df = spark.read.format("com.github.saurfang.sas.spark").load(path, forceLowercaseNames=True, inferLong=True)
-	df.write.csv('/raw/SIRA/PIR/CSV/' + file_name + '.csv')
-        print("-----------------------------------------------------------------------")
-        print(file_path + " converted to CSV")
-        print("-----------------------------------------------------------------------")
+	df.write.csv(target_dir + file_name + '.csv')
+        print("File " + path + " copied to " + target_dir + file_name +'.csv')
 
