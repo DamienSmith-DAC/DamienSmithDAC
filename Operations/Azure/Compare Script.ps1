@@ -58,6 +58,15 @@ foreach ($row in $File1)
     $obj += $item
     $i++
 }
-$obj
 
-$obj | export-csv -Path $csvFileName -NoTypeInformation
+$File3 = foreach ($FL_Item in $obj)
+    {
+    [PSCustomObject]@{
+        Name = $FL_Item.Name
+        Location = $FL_Item.Directory
+        Size_MB = $FL_Item.Size_MB
+        Matches = if ($FL_Item.Matches -like '*===*'){ 'TRUE' }else{ 'FALSE' }
+        }
+    }
+
+$File3 | export-csv -Path $csvFileName -NoTypeInformation
