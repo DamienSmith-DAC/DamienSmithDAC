@@ -1,29 +1,31 @@
-# Non-Production Users to create
-
-DECLARE Passord_set VARCHAR(40);
-SET Password_set:= 'Password#123';
+# Production SIRA POLICY Users to create
 
 # abenig - SELECT Privelege
-DROP USER 'Azenith.Benig'@'%'; 
-CREATE USER 'Azenith.Benig'@'%' IDENTIFIED BY 'Password#123';
-GRANT SELECT on *.* TO 'Azenith.Benig'@'%' IDENTIFIED BY PASSWORD 'Password#123';
+DROP USER 'azenith.benig'@'%'; 
+CREATE USER 'azenith.benig'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `azenith.benig`@`%`;
+GRANT SELECT ON `SIRA_CTP`.* TO `azenith.benig`@`%`;
 
 # agarcia - SELECT Privelege
-DROP USER 'Angela.Garcia'@'%'; 
-CREATE USER 'Angela.Garcia'@'%' IDENTIFIED BY 'Password#123';
-GRANT SELECT on *.* TO 'Angela.Garcia'@'%' IDENTIFIED BY PASSWORD 'Password#123';
+DROP USER 'angela.garcia'@'%'; 
+CREATE USER 'angela.garcia'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `angela.garcia`@`%`;
+GRANT SELECT ON `SIRA_CTP`.* TO `angela.garcia`@`%`;
 
 # arslanovs - SELECT Privelege
-DROP USER 'Sasha.Arslanov'@'%'; 
-CREATE USER 'Sasha.Arslanov'@'%' IDENTIFIED BY 'Password#123';
-GRANT SELECT on *.* TO 'Sasha.Arslanov'@'%' IDENTIFIED BY PASSWORD 'Password#123';
+DROP USER 'sasha.arslanov'@'%'; 
+CREATE USER 'sasha.arslanov'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `sasha.arslanov`@`%`;
+GRANT SELECT ON `Common_Data`.* TO `sasha.arslanov`@`%`;
+GRANT SELECT ON `SIRA_CTP`.* TO `sasha.arslanov`@`%`;
 
 # darjia - SELECT Privelege
-DROP USER 'Ankit.Darji'@'%'; 
-CREATE USER 'Ankit.Darji'@'%' IDENTIFIED BY 'Password#123';
-GRANT ALL ON *.* TO 'Ankit.Darji'@'%';
+DROP USER 'ankit.darji'@'%'; 
+CREATE USER 'ankit.darji'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `ankit.darji`@`%`;
+GRANT SELECT ON `SIRA_CTP`.* TO `ankit.darji`@`%`;
 
 # joe.chiu  - No Priveleges
-DROP USER 'Joe.Chiu'@'%'; 
-CREATE USER 'Joe.Chiu'@'%' IDENTIFIED BY 'Password#123';
-GRANT USAGE on *.* TO 'Joe.Chiu'@'%' IDENTIFIED BY PASSWORD 'Password#123';
+DROP USER 'joe.chiu'@'%'; 
+CREATE USER 'joe.chiu'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE on *.* TO 'joe.chiu'@'%';
