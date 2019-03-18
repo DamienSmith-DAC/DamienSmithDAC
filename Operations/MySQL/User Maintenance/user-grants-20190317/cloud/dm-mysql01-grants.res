@@ -10,24 +10,16 @@
 | GRANT USAGE ON *.* TO `agarcia`@`%`           |
 | GRANT SELECT ON `SIRA_CTP`.* TO `agarcia`@`%` |
 +-----------------------------------------------+
-+----------------------------------------------------+
-| Grants for anand.mistry@%                          |
-+----------------------------------------------------+
-| GRANT USAGE ON *.* TO `anand.mistry`@`%`           |
-| GRANT SELECT ON `UCDDX`.* TO `anand.mistry`@`%`    |
-| GRANT SELECT ON `SIRA_CTP`.* TO `anand.mistry`@`%` |
-+----------------------------------------------------+
 +-----------------------------------------------------+
-| Grants for angeal.garcia@%                          |
+| Grants for angela.garcia@%                          |
 +-----------------------------------------------------+
-| GRANT USAGE ON *.* TO `angeal.garcia`@`%`           |
-| GRANT SELECT ON `SIRA_CTP`.* TO `angeal.garcia`@`%` |
+| GRANT USAGE ON *.* TO `angela.garcia`@`%`           |
+| GRANT SELECT ON `SIRA_CTP`.* TO `angela.garcia`@`%` |
 +-----------------------------------------------------+
 +---------------------------------------------------+
 | Grants for ankit.darji@%                          |
 +---------------------------------------------------+
 | GRANT USAGE ON *.* TO `ankit.darji`@`%`           |
-| GRANT SELECT ON `UCDDX`.* TO `ankit.darji`@`%`    |
 | GRANT SELECT ON `SIRA_CTP`.* TO `ankit.darji`@`%` |
 +---------------------------------------------------+
 +----------------------------------------------------+
@@ -37,23 +29,12 @@
 | GRANT SELECT ON `Common_Data`.* TO `arslanovs`@`%` |
 | GRANT SELECT ON `SIRA_CTP`.* TO `arslanovs`@`%`    |
 +----------------------------------------------------+
-+--------------------------------------------------------------+
-| Grants for avinash.gupta@%                                   |
-+--------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `avinash.gupta`@`%`                    |
-| GRANT ALL PRIVILEGES ON `UCDDX`.* TO `avinash.gupta`@`%`     |
-| GRANT ALL PRIVILEGES ON `ETL_LOG`.* TO `avinash.gupta`@`%`   |
-| GRANT ALL PRIVILEGES ON `SIRA_CTP`.* TO `avinash.gupta`@`%`  |
-| GRANT ALL PRIVILEGES ON `SIRA_CTP%`.* TO `avinash.gupta`@`%` |
-+--------------------------------------------------------------+
-+-----------------------------------------------------------+
-| Grants for azenith.benig@%                                |
-+-----------------------------------------------------------+
-| GRANT USAGE ON *.* TO `azenith.benig`@`%`                 |
-| GRANT SELECT ON `UCDDX`.* TO `azenith.benig`@`%`          |
-| GRANT SELECT ON `SIRA_CTP`.* TO `azenith.benig`@`%`       |
-| GRANT SELECT ON `SIRA_CTP_RECON`.* TO `azenith.benig`@`%` |
-+-----------------------------------------------------------+
++-----------------------------------------------------+
+| Grants for azenith.benig@%                          |
++-----------------------------------------------------+
+| GRANT USAGE ON *.* TO `azenith.benig`@`%`           |
+| GRANT SELECT ON `SIRA_CTP`.* TO `azenith.benig`@`%` |
++-----------------------------------------------------+
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Grants for dac_support@%                                                                                                                                                                                                                                                                                                                                                                                |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -72,6 +53,11 @@
 | GRANT USAGE ON *.* TO `darjia`@`%`           |
 | GRANT SELECT ON `SIRA_CTP`.* TO `darjia`@`%` |
 +----------------------------------------------+
++--------------------------------------+
+| Grants for joe.chiu@%                |
++--------------------------------------+
+| GRANT USAGE ON *.* TO `joe.chiu`@`%` |
++--------------------------------------+
 +--------------------------------------+
 | Grants for mcbridei@%                |
 +--------------------------------------+
@@ -106,22 +92,6 @@
 +----------------------------------------+
 | GRANT SELECT ON *.* TO `mstr_user`@`%` |
 +----------------------------------------+
-+------------------------------------------------------+
-| Grants for paulo.quizon@%                            |
-+------------------------------------------------------+
-| GRANT USAGE ON *.* TO `paulo.quizon`@`%`             |
-| GRANT SELECT ON `UCDDX`.* TO `paulo.quizon`@`%`      |
-| GRANT SELECT ON `SIRA_CTP`.* TO `paulo.quizon`@`%`   |
-| GRANT SELECT ON `SIRA_CTP_%`.* TO `paulo.quizon`@`%` |
-+------------------------------------------------------+
-+----------------------------------------------------+
-| Grants for phuong.dao@%                            |
-+----------------------------------------------------+
-| GRANT USAGE ON *.* TO `phuong.dao`@`%`             |
-| GRANT SELECT ON `UCDDX`.* TO `phuong.dao`@`%`      |
-| GRANT SELECT ON `SIRA_CTP`.* TO `phuong.dao`@`%`   |
-| GRANT SELECT ON `SIRA_CTP_%`.* TO `phuong.dao`@`%` |
-+----------------------------------------------------+
 +----------------------------------------------------------------------------+
 | Grants for ptchecksum@%                                                    |
 +----------------------------------------------------------------------------+
@@ -138,10 +108,8 @@
 | Grants for sasha.arslanov@%                             |
 +---------------------------------------------------------+
 | GRANT USAGE ON *.* TO `sasha.arslanov`@`%`              |
-| GRANT SELECT ON `UCDDX`.* TO `sasha.arslanov`@`%`       |
 | GRANT SELECT ON `Common_Data`.* TO `sasha.arslanov`@`%` |
 | GRANT SELECT ON `SIRA_CTP`.* TO `sasha.arslanov`@`%`    |
-| GRANT SELECT ON `SIRA_CTP_%`.* TO `sasha.arslanov`@`%`  |
 +---------------------------------------------------------+
 +----------------------------------------------------+
 | Grants for sira_qlik@%                             |
@@ -156,14 +124,6 @@
 | GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `siratalend`@`%` WITH GRANT OPTION |
 | GRANT BACKUP_ADMIN,BINLOG_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,GROUP_REPLICATION_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SET_USER_ID,SYSTEM_VARIABLES_ADMIN,XA_RECOVER_ADMIN ON *.* TO `siratalend`@`%` WITH GRANT OPTION                                                                                                  |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-+-----------------------------------------------------------+
-| Grants for suruchi.singh@%                                |
-+-----------------------------------------------------------+
-| GRANT USAGE ON *.* TO `suruchi.singh`@`%`                 |
-| GRANT SELECT ON `UCDDX`.* TO `suruchi.singh`@`%`          |
-| GRANT SELECT ON `SIRA_CTP`.* TO `suruchi.singh`@`%`       |
-| GRANT SELECT ON `SIRA_CTP_RECON`.* TO `suruchi.singh`@`%` |
-+-----------------------------------------------------------+
 +------------------------------------------------------+
 | Grants for waterline_user@%                          |
 +------------------------------------------------------+

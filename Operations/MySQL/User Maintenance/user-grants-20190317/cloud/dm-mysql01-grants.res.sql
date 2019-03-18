@@ -8,14 +8,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `Common_Data`.* TO `common_data_etl`@`lo
 GRANT SELECT, INSERT ON `ETL_LOG`.* TO `common_data_etl`@`localhost`;
 
 
--- paulo.quizon
-CREATE USER 'paulo.quizon'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `paulo.quizon`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `paulo.quizon`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `paulo.quizon`@`%`;
-GRANT SELECT ON `SIRA_CTP_%`.* TO `paulo.quizon`@`%`;
-
-
 -- sira_ctp
 CREATE USER 'sira_ctp'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `sira_ctp`@`10.74.10.%`;
@@ -27,14 +19,6 @@ GRANT SELECT ON `SIRA_CTP`.* TO `sira_ctp`@`10.74.32.%`;
 GRANT USAGE ON *.* TO `sira_ctp`@`localhost`;
 GRANT SELECT ON `Common_Data`.* TO `sira_ctp`@`localhost`;
 GRANT SELECT ON `SIRA_CTP`.* TO `sira_ctp`@`localhost`;
-
-
--- suruchi.singh
-CREATE USER 'suruchi.singh'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `suruchi.singh`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `suruchi.singh`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `suruchi.singh`@`%`;
-GRANT SELECT ON `SIRA_CTP_RECON`.* TO `suruchi.singh`@`%`;
 
 
 -- waterline_user
@@ -52,8 +36,13 @@ GRANT SELECT ON `SIRA_CTP`.* TO `darjia`@`%`;
 -- ankit.darji
 CREATE USER 'ankit.darji'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `ankit.darji`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `ankit.darji`@`%`;
 GRANT SELECT ON `SIRA_CTP`.* TO `ankit.darji`@`%`;
+
+
+-- angela.garcia
+CREATE USER 'angela.garcia'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `angela.garcia`@`%`;
+GRANT SELECT ON `SIRA_CTP`.* TO `angela.garcia`@`%`;
 
 
 -- backup_admin
@@ -88,14 +77,6 @@ GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE ON *.* TO `ptchecksum`@`localhos
 GRANT ALL PRIVILEGES ON `percona`.* TO `ptchecksum`@`localhost`;
 
 
--- phuong.dao
-CREATE USER 'phuong.dao'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `phuong.dao`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `phuong.dao`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `phuong.dao`@`%`;
-GRANT SELECT ON `SIRA_CTP_%`.* TO `phuong.dao`@`%`;
-
-
 -- arslanovs
 CREATE USER 'arslanovs'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `arslanovs`@`%`;
@@ -120,13 +101,16 @@ CREATE USER 'damien.smith'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT SELECT ON *.* TO `damien.smith`@`%`;
 
 
+-- joe.chiu
+CREATE USER 'joe.chiu'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
+GRANT USAGE ON *.* TO `joe.chiu`@`%`;
+
+
 -- sasha.arslanov
 CREATE USER 'sasha.arslanov'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `sasha.arslanov`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `sasha.arslanov`@`%`;
 GRANT SELECT ON `Common_Data`.* TO `sasha.arslanov`@`%`;
 GRANT SELECT ON `SIRA_CTP`.* TO `sasha.arslanov`@`%`;
-GRANT SELECT ON `SIRA_CTP_%`.* TO `sasha.arslanov`@`%`;
 
 
 -- mstr_user
@@ -213,13 +197,6 @@ GRANT USAGE ON *.* TO `etl_log`@`localhost`;
 GRANT SELECT ON `ETL_LOG`.* TO `etl_log`@`localhost`;
 
 
--- anand.mistry
-CREATE USER 'anand.mistry'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `anand.mistry`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `anand.mistry`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `anand.mistry`@`%`;
-
-
 -- mcbridei
 CREATE USER 'mcbridei'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `mcbridei`@`%`;
@@ -228,30 +205,13 @@ GRANT USAGE ON *.* TO `mcbridei`@`%`;
 -- azenith.benig
 CREATE USER 'azenith.benig'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `azenith.benig`@`%`;
-GRANT SELECT ON `UCDDX`.* TO `azenith.benig`@`%`;
 GRANT SELECT ON `SIRA_CTP`.* TO `azenith.benig`@`%`;
-GRANT SELECT ON `SIRA_CTP_RECON`.* TO `azenith.benig`@`%`;
 
 
 -- agarcia
 CREATE USER 'agarcia'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `agarcia`@`%`;
 GRANT SELECT ON `SIRA_CTP`.* TO `agarcia`@`%`;
-
-
--- avinash.gupta
-CREATE USER 'avinash.gupta'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `avinash.gupta`@`%`;
-GRANT ALL PRIVILEGES ON `UCDDX`.* TO `avinash.gupta`@`%`;
-GRANT ALL PRIVILEGES ON `ETL_LOG`.* TO `avinash.gupta`@`%`;
-GRANT ALL PRIVILEGES ON `SIRA_CTP`.* TO `avinash.gupta`@`%`;
-GRANT ALL PRIVILEGES ON `SIRA_CTP%`.* TO `avinash.gupta`@`%`;
-
-
--- angeal.garcia
-CREATE USER 'angeal.garcia'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `angeal.garcia`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `angeal.garcia`@`%`;
 
 
 -- sira_wc
