@@ -53,12 +53,6 @@ GRANT USAGE ON *.* TO `mstr_history_list_admin`@`%`;
 GRANT ALL PRIVILEGES ON `mstr_history_list`.* TO `mstr_history_list_admin`@`%`;
 
 
--- ankit.darji
-CREATE USER 'ankit.darji'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `ankit.darji`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `ankit.darji`@`%`;
-
-
 -- darjia
 CREATE USER 'darjia'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `darjia`@`%`;
@@ -111,6 +105,7 @@ GRANT SELECT ON `SIRA_CTP`.* TO `sira_qlik`@`%`;
 CREATE USER 'replica'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO `replica`@`10.74.13.118`;
 GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO `replica`@`10.74.31.110`;
+GRANT SELECT ON `foo`.* TO `replica`@`10.74.31.110`;
 
 
 -- sira_hbc
@@ -162,12 +157,6 @@ GRANT SELECT ON `Common_Data`.* TO `arslanovs`@`%`;
 GRANT SELECT ON `SIRA_CTP`.* TO `arslanovs`@`%`;
 
 
--- azenith.benig
-CREATE USER 'azenith.benig'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `azenith.benig`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `azenith.benig`@`%`;
-
-
 -- orchestrator
 CREATE USER 'orchestrator'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT RELOAD, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO `orchestrator`@`10.74.13.74`;
@@ -208,13 +197,6 @@ GRANT SELECT ON *.* TO `damien.smith`@`%`;
 CREATE USER 'siratalend'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `siratalend`@`%` WITH GRANT OPTION;
 GRANT BACKUP_ADMIN,BINLOG_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,GROUP_REPLICATION_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SET_USER_ID,SYSTEM_VARIABLES_ADMIN,XA_RECOVER_ADMIN ON *.* TO `siratalend`@`%` WITH GRANT OPTION;
-
-
--- sasha.arslanov
-CREATE USER 'sasha.arslanov'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `sasha.arslanov`@`%`;
-GRANT SELECT ON `Common_Data`.* TO `sasha.arslanov`@`%`;
-GRANT SELECT ON `SIRA_CTP`.* TO `sasha.arslanov`@`%`;
 
 
 -- mstr_user

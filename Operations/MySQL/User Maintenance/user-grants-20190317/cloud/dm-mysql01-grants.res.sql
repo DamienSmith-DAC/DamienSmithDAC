@@ -101,11 +101,6 @@ CREATE USER 'damien.smith'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT SELECT ON *.* TO `damien.smith`@`%`;
 
 
--- joe.chiu
-CREATE USER 'joe.chiu'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
-GRANT USAGE ON *.* TO `joe.chiu`@`%`;
-
-
 -- sasha.arslanov
 CREATE USER 'sasha.arslanov'@'%' IDENTIFIED WITH authentication_pam AS 'mysql';
 GRANT USAGE ON *.* TO `sasha.arslanov`@`%`;
